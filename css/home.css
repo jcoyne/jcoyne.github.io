@@ -1,0 +1,17 @@
+@media screen {
+  .home > article {
+    padding-top: 32px;
+    /* position: absolute; */
+    /* top: 32px; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .home > article > .slide {
+    width: 940px;
+    padding: 0 10px;
+    height: 100%;
+    margin: 0 auto;
+  }
+}
