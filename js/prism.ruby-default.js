@@ -421,7 +421,7 @@ Prism.languages.clike = {
 	'number': /\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/g,
 	'operator': /[-+]{1,2}|!|<=?|>=?|={1,3}|&{1,2}|\|?\||\?|\*|\/|\~|\^|\%/g,
 	'ignore': /&(lt|gt|amp);/gi,
-	'punctuation': /[{}[\];(),.:]/g
+  'punctuation': /[{}[\];(),.:]/g
 };
 ;
 /**
@@ -434,7 +434,6 @@ Prism.languages.ruby = Prism.languages.extend('clike', {
 	'comment': /#[^\r\n]*(\r?\n|$)/g,
 	'keyword': /\b(alias|and|BEGIN|begin|break|case|class|def|define_method|defined|do|each|else|elsif|END|end|ensure|false|for|if|in|module|new|next|nil|not|or|raise|redo|require|rescue|retry|return|self|super|then|throw|true|undef|unless|until|when|while|yield)\b/g,
 	'builtin': /\b(Array|Bignum|Binding|Class|Continuation|Dir|Exception|FalseClass|File|Stat|File|Fixnum|Fload|Hash|Integer|IO|MatchData|Method|Module|NilClass|Numeric|Object|Proc|Range|Regexp|String|Struct|TMS|Symbol|ThreadGroup|Thread|Time|TrueClass)\b/,
-	'constant': /\b[A-Z][a-zA-Z_0-9]*[?!]?\b/g
 });
 
 Prism.languages.insertBefore('ruby', 'keyword', {
@@ -443,6 +442,11 @@ Prism.languages.insertBefore('ruby', 'keyword', {
 		lookbehind: true
 	},
 	'variable': /[@$]+\b[a-zA-Z_][a-zA-Z_0-9]*[?!]?\b/g,
+	'constant': /\b[A-Z][a-zA-Z_0-9]*(::[A-Z][a-zA-Z_0-9]*)?[?!]?\b/g,
 	'symbol': /:\b[a-zA-Z_][a-zA-Z_0-9]*[?!]?\b/g
+});
+
+Prism.languages.insertBefore('ruby', 'comment', {
+	'string': /("|').*\1/g,
 });
 ;
