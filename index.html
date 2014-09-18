@@ -3,120 +3,20 @@
   <head>
     <link rel="stylesheet" href="./css/deck/core/deck.core.css">
     <link rel="stylesheet" href="./css/deck/themes/web-2.0.css">
-    <!-- <link rel="stylesheet" href="./css/deck/transitions/horizontal-slide.css"> -->
     <link rel="stylesheet" href="./css/home.css">
-    <link rel="stylesheet" href="./css/prism.ruby-default.css">
-    <script src="./js/modernizr.custom.js"></script>
   </head>
   <body class="home">
 
   <article class="deck-container">
     <section class="slide">
-<pre>
-<code class="language-ruby">
-class Book &lt; ActiveFedora::Base
-  belongs_to :library
-  has_many :pages
-  has_and_belongs_to_many :authors
-end
-</code>
-</pre>
-      <aside>
-        These directives enable a developer to declare relationships. But what do they do?  Many people say this is where "Rails is magic", but I want to take you behind the scenes and show you how the illusion is perpetrated.
-      </aside>
-    </section>
-
-    <section class="slide">
-<pre>
-<code class="language-ruby">
-# lib/active_fedora/associations.rb
-
-def belongs_to(name, options = {})
-  raise "You must specify a property name for #{name}" if !options[:property]
-  Builder::BelongsTo.build(self, name, options)
-end
-</code>
-</pre>
-      <aside>
-        These methods are defined in the Associations module
-        https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/associations.rb
-
-        They say "Builder of the correct type" Build me an association
-      </aside>
-
-
-    </section>
-
-    <section class="slide">
-      <pre>
-      <code class="language-ruby">
-      https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/associations/builder/belongs_to.rb
-
-      ActiveFedora::Associations::Builder::BelongsTo > ActiveFedora::Associations::Builder::SingularAssociation
-      ActiveFedora::Associations::Builder::HasMany > ActiveFedora::Associations::Builder::CollectionAssociation
-      ActiveFedora::Associations::Builder::HasAndBelongsToMany > ActiveFedora::Associations::Builder::CollectionAssociation
-
-      we call each of these association types "the macro"
-
-      All extend from:
-      ActiveFedora::Associations::Builder::Association
-      </code>
-      </pre>
-
-
-    </section>
-
-    <section class="slide">
-    <p>https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/associations/builder/association.rb</p>
-
-    <p>The build method of the AssociationBuilder does two things:
-
-      Makes an AssociationReflection: A record of the association with the macro, name options model
-
-<pre>
-<code class="language-ruby">
-Book.create_reflection(:has_and_belongs_to_many, 'pages', { property: 'hasPages'}, Book)
-
-# Adds a reflection:
-Book.reflections
-#=> { 'pages' => <#BookReflection> }
-</code></pre>
-
-      Makes a new module, generates accessor methods into that module, then includes the module on the model.
-      </p>
-
-
-
-    </section>
-
-    <section class="slide">
-      Let's talk about the generated methods.
-      <p>https://github.com/projecthydra/active_fedora/blob/f2b1fd092889cfefdffcb5d63a9fc1fd87e7242a/lib/active_fedora/associations/builder/belongs_to.rb#L80-L88</p>
-
-<pre>
-<code class="language-ruby">
-def "#{name}_id"
-  association(name).id_reader
-end
-
-def "#{name}_id="(id)
-  association(name).id_writer(id)
-end
-</code>
-</pre>
+      <h2>Hydra Conf 2 talks</h2>
+      <ul>
+        <li><a href="hydra-on-top-of-fedora4.html">Hydra on top of Fedora 4</a></li>
+        <li><a href="active-fedora-associations.html">No magic in ActiveFedora</a></li>
+        <li><a href="worthwhile.html">Worthwhile: A tour</a></li>
+      </ul>
     </section>
 
   </article> <!-- deck-container -->
-
-  <script src="./js/jquery.min.js"></script>
-
-  <script src="./js/deck/core/deck.core.js"></script>
-  <!-- <script src="./js/deck/extensions/goto/deck.goto.js"></script> -->
-  <!-- <script src="./js/deck/extensions/navigation/deck.navigation.js"></script> -->
-  <!-- <script src="./js/deck/extensions/status/deck.status.js"></script> -->
-  <!-- <script src="./js/deck/extensions/hash/deck.hash.js"></script> -->
-  <script src="./js/prism.ruby-default.js"></script>
-  <script src="./js/home.js"></script>
-
   </body>
 </html>
