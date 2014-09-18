@@ -421,7 +421,7 @@ Prism.languages.clike = {
 	'number': /\b-?(0x[\dA-Fa-f]+|\d*\.?\d+([Ee]-?\d+)?)\b/g,
 	'operator': /[-+]{1,2}|!|<=?|>=?|={1,3}|&{1,2}|\|?\||\?|\*|\/|\~|\^|\%/g,
 	'ignore': /&(lt|gt|amp);/gi,
-  'punctuation': /[{}[\];(),.:]/g
+  'punctuation': /[{}[\];(),.]/g
 };
 ;
 /**
@@ -442,11 +442,13 @@ Prism.languages.insertBefore('ruby', 'keyword', {
 		lookbehind: true
 	},
 	'variable': /[@$]+\b[a-zA-Z_][a-zA-Z_0-9]*[?!]?\b/g,
-	'constant': /\b[A-Z][a-zA-Z_0-9]*(::[A-Z][a-zA-Z_0-9]*)?[?!]?\b/g,
-	'symbol': /:\b[a-zA-Z_][a-zA-Z_0-9]*[?!]?\b/g
+	'constant': /\b[A-Z][a-zA-Z_0-9]*(::[A-Z][a-zA-Z_0-9]*)*[?!]?\b/g,
+  // trying to get symbols like  foo: to tokenize:
+  //'symbol': /(:\b[a-zA-Z_][a-zA-Z_0-9]*[?!]?|\b[a-zA-Z_][a-zA-Z_0-9]*[?!]?:)\b/g
+  'symbol': /:\b[a-zA-Z_][a-zA-Z_0-9]*[?!]?\b/g
 });
 
 Prism.languages.insertBefore('ruby', 'comment', {
-	'string': /("|').*\1/g,
+	'string': /(?:[^#])*("|').*\1/g,
 });
 ;
