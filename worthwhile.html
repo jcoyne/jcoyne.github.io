@@ -3,9 +3,137 @@
 <html>
   <head>
     <title>Worthwhile: A tour</title>
+    <link rel="stylesheet" href="./css/deck/core/deck.core.css">
+    <link rel="stylesheet" href="./css/deck/themes/web-2.0.css">
+    <!-- <link rel="stylesheet" href="./css/deck/transitions/horizontal-slide.css"> -->
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/prism.ruby-default.css">
+    <script src="./js/modernizr.custom.js"></script>
   </head>
   <body>
-    <article>
+    <article class="deck-container">
+      <section class="slide">
+        <h2>Worthwhile: A tour</h2>
+        <h3>Justin Coyne</h3>
+        <h4>Data Curation Experts</h4>
+      </section>
+      <section class="slide">
+        <h2>What is Worthwhile?</h2>
+        <ul>
+          <li>Rails engine stand up a fully functioning repository</li>
+          <li>Evolution of Curate/Sufia</li>
+        </ul>
+        <img src="images/work-has-many-generic-files.svg" style="height: 300px">
+      </section>
+
+      <section class="slide">
+        <h2>Why?</h2>
+        <ul>
+          <li>We found that curate was basically what we needed, but it had a few shortcomings</li>
+          <li>Getting too complex (had tight integration of stuff we didn't want, DOI, other model types.)</li>
+          <li>Tests were too slow (over an hour)</li>
+          <li>Community process was too conservative to meet our schedule</li>
+          <li>Old versions of Hydra, Blacklight, Bootstrap</li>
+          <li>Didn't leverage Sufia as much as I liked</li>
+      </section>
+
+      <section class="slide">
+        <h2>Demo Case Digital Library</h2>
+      </section>
+
+      <section class="slide">
+        <h2>Now it's your turn</h2>
+
+      </section>
+
+      <section class="slide">
+        <h2>Prerequisites</h2>
+        <pre><code>$ rails --version
+Rails 4.1.6</code></pre>
+      </section>
+      <section class="slide">
+        <h2>Installing</h2>
+        <pre><code>$ rails new worthwhile_demo
+$ cd worthwhile_demo</code></pre>
+      </section>
+
+      <section class="slide">
+        <h2>Add the gem</h2>
+        <p>Open Gemfile and add these lines</p>
+        <pre><code>gem 'worthwhile'</code></pre>
+
+        <p>Save the file and quit the editor. On the command line type:</p>
+        <pre><code>$ bundle install</code></pre>
+
+        <p>When this is complete you should see:</p>
+        <pre><code>...
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+</code></pre>
+      </section>
+
+      <section class="slide">
+        <h2>Run the generator</h2>
+        <pre><code>$ rails generate worthwhile:install</code></pre>
+      </section>
+
+      <section class="slide">
+        <p>If you've already downloaded jettywrapper move the v7.0.0.zip file into tmp/<p>
+        <h2>Get a test Jetty with Fedora/Solr</h2>
+        <pre><code>$ rake jetty:unzip jetty:config</code></pre>
+
+        <h2>Start Jetty</h2>
+        <pre><code>$ rake jetty:start</code></pre>
+
+        You should see jetty started at <a href="http://localhost:8983/fedora/describe">http://localhost:8983/fedora/describe</a> within 1 minute.
+      </section>
+
+      <section class="slide">
+        <h2>Run the database migrations</h2>
+        <pre><code>$ rake db:migrate</code></pre>
+      </section>
+
+      <section class="slide">
+        <h2>Start the server</h2>
+        <pre><code>$ rails server</code></pre>
+      </section>
+
+      <section class="slide">
+        <h2>Start the background workers</h2>
+        <pre><code>$ TERM_CHILD=1 QUEUE=* rake resque:work</code></pre>
+
+         * This may only work if you have Redis and the Hydra::Derivatives prerequisites installed
+      </section>
+
+      <section class="slide">
+        <h2>Make a custom work type</h2>
+        <ul>
+          <li>Model</li>
+          <li>Actor</li>
+          <li>Controller</li>
+          <li>Views (Optional)</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h2>Custom Model</h2>
+        <ul>
+          <li>Model</li>
+          <li>Actor</li>
+          <li>Controller</li>
+          <li>Views (Optional)</li>
+        </ul>
+      </section>
+
     </article>
+    <script src="./js/jquery.min.js"></script>
+
+    <script src="./js/deck/core/deck.core.js"></script>
+    <!-- <script src="./js/deck/extensions/goto/deck.goto.js"></script> -->
+    <!-- <script src="./js/deck/extensions/navigation/deck.navigation.js"></script> -->
+    <!-- <script src="./js/deck/extensions/status/deck.status.js"></script> -->
+    <!-- <script src="./js/deck/extensions/hash/deck.hash.js"></script> -->
+    <script src="./js/prism.ruby-default.js"></script>
+    <script src="./js/home.js"></script>
   </body>
 </html>
