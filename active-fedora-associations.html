@@ -22,8 +22,30 @@ end
 </code>
 </pre>
       <aside>
-        These directives enable a developer to declare relationships. But what do they do?  Many people say this is where "Rails is magic", but I want to take you behind the scenes and show you how the illusion is perpetrated.
+        These directives enable a developer to declare relationships. But what do they do?  Many people say this is where "Rails is magic", but I want to take you behind the scenes and show you how the illusion is perpetrated. First thing to notice is that belongs_to is a singular assocation and has_many and has_many_and_belongs to is a collection association
       </aside>
+    </section>
+
+    <section class="slide">
+      <img src="images/active_fedora-relationships.svg" style="height: 90vh">
+      <aside>
+       Four important base classes
+       A Reflection is an entry in a registry that says, you've declared an association named library, and it's a belongs to association and you're using the predicate isPartOf
+       Builder is responsible for creating that entry and for generating the related accessor methods on your class
+       Association is the object that does the storing and resolving for an instance.
+       Proxy is used on CollectionAssociations, basically the result of the association, appears to be an array.
+      </aside>
+    </section>
+
+    <section class="slide">
+      <img src="images/active_fedora-builder.svg" style="height: 90vh">
+      <aside>
+      we call each of these association types "the macro"
+      All extend from:
+      ActiveFedora::Associations::Builder::Association
+      It's priamary method is "build"
+      </aside>
+
     </section>
 
     <section class="slide">
@@ -47,51 +69,24 @@ end
 
     </section>
 
-    <section class="slide">
-      <pre>
-      <code class="language-ruby">
-      https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/associations/builder/belongs_to.rb
-
-      ActiveFedora::Associations::Builder::BelongsTo > ActiveFedora::Associations::Builder::SingularAssociation
-      ActiveFedora::Associations::Builder::HasMany > ActiveFedora::Associations::Builder::CollectionAssociation
-      ActiveFedora::Associations::Builder::HasAndBelongsToMany > ActiveFedora::Associations::Builder::CollectionAssociation
-
-      we call each of these association types "the macro"
-
-      All extend from:
-      ActiveFedora::Associations::Builder::Association
-      </code>
-      </pre>
-
-
-    </section>
 
     <section class="slide">
-    <p>https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/associations/builder/association.rb</p>
-
-    <p>The build method of the AssociationBuilder does two things:
-
-      Makes an AssociationReflection: A record of the association with the macro, name options model
-
+    <h2>Builder creates a Reflection</h2>
 <pre>
 <code class="language-ruby">
 Book.create_reflection(:has_and_belongs_to_many, 'pages', { property: 'hasPages'}, Book)
 
 # Adds a reflection:
 Book.reflections
-#=> { 'pages' => <#BookReflection> }
+#=> { 'pages' => <#AssociationReflection
+#           @options={ :property => :has_pages }
+#           @macro=:has_and_belongs_to_many ...> }
 </code></pre>
-
-      Makes a new module, generates accessor methods into that module, then includes the module on the model.
-      </p>
-
-
 
     </section>
 
     <section class="slide">
-      Let's talk about the generated methods.
-      <p>https://github.com/projecthydra/active_fedora/blob/f2b1fd092889cfefdffcb5d63a9fc1fd87e7242a/lib/active_fedora/associations/builder/belongs_to.rb#L80-L88</p>
+      <h2>Builder creates the accessors</h2>
 
 <pre>
 <code class="language-ruby">
@@ -104,6 +99,51 @@ def "#{name}_id="(id)
 end
 </code>
 </pre>
+
+      <aside>
+        This is s simplified version of what is done for a BelongsTo association.
+        Creating an anonymous module, generates accessor methods and includes the module into the target class
+        <p>https://github.com/projecthydra/active_fedora/blob/f2b1fd092889cfefdffcb5d63a9fc1fd87e7242a/lib/active_fedora/associations/builder/belongs_to.rb#L80-L88</p>
+        </p>
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h2>Builder creates the accessors</h2>
+
+<pre>
+<code class="language-ruby">
+def "#{name}"
+  association(name).reader
+end
+
+def "#{name}="(value)
+  association(name).writer(value)
+end
+</code>
+</pre>
+
+      <aside>
+        This is s simplified version of what is done for a BelongsTo association.
+        Creating an anonymous module, generates accessor methods and includes the module into the target class
+        <p>https://github.com/projecthydra/active_fedora/blob/f2b1fd092889cfefdffcb5d63a9fc1fd87e7242a/lib/active_fedora/associations/builder/belongs_to.rb#L80-L88</p>
+        </p>
+      </aside>
+    </section>
+
+
+    <section class="slide">
+      <h2>The association method</h2>
+
+<pre>
+<code class="language-ruby">
+def association(name)
+  reflection = self.class.reflect_on_association(name)
+  reflection.association_class.new(self, reflection)
+end
+</code>
+</pre>
+
     </section>
 
   </article> <!-- deck-container -->
