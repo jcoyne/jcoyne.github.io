@@ -5,6 +5,7 @@
     <title>Worthwhile: A tour</title>
     <link rel="stylesheet" href="./css/deck/core/deck.core.css">
     <link rel="stylesheet" href="./css/deck/themes/web-2.0.css">
+    <link rel="stylesheet" href="./css/deck/extensions/deck.status.css">
     <!-- <link rel="stylesheet" href="./css/deck/transitions/horizontal-slide.css"> -->
     <link rel="stylesheet" href="./css/home.css">
     <link rel="stylesheet" href="./css/prism.ruby-default.css">
@@ -144,31 +145,40 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 
       <section class="slide">
         <h2>Make a custom work type</h2>
+        <pre><code>$ rails generate worthwhile:work ScholarlyPaper</code></pre>
+      </section>
+
+      <section class="slide">
+        <h2>Custom Work</h2>
         <ul>
-          <li>Model</li>
-          <li>Actor</li>
-          <li>Controller</li>
-          <li>Views (Optional)</li>
+          <li>Model - app/repository_models/scholarly_paper.rb</li>
+          <li>Actor - app/actors/curation_concern/scholarly_paper_actor.rb</li>
+          <li>Controller - app/controllers/curation_concern/scholarly_papers_controller.rb</li>
+          <li>Views - app/views/curation_concern/scholarly_papers/ (empty)</li>
+          <li>Registered in config/initializers/worthwhile_config.rb</li>
         </ul>
       </section>
 
       <section class="slide">
-        <h2>Custom Model</h2>
-        <ul>
-          <li>Model</li>
-          <li>Actor</li>
-          <li>Controller</li>
-          <li>Views (Optional)</li>
-        </ul>
+        <h2 style="text-align: center; margin-top: 20vh; font-size: 4em">Fin</h2>
       </section>
 
     </article>
+
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
     <script src="./js/jquery.min.js"></script>
 
     <script src="./js/deck/core/deck.core.js"></script>
     <!-- <script src="./js/deck/extensions/goto/deck.goto.js"></script> -->
     <!-- <script src="./js/deck/extensions/navigation/deck.navigation.js"></script> -->
-    <!-- <script src="./js/deck/extensions/status/deck.status.js"></script> -->
+    <script src="./js/deck/extensions/status/deck.status.js"></script>
     <!-- <script src="./js/deck/extensions/hash/deck.hash.js"></script> -->
     <script src="./js/prism.ruby-default.js"></script>
     <script src="./js/home.js"></script>

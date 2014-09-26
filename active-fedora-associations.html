@@ -138,12 +138,43 @@ end
 <pre>
 <code class="language-ruby">
 def association(name)
-  reflection = self.class.reflect_on_association(name)
-  reflection.association_class.new(self, reflection)
+  reflect = self.class.reflect_on_association(name)
+  reflect.association_class.new(self, reflect)
 end
 </code>
 </pre>
 
+    </section>
+
+    <section class="slide">
+      <h2>The SingularAssociation</h2>
+
+      <ul>
+        <li>id_reader</li>
+        <li>id_writer</li>
+        <li>reader</li>
+        <li>writer</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>The CollectionAssociation</h2>
+
+      <ul>
+        <li>ids_reader</li>
+        <li>ids_writer</li>
+        <li>reader (returns a proxy)</li>
+        <li>writer</li>
+      </ul>
+
+      <aside>
+      Two subclasses:
+      HasManyAssociation (depends on solr to resolve incoming assertion)
+      HasAndBelongsToManyAssociation looks at a collection of outgoing assertions
+      </aside>
+    </section>
+
+    <section class="slide">
     </section>
 
   </article> <!-- deck-container -->
