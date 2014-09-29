@@ -3,9 +3,93 @@
 <html>
   <head>
     <title>Hydra on top of Fedora 4? A review of progress and strategies to date</title>
+    <link rel="stylesheet" href="./css/deck/core/deck.core.css">
+    <link rel="stylesheet" href="./css/deck/themes/web-2.0.css">
+    <link rel="stylesheet" href="./css/deck/extensions/deck.status.css">
+    <!-- <link rel="stylesheet" href="./css/deck/transitions/horizontal-slide.css"> -->
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/prism.ruby-default.css">
+    <script src="./js/modernizr.custom.js"></script>
   </head>
   <body>
-    <article>
+    <article class="deck-container">
+      <section class="slide">
+        <h1>Hydra on top of Fedora 8<h1>
+      </section>
+
+      <section class="slide">
+        <h2>Thanks for your help!</h2>
+        <aside>
+          Those who have invested in Hydra 8, primarily PSU
+          Also those who invested in Fedora 4: UCSD, Stanford, UVA and those who contribute to Duraspace
+        </aside>
+      </section>
+
+      <section class="slide">
+        <h2>We're Alpha!</h2>
+        <ul>
+          <li>active-fedora 8 fedora-4 branch</li>
+          <li>hydra-head 8 fedora-4 branch</li>
+          <li>hydra-derivatives fedora-4 branch</li>
+          <li>hydra-collections fedora-4 branch</li>
+          <li>sufia fedora-4 branch</li>
+
+          <aside>
+            What have we got right now: alpha system, a whole ecosystem of gems
+            What does alpha mean: It will keep your data, but it's not as fast as we want it to be.  And we expect some parts to change (rightsMetadata), in the near future.  If you start creating objects with the current alpha, you're going to need to migrate some data later.
+          </aside>
+        </section>
+
+        <section class="slide">
+          <h2>What is left to do</h2>
+          <ul>
+            <li>RDF schema for rightsMetadata</li>
+            <li>load_instance_from_solr</li>
+            <li>Patch from ActiveTriples</li>
+            <li>Optimize active-fedora's interaction with Fedora</li>
+            <li>A migration script</li>
+          </ul>
+
+          <aside>
+             We don't strictly need an RDF rightsMetadata, but it should speed up the system and now is the right time to make that change.
+
+             load_instance_from_solr was something I hoped we wouldn't need, but ActiveFedora and Fedora 4 isn't as blazing fast as I've been hoping for, so I think we ought to have it, it will improve compatability with exisiting code.
+
+           Tom Johnson is holding onto the active-triples repo and he's not responding to Pull requests. The pull request in question would be good because it would enable implmentation to override the property accessors.
+          </aside>
+        </section>
+
+        <section class="slide">
+          <h2>What did we do to get here</h2>
+          In the big picture, not much. we know what we want the interface to look like (ActiveFedora 7 + the features of Fedora 4)
+
+          But there was a lot of small changes
+
+        </section>
+
+        <section class="slide">
+        <p>Explain LDP vs FC3API</p>
+
+        <p>We basically started at scratch at Hydra Connect 1 in January. At that point Cbeer had created an early version of the LDP gem. We had a bit of a come-to-jesus meeting where we raised the fact that lots of money had gone into Fedora 4, and fedora 3 was getting ready for End of Life, but we didn't have a plan for Hydra.</p>
+
+        <p>Bmaddy built the fedora_lens gem on top of that, a basic active-model ORM.</p>
+
+        <p>I worked to get ActiveRecord working with this fedora_lens gem, but it had a different api than datastreams, so we knew that we needed to ditch FedoraLens and just use ActiveTriples for both datastreams and object properties. we've largely got that done now.</p>
+
+        <p>Some of the more nucanced issues, versioning, fixity checking, I left by the wayside and Awead and Hector picked up, and those are largely done.</p>
+
+        <p>What's blocking us. Basically just finding the time to work on it.</p>
+        </section>
     </article>
+
+  <script src="./js/jquery.min.js"></script>
+
+  <script src="./js/deck/core/deck.core.js"></script>
+  <!-- <script src="./js/deck/extensions/goto/deck.goto.js"></script> -->
+  <!-- <script src="./js/deck/extensions/navigation/deck.navigation.js"></script> -->
+  <script src="./js/deck/extensions/status/deck.status.js"></script>
+  <!-- <script src="./js/deck/extensions/hash/deck.hash.js"></script> -->
+  <script src="./js/prism.ruby-default.js"></script>
+  <script src="./js/home.js"></script>
   </body>
 </html>
