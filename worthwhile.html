@@ -124,11 +124,12 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
       </section>
 
       <section class="slide">
+        <h3>Setup a test Jetty with Fedora/Solr</h3>
         <p>If you've already downloaded jettywrapper move the v7.0.0.zip file into tmp/<p>
-        <h2>Get a test Jetty with Fedora/Solr</h2>
+        <pre><code>cp /home/vagrant/v7.0.0.zip tmp/</code></pre>
         <pre><code>$ rake jetty:unzip jetty:config</code></pre>
 
-        <h2>Start Jetty</h2>
+        <h3>Start Jetty</h3>
         <pre><code>$ rake jetty:start</code></pre>
 
         You should see jetty started at <a href="http://localhost:8983/fedora/describe">http://localhost:8983/fedora/describe</a> within 1 minute.
