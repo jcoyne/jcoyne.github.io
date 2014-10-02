@@ -17,5 +17,6 @@
 
   aside {
     color: red;
+    display: none;
   }
 }
