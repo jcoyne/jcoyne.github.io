@@ -14,20 +14,72 @@
   <body>
     <article class="deck-container">
       <section class="slide">
-        <h1>Hydra on top of Fedora 8<h1>
+        <h2>Hydra on top of Fedora 8<h2>
+        <h3>Justin Coyne</h3>
+        <h4>Data Curation Experts</h4>
+        <h5>Hydra Connect 2 &mdash; September 2014</h5>
+      </section>
+
+      <section class="slide">
+        <h2>What will it take to get to Fedora 8</h2>
+          <h3 class="slide">Code Contributors</h3>
+          <h3 class="slide">$$$</h3>
       </section>
 
       <section class="slide">
         <h2>Thanks for your help!</h2>
-        <aside>
-          Those who have invested in Hydra 8, primarily PSU
-          Also those who invested in Fedora 4: UCSD, Stanford, UVA and those who contribute to Duraspace
-        </aside>
+        <h4>Fedora 4 contributors</h4>
+        <ul>
+          <li class="slide">UCSD</li>
+          <li class="slide">Stanford</li>
+          <li class="slide">UVA</li>
+          <li class="slide">Columbia</li>
+          <li class="slide">Everyone who contributes to Duraspace</li>
+        </ul>
+        <h4 class="slide">ActiveFedora 8 contributors</h4>
+        <ul>
+          <li class="slide">Stanford</li>
+          <li class="slide">PSU</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+       <h2>How are we getting here?</h2>
+       <h3>Change the data model</h3>
+       <img src="images/fedora-3-datamodel.svg">
+      </section>
+
+      <section class="slide">
+       <h2>How are we getting here?</h2>
+       <h3>Change the data model</h3>
+       <img src="images/fedora-4-datamodel.svg">
+       <aside>Accessing this via LDP instead of rubydora</aside>
+      </section>
+
+      <section class="slide">
+       <h2>How are we getting here?</h2>
+       <h3>Removed legacy features</h3>
+       <ul>
+         <li class="slide">Disseminators</li>
+         <li class="slide">RELS-EXT datastream</li>
+       </ul>
+      </section>
+
+      <section class="slide">
+       <h2>How are we getting here?</h2>
+       <h3>Do it the Fedora 4 way</h3>
+       <ul>
+         <li class="slide">Datastreams (size, mime-type, original file name)</li>
+         <li class="slide">Fixity checking</li>
+         <li class="slide">Versions</li>
+         <li class="slide">Walking the tree</li>
+       </ul>
       </section>
 
       <section class="slide">
         <h2>We're Alpha!</h2>
         <ul>
+          <li>hydra-jetty fedora-4/master branch</li>
           <li>active-fedora 8 fedora-4 branch</li>
           <li>hydra-head 8 fedora-4 branch</li>
           <li>hydra-derivatives fedora-4 branch</li>
@@ -36,18 +88,19 @@
 
           <aside>
             What have we got right now: alpha system, a whole ecosystem of gems
-            What does alpha mean: It will keep your data, but it's not as fast as we want it to be.  And we expect some parts to change (rightsMetadata), in the near future.  If you start creating objects with the current alpha, you're going to need to migrate some data later.
+            What does alpha mean: It will keep your data, but breaking changes are expected.  And we expect some parts to change (LDP, rightsMetadata), in the near future.  If you start creating objects with the current alpha, you're going to need to migrate some data later.
           </aside>
         </section>
 
         <section class="slide">
           <h2>What is left to do</h2>
           <ul>
-            <li>RDF schema for rightsMetadata</li>
-            <li>load_instance_from_solr</li>
-            <li>Patch from ActiveTriples</li>
-            <li>Optimize active-fedora's interaction with Fedora</li>
-            <li>A migration script</li>
+            <li class="slide">RDF schema for rightsMetadata</li>
+            <li class="slide">load_instance_from_solr (pull request pending)</li>
+            <li class="slide">Upgrade to ActiveTriples 0.3.0 (in progress)</li>
+            <li class="slide">LDP spec compatability (in progress)</li>
+            <li class="slide">Optimize active-fedora's interaction with Fedora</li>
+            <li class="slide">A migration script</li>
           </ul>
 
           <aside>
@@ -55,32 +108,43 @@
 
              load_instance_from_solr was something I hoped we wouldn't need, but ActiveFedora and Fedora 4 isn't as blazing fast as I've been hoping for, so I think we ought to have it, it will improve compatability with exisiting code.
 
-           Tom Johnson is holding onto the active-triples repo and he's not responding to Pull requests. The pull request in question would be good because it would enable implmentation to override the property accessors.
+           The pull request in question would be good because it would enable implmentation to override the property accessors.
           </aside>
         </section>
 
         <section class="slide">
-          <h2>What did we do to get here</h2>
+          <h2>What did we do to get here?</h2>
+          <img src="images/change.jpg" style="height: 70vh">
+          <aside>
           In the big picture, not much. we know what we want the interface to look like (ActiveFedora 7 + the features of Fedora 4)
 
           But there was a lot of small changes
+          </aside>
 
         </section>
 
         <section class="slide">
-        <p>Explain LDP vs FC3API</p>
+        <h2>Cheers! Sl&aacute;inte! Prost!</h2>
+        <img src="images/making-progress.jpg" style="width: 70vh">
+        <aside>
+          <p>We basically started at scratch at Hydra Connect 1 in January. At that point Cbeer had created an early version of the LDP gem. We had a bit of a come-to-jesus meeting where we raised the fact that lots of money had gone into Fedora 4, and fedora 3 was getting ready for End of Life, but we didn't have a plan for Hydra.</p>
 
-        <p>We basically started at scratch at Hydra Connect 1 in January. At that point Cbeer had created an early version of the LDP gem. We had a bit of a come-to-jesus meeting where we raised the fact that lots of money had gone into Fedora 4, and fedora 3 was getting ready for End of Life, but we didn't have a plan for Hydra.</p>
+          <p>Bmaddy built the fedora_lens gem on top of that, a basic active-model ORM.</p>
 
-        <p>Bmaddy built the fedora_lens gem on top of that, a basic active-model ORM.</p>
+          <p>I worked to get ActiveRecord working with this fedora_lens gem, but it had a different api than datastreams, so we knew that we needed to ditch FedoraLens and just use ActiveTriples for both datastreams and object properties. we've largely got that done now.</p>
 
-        <p>I worked to get ActiveRecord working with this fedora_lens gem, but it had a different api than datastreams, so we knew that we needed to ditch FedoraLens and just use ActiveTriples for both datastreams and object properties. we've largely got that done now.</p>
+          <p>Some of the more nucanced issues, versioning, fixity checking, I left by the wayside and Awead and Hector picked up, and those are largely done.</p>
 
-        <p>Some of the more nucanced issues, versioning, fixity checking, I left by the wayside and Awead and Hector picked up, and those are largely done.</p>
-
-        <p>What's blocking us. Basically just finding the time to work on it.</p>
+          <p>What's blocking us. Basically just finding the time to work on it.</p>
+        </aside>
         </section>
     </article>
+  <!-- deck.status snippet -->
+  <p class="deck-status" aria-role="status">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+  </p>
 
   <script src="./js/jquery.min.js"></script>
 
