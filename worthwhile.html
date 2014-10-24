@@ -147,7 +147,7 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 
       <section class="slide">
         <h2>Start the background workers</h2>
-        <pre><code>$ TERM_CHILD=1 QUEUE=* rake resque:work</code></pre>
+        <pre><code>$ TERM_CHILD=1 QUEUE=* rake environment resque:work</code></pre>
 
          * This may only work if you have Redis and the Hydra::Derivatives prerequisites installed
       </section>
