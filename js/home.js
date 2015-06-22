@@ -1,5 +1,4 @@
 $(function() {
-  console.log("slide");
 	$.deck('.slide', {
 		selectors: {
 			container: 'body > article'

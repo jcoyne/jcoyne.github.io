@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/deck/core/deck.core.css">
+    <link rel="stylesheet" href="../css/deck/themes/web-2.0.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="./activefedora.css">
+    <script src="../js/modernizr.custom.js"></script>
+  </head>
+  <body class="home">
+
+  <article class="deck-container">
+    <section class="slide">
+      <h1>ActiveFedora in depth</h1>
+    </section>
+
+    <section class="slide">
+      <h2>What are your goals?</h2>
+    </section>
+
+    <section class="slide">
+      <h2>What is ActiveFedora?</h2>
+      <ul>
+        <li>Persistence</li>
+        <li>Querying</li>
+        <li>Relationships</li>
+        <li>Defining and Managing Attributes</li>
+        <li>Callbacks</li>
+        <li>Validation</li>
+        <li>Serializing (to JSON)</li>
+        <li>Deserializing (from nested attributes)</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Where did it come from?</h2>
+      <p class="slide">Whole cloth</p>
+      <p class="slide"><a href="https://github.com/projecthydra/active_fedora/commit/29d0c09eef32dcda4120a5bb82c23596d33363dc">https://github.com/projecthydra/active_fedora/commit/29d0c09eef32dcda4120a5bb82c23596d33363dc</a></p>
+      <p class="slide"><code>@blame flyingzumwalt</code></p>
+      <p class="slide"><code>zoia -- flyingzumwalt reminds jcoyne of a bug in Rubydora</code></p>
+    </section>
+
+    <section class="slide">
+      <h2>Early Contributors <small>(in order of apperance)</small></h2>
+      <ul>
+        <li>Matt Zumwalt</li>
+        <li>Rick Johnson</li>
+        <li>John Scofield</li>
+        <li>Bess Sadler</li>
+        <li>Molly Pickral</li>
+        <li>Naomi Dushay</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>So, jcoyne, what's your involvement?</h2>
+
+      <ul>
+        <li class="slide">Got on board Summer 2011. Version 2.3.3</li>
+        <li class="slide">Coming from a Rails background, I found ActiveFedora confusing</li>
+        <li class="slide"><i>Goal:</i> Harmonize ActiveFedora with ActiveRecord as much as possible</li>
+        <li class="slide">Make it easier to learn. Simplify the interaction.</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>How did we do?</h2>
+      <ul>
+        <li class="slide">It <em>is</em> a lot more like ActiveRecord</li>
+        <li class="slide">Much more functionality has been added</li>
+        <li class="slide">It is more complicated now</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Best improvements <small>(according to jcoyne)</small></h2>
+      <ul>
+        <li class="slide">Autosave Associations</li>
+        <li class="slide">Easy to describe indexing</li>
+        <li class="slide">Associations can be extended (e.g. indirect_container)</li>
+        <li class="slide"><em>Anything else?</em></li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>Worst parts <small>(according to jcoyne)</small></h2>
+      <ul>
+        <li class="slide">RDF doesn't map 1:1 to RDBMS, so things like has_and_belongs_to_many are confusing</li>
+        <li class="slide">Massive API, unclear how certain options (e.g. <code>inverse</code>) work</li>
+        <li class="slide"><em>Anything else?</em></li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>What does the code look like?</h2>
+      <a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/base.rb#L27-L54">/lib/active_fedora/base.rb#L27-L54</a>
+    </section>
+
+    <section class="slide">
+      <h2>Querying</h2>
+      <p class="slide">Querying means to define a scope (an <code>ActiveFedora::Relation</code>)</p>
+      <div class="slide">
+      <p>The most common scope is <code>all</code></p>
+      <pre><code>
+    > Book.all
+    => []
+    > Book.all.class
+    => ActiveFedora::Relation
+      </code></pre>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2><code>ActiveFedora::Relation</code></h2>
+      <p><a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/relation.rb">/lib/active_fedora/relation.rb</a>
+      <p>Has a <code>@klass</code> and <code>@values</code> Hash (<code>:where, :order, :limit, :offset</code>)</p>
+      <p>These are the constraints of a Relationship</p>
+      <p>Value accessors are here: <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/relation/query_methods.rb#L4-L47">/lib/active_fedora/relation/query_methods.rb#L4-L47</a></p>
+    </section>
+
+  </article> <!-- deck-container -->
+  <p class="deck-status" aria-role="status">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+  </p>
+
+  <script src="../js/jquery.min.js"></script>
+
+  <script src="../js/deck/core/deck.core.js"></script>
+  <!-- <script src="./js/deck/extensions/goto/deck.goto.js"></script> -->
+  <!-- <script src="./js/deck/extensions/navigation/deck.navigation.js"></script> -->
+  <script src="../js/deck/extensions/status/deck.status.js"></script>
+  <!-- <script src="./js/deck/extensions/hash/deck.hash.js"></script> -->
+  <script src="../js/prism.ruby-default.js"></script>
+  <script src="../js/home.js"></script>
+  </body>
+</html>
