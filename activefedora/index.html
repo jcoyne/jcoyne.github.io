@@ -396,14 +396,21 @@ library.books
       This enables dirty tracking on a per-attribute basis.</p>
 
       <p><em>Challenge: Track attributes regardless of whether they are persisted on the RDF resource representing the object, or in a NonRDFSource subnode (f.k.a. Datastream)</em></p>
-      <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/attributes.rb#L174-L182">lib/active_fedora/attributes.rb#L174-L182</a>
-      <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/attributes.rb#L218-L220">lib/active_fedora/attributes.rb#L218-L220</a>
+      <ul>
+        <li><a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/attributes.rb#L174-L182">lib/active_fedora/attributes.rb#L174-L182</a></li>
+          <li><a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/attributes.rb#L218-L220">lib/active_fedora/attributes.rb#L218-L220</a></li>
+          <li><a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/attributes/property_builder.rb">lib/active_fedora/attributes/property_builder.rb</a></li>
+      </ul>
     </section>
 
     <section class="slide">
       <h2>How does indexing work?</h2>
 
-      <a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/indexing_service.rb">lib/active_fedora/indexing_service.rb</a>
+      <ul>
+        <li><a href="https://github.com/projecthydra/active_fedora/blob/2143476474c057acaff588d17f17c031dcbf5314/lib/active_fedora/indexing.rb#L60-L66">lib/active_fedora/indexing.rb#L60-L66</a></li>
+        <li><a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/attributes.rb#L208">lib/active_fedora/attributes.rb#L208</a></li>
+        <li><a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/indexing_service.rb">lib/active_fedora/indexing_service.rb</a></li>
+      </ul>
     </section>
 
     <section class="slide">
