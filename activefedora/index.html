@@ -97,6 +97,44 @@
     </section>
 
     <section class="slide">
+      <h2>Compare to ActiveRecord</h2>
+      <a href="https://github.com/rails/rails/blob/master/activerecord/lib/active_record/base.rb#L269-L316">/lib/active_record/base.rb#L269-L316</a>
+    </section>
+
+
+    <section class="slide">
+      <h2>How does ActiveRecord differ from ActiveFedora?</h2>
+      <ul>
+        <li>Fedora is schemaless. We have to encode the properties using ActiveTriples or OM.</li>
+        <li>ActiveFedora persists/queries two stores: Solr and Fedora. (Fedora doesn't have good query capabilities)</li>
+        <li>ActiveFedora speaks LDP instead of SQL.</li>
+        <li>Fedora is much slower than SQL.</li>
+        <li>ActiveFedora doesn’t support transactions (yet).</li>
+      </ul>
+    </section>
+
+
+    <section class="slide">
+      <h2>Multiple inheritance architecture</h2>
+      <p>What happens when we call save() on an ActiveFedora object?</p>
+
+      <pre style="font-size: 55%"><code>
+          ActiveFedora::Base.ancestors
+          => [ActiveFedora::Base, ActiveFedora::LoadableFromJson, ActiveFedora::Versionable, ActiveFedora::Attributes::PrimaryKey, ActiveFedora::Attributes::Serializers, ActiveFedora::Attributes, ActiveModel::ForbiddenAttributesProtection, ActiveModel::Dirty, ActiveFedora::AttributeMethods::Dirty, ActiveFedora::AttributeMethods::Write, ActiveFedora::AttributeMethods::Read, #<Module:0x007fb5aa420f88>, ActiveFedora::AttributeMethods, ActiveModel::AttributeMethods, ActiveTriples::Reflection, ActiveFedora::Base::GeneratedPropertyMethods, ActiveTriples::Properties, ActiveFedora::FedoraAttributes, ActiveFedora::InheritableAccessors, ActiveFedora::AttachedFiles, ActiveFedora::Serialization, ActiveModel::Serializers::JSON, ActiveModel::Serialization, ActiveFedora::Reflection, ActiveFedora::NestedAttributes, ActiveFedora::AutosaveAssociation, ActiveFedora::Associations, ActiveFedora::Validations, ActiveModel::Validations::HelperMethods, ActiveModel::Validations, ActiveModel::Validations::Callbacks, ActiveSupport::Callbacks, ActiveFedora::Callbacks, ActiveModel::Conversion, ActiveFedora::Scoping::Named, ActiveFedora::Scoping::Default, ActiveFedora::Scoping, ActiveFedora::Indexing, ActiveFedora::Persistence, ActiveFedora::Core, Object, PP::ObjectMixin, JSON::Ext::Generator::GeneratorMethods::Object, Kernel, BasicObject]</code></pre>
+    </section>
+    <section class="slide">
+      <h2>Multiple inheritance architecture</h2>
+      <p>What happens when we call save() on an ActiveFedora object?</p>
+      <ul>
+        <li><a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/validations.rb#L49-L51">validations.rb#L49-L51</a></li>
+        <li><a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/persistence.rb#L26-L28">persistence.rb#L26-L28</a></li>
+        <li><a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/persistence.rb#L142-L145">persistence.rb#L142-L145</li>
+        <li><a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/callbacks.rb#L235-L246">callbacks.rb#L235-L246</a></li>
+        <li><a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/persistence.rb#L148-L163">persistence.rb#L148-L163</a></li>
+      </ul>
+    </section>
+
+    <section class="slide">
       <h2>Querying</h2>
       <p class="slide">Querying means to define a scope (an <code>ActiveFedora::Relation</code>)</p>
       <div class="slide">
@@ -117,6 +155,261 @@
       <p>These are the constraints of a Relationship</p>
       <p>Value accessors are here: <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/relation/query_methods.rb#L4-L47">/lib/active_fedora/relation/query_methods.rb#L4-L47</a></p>
     </section>
+
+    <section class="slide">
+      <h2><code>ActiveFedora::Relation</code></h2>
+      <p>In our book example all the values are empty</p>
+      <pre><code>
+    > Book.all.where_values
+    => []
+    > Book.all.order_values
+    => []
+    > Book.all.limit_value
+    => nil
+    > Book.all.offset_value
+    => nil
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>How does it load the records?</h2>
+      <ul>
+        <li>Delegates to <code>to_a</code> <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/relation.rb#L53">lib/active_fedora/relation.rb line 53</a></li>
+        <li>calls <code>find_each</code> <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/relation/finder_methods.rb#L122">lib/active_fedora/relation/finder_methods.rb line 122</a></li>
+        <li>calls <code>find_in_batches</code> <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/relation/finder_methods.rb#L150">lib/active_fedora/relation/finder_methods.rb line 150</a></li>
+        <li>which queries solr and then <code>load_from_fedora</code> <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/relation/finder_methods.rb#L188">lib/active_fedora/relation/finder_methods.rb line 188</a></li>
+    </section>
+
+    <section class="slide">
+      <h2>You can refine the scope</h2>
+      By using <code>where()</code>
+      <pre><code>> Book.where(title: 'foo').where_values
+=> ["title_tesim:foo"]</code></pre>
+
+      and chain scopes:
+      <pre><code>> Book.where(title: 'foo').
+       where(author: 'Betty').where_values
+=> ["title_tesim:foo", "author_tesim:Betty"]</code></pre>
+
+    </section>
+
+    <section class="slide">
+      <h2>How do associations work?</h2>
+    </section>
+
+    <section class="slide">
+      <img src="../images/active_fedora-relationships.svg" style="height: 90vh">
+      <aside>
+       Four important base classes
+       A Reflection is an entry in a registry that says, you've declared an association named library, and it's a belongs to association and you're using the predicate isPartOf
+       Builder is responsible for creating that entry and for generating the related accessor methods on your class
+       Association is the object that does the storing and resolving for an instance.
+       Proxy is used on CollectionAssociations, basically the result of the association, appears to be an array.
+      </aside>
+    </section>
+
+    <section class="slide">
+      <img src="../images/active_fedora-builder.svg" style="height: 90vh">
+
+      <aside>
+      we call each of these association types "the macro"
+      All extend from:
+      ActiveFedora::Associations::Builder::Association
+      It's priamary method is "build"
+      </aside>
+
+    </section>
+
+    <section class="slide">
+<pre>
+<code class="language-ruby">
+# lib/active_fedora/associations.rb
+
+def belongs_to(name, options = {})
+  raise "You must specify a property name for #{name}" if !options[:property]
+  Builder::BelongsTo.build(self, name, options)
+end
+</code>
+</pre>
+      <aside>
+        These methods are defined in the Associations module
+        https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/associations.rb
+
+        They say "Builder of the correct type" Build me an association
+      </aside>
+
+
+    </section>
+
+
+    <section class="slide">
+    <h2>Builder creates a Reflection</h2>
+<pre>
+<code class="language-ruby">
+Book.create_reflection(:has_and_belongs_to_many, 'pages', { property: 'hasPages'}, Book)
+
+# Adds a reflection:
+Book.reflections
+#=> { 'pages' => <#AssociationReflection
+#           @options={ :property => :has_pages }
+#           @macro=:has_and_belongs_to_many ...> }
+</code></pre>
+
+    </section>
+
+    <section class="slide">
+      <h2>Builder creates the accessors</h2>
+
+<pre>
+<code class="language-ruby">
+def "#{name}_id"
+  association(name).id_reader
+end
+
+def "#{name}_id="(id)
+  association(name).id_writer(id)
+end
+</code>
+</pre>
+
+      <aside>
+        This is s simplified version of what is done for a BelongsTo association.
+        Creating an anonymous module, generates accessor methods and includes the module into the target class
+        <p>https://github.com/projecthydra/active_fedora/blob/f2b1fd092889cfefdffcb5d63a9fc1fd87e7242a/lib/active_fedora/associations/builder/belongs_to.rb#L80-L88</p>
+        </p>
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h2>Builder creates the accessors</h2>
+
+<pre>
+<code class="language-ruby">
+def "#{name}"
+  association(name).reader
+end
+
+def "#{name}="(value)
+  association(name).writer(value)
+end
+</code>
+</pre>
+
+      <aside>
+        This is s simplified version of what is done for a BelongsTo association.
+        Creating an anonymous module, generates accessor methods and includes the module into the target class
+        <p>https://github.com/projecthydra/active_fedora/blob/f2b1fd092889cfefdffcb5d63a9fc1fd87e7242a/lib/active_fedora/associations/builder/belongs_to.rb#L80-L88</p>
+        </p>
+      </aside>
+    </section>
+
+
+    <section class="slide">
+      <h2>The association method</h2>
+
+<pre>
+<code class="language-ruby">
+def association(name)
+  reflect = self.class.reflect_on_association(name)
+  reflect.association_class.new(self, reflect)
+end
+</code>
+</pre>
+
+    </section>
+
+    <section class="slide">
+      <h2>The SingularAssociation</h2>
+
+      <ul>
+        <li>id_reader</li>
+        <li>id_writer</li>
+        <li>reader</li>
+        <li>writer</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h2>The CollectionAssociation</h2>
+
+      <ul>
+        <li>ids_reader</li>
+        <li>ids_writer</li>
+        <li>reader (returns a proxy)</li>
+        <li>writer</li>
+      </ul>
+
+      <aside>
+      Two subclasses:
+      HasManyAssociation (depends on solr to resolve incoming assertion)
+      HasAndBelongsToManyAssociation looks at a collection of outgoing assertions
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h2></h2>
+      <pre><code class="language-ruby">class Book < ActiveFedora::Base
+ belongs_to :library, property: :has_constituent
+end
+
+class Library < ActiveFedora::Base
+  has_many :books
+end
+</code></pre>
+      <aside>
+      A thin wrapper around the multiple associations that separates the concerns of operating on the association from the collection of proxied records.
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h2>CollectionProxy</h2>
+<pre><code class="language-ruby">
+library = Library.new
+library.books.build
+library.books.build
+library.books.class
+=> ActiveFedora::Associations::CollectionProxy
+library.books
+
+=> [#&lt;Book pid: nil, library_id: nil&gt;, #&lt;Book pid: nil, library_id: nil&gt;]
+</pre></code>
+    </section>
+
+    <section class="slide">
+      <h2><code>CollectionProxy is a Relation</code></h2>
+      <img src="../images/mind-blown.gif" style="height: 400px">
+    </section>
+
+    <section class="slide">
+      <h2>Challenges with Associations</h2>
+      <ul>
+        <li>Differences between <code>has_and_belongs_to_many</code> in ActiveRecord and ActiveFedora</li>
+        <li>Necessitating has_many is inverse of <code>belongs_to</code> or <code>has_and_belongs_to_many</code></li>
+        <li>Also, polymorphic associations: <code>class_name: 'ActiveFedora::Base'</code></li>
+        <li>Bidirectional assocations <code>inverse_of</code> on HABTM</li>
+      </ul>
+   </section>
+
+    <section class="slide">
+      <h2>Attribute tracking</h2>
+      <p>ActiveFedora keeps track of attributes in memory, like ActiveRecord.
+      This enables dirty tracking on a per-attribute basis.</p>
+
+      <p><em>Challenge: Track attributes regardless of whether they are persisted on the RDF resource representing the object, or in a NonRDFSource subnode (f.k.a. Datastream)</em></p>
+      <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/attributes.rb#L174-L182">lib/active_fedora/attributes.rb#L174-L182</a>
+      <a href="https://github.com/projecthydra/active_fedora/blob/eb9bc665ed662f157368f56df57adf3b247193c4/lib/active_fedora/attributes.rb#L218-L220">lib/active_fedora/attributes.rb#L218-L220</a>
+    </section>
+
+    <section class="slide">
+      <h2>How does indexing work?</h2>
+
+      <a href="https://github.com/projecthydra/active_fedora/blob/master/lib/active_fedora/indexing_service.rb">lib/active_fedora/indexing_service.rb</a>
+    </section>
+
+    <section class="slide">
+      <h1>Fin.</h1>
+    </section>
+
 
   </article> <!-- deck-container -->
   <p class="deck-status" aria-role="status">
