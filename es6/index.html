@@ -25,10 +25,54 @@
     </section>
 
     <section class="slide">
+      <h2>Who is using it?</h2>
+      <ul>
+        <li>NPM</li>
+        <li>Ember</li>
+        <li>React</li>
+        <li>Angular 2*</li>
+        <li>Bootstrap</li>
+        <li>All the hot web properties</li>
+      </ul>
+    </section>
+
+    <section class="slide">
       <h2>How do we use it in Rails?</h2>
       <ul>
-        <li>Classes</li>
+        <li>Babel JavaScript transpiler: https://babeljs.io/</li>
+        <li>sprockets-es6 gem: https://github.com/TannerRogalsky/sprockets-es6/</li>
       </ul>
+    </section>
+
+    <section class="slide">
+      <pre><code>
+# Gemfile
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      Upgrade to a manifest
+      <aside>Sprockets 3.0 has a preference for a manifest.js file instead of using <pre>config.assets.precompile</pre></aside>
+      <pre><code>
+// app/assets/manifest.js
+//
+// JS bundles
+//= link ./javascripts/standalone-jquery.js
+//= link ./javascripts/application.js
+//= link ./javascripts/settings.js
+//
+// CSS bundles
+//= link ./stylesheets/application.css
+//= link ./stylesheets/settings.css
+//
+// Pull in all app/assets/images/ since app/views may link to them
+//= link_tree ./images
+      </code></pre>
+      <pre><code>
+      config.assets.precompile = ["manifest.js"]
+      </code></pre>
     </section>
 
     <section class="slide">
