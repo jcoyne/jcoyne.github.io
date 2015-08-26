@@ -10,71 +10,49 @@
 
   <article class="deck-container">
     <section class="slide">
-      <h1>EcmaScript 6</h1>
+      <h1>Forms and Presenters and Indexers! Oh my!</h1>
     </section>
 
     <section class="slide">
-      <h2>What is it?</h2>
-    </section>
-
-    <section class="slide">
-      <h2>What's new? </h2>
+      <h2>Form</h2>
       <ul>
-        <li>Classes</li>
-        <li>Import/Export</li>
-        <li>static methods</li>
+        <li>Represent the edit page.</li>
+        <li>Interface between Controller - View</li>
+        <li>Input for the update action</li>
+        <li>Could be use to autogenerate the form</li>
       </ul>
     </section>
 
     <section class="slide">
-      <h2>Who is using it?</h2>
+      <h2>Presenter</h2>
       <ul>
-        <li>NPM</li>
-        <li>Ember</li>
-        <li>React</li>
-        <li>Angular 2*</li>
-        <li>Bootstrap</li>
-        <li>All the hot web properties</li>
+        <li>Represent the show page.</li>
+        <li>Interface between Controller - View</li>
+        <li>Could wrap a Fedora model, but in Hydra we get better perfomance if we wrap a SolrDocument</li>
+        <li>Could be use to autogenerate part of the view page</li>
+        <li>Can replace Helpers</li>
       </ul>
     </section>
 
     <section class="slide">
-      <h2>How do we use it in Rails?</h2>
+      <h2>Indexer</h2>
       <ul>
-        <li>Babel JavaScript transpiler: https://babeljs.io/</li>
-        <li>sprockets-es6 gem: https://github.com/TannerRogalsky/sprockets-es6/</li>
+        <li>New part of Hydra</li>
+        <li>replaces overriding <pre>to_solr</pre></li>
+        <li>Put a Fedora model into Solr</li>
+        <li>Companion to Presenter. Indexer - Map to solr. Presenter - Map from solr.</li>
       </ul>
     </section>
 
     <section class="slide">
-      <pre><code>
-# Gemfile
-gem 'sprockets', '>= 3.0.0'
-gem 'sprockets-es6'
-      </code></pre>
-    </section>
-
-    <section class="slide">
-      Upgrade to a manifest
-      <aside>Sprockets 3.0 has a preference for a manifest.js file instead of using <pre>config.assets.precompile</pre></aside>
-      <pre><code>
-// app/assets/manifest.js
-//
-// JS bundles
-//= link ./javascripts/standalone-jquery.js
-//= link ./javascripts/application.js
-//= link ./javascripts/settings.js
-//
-// CSS bundles
-//= link ./stylesheets/application.css
-//= link ./stylesheets/settings.css
-//
-// Pull in all app/assets/images/ since app/views may link to them
-//= link_tree ./images
-      </code></pre>
-      <pre><code>
-      config.assets.precompile = ["manifest.js"]
-      </code></pre>
+      <h2>Why?</h2>
+      <ul>
+        <li>MVC - Works fine for small apps. Bigger apps need more organization</li>
+        <li>MVC - Works best with a single data store. Hydra has two, Fedora and Solr.</li>
+        <li>Provides a pathway to customization</li>
+        <li>Smaller classes, single responsibility</li>
+        <li>Faster tests because we're isolating code better</li>
+      </ul>
     </section>
 
     <section class="slide">
