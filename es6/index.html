@@ -73,6 +73,27 @@ var gorby = new Cat('Gorbypuff', 'meow');
     </section>
 
     <section class="slide">
+      <h2>Parameters</h2>
+      <pre><code>
+function f(a = 7, b = 3) {
+  return a + b;
+}
+f() // 10
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Rest parameter</h2>
+      <pre><code>
+function f(a, b, ...rest) {
+  return a + b + rest.length
+}
+f(3, 5, 'one', 'two') // 10
+      </code></pre>
+    </section>
+
+
+    <section class="slide">
       <h2>Static methods</h2>
       <pre><code>
 class Eightball {
