@@ -35,69 +35,69 @@
     <section class="slide">
       <h2>Template strings</h2>
       <pre><code>
-        var a = 5;
-        var b = 10;
-        console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
-        // "Fifteen is 15 and
-        // not 20."
+var a = 5;
+var b = 10;
+console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
+// "Fifteen is 15 and
+// not 20."
       </code></pre>
     </section>
 
     <section class="slide">
       <h2>Classes</h2>
       <pre><code>
-        class Animal {
-          constructor(name, sound) {
-            this.name = name;
-            this.sound = sound;
-          }
+class Animal {
+  constructor(name, sound) {
+    this.name = name;
+    this.sound = sound;
+  }
 
-          speak() {
-            console.log(this.name + ' makes a ' + this.sound +'.');
-          }
-        }
-        var pig = new Animal(4, 'pink');
+  speak() {
+    console.log(this.name + ' makes a ' + this.sound +'.');
+  }
+}
+var pig = new Animal(4, 'pink');
       </code></pre>
     </section>
 
     <section class="slide">
       <h2>Inheritance</h2>
       <pre><code>
-        class Cat extends Animal {
-          speak() {
-            console.log('Mau!')
-          }
-        }
-        var gorby = new Cat('Gorbypuff', 'meow');
+class Cat extends Animal {
+  speak() {
+    console.log('Mau!')
+  }
+}
+var gorby = new Cat('Gorbypuff', 'meow');
       </code></pre>
     </section>
 
     <section class="slide">
       <h2>Static methods</h2>
       <pre><code>
-        class Eightball {
-          static question(r1) {
-            console.log("nope");
-          }
-        }
+class Eightball {
+  static question(r1) {
+    console.log("nope");
+  }
+}
       </code></pre>
     </section>
 
     <section class="slide">
       <h2>Modules</h2>
       <pre><code>
-      //------ lib.js ------
-      export const sqrt = Math.sqrt;
-      export function square(x) {
-          return x * x;
-      }
-      export function diag(x, y) {
-          return sqrt(square(x) + square(y));
-      }
+//------ lib.js ------
+export const sqrt = Math.sqrt;
+export function square(x) {
+    return x * x;
+}
+export function diag(x, y) {
+    return sqrt(square(x) + square(y));
+}
 
-      //------ main.js ------
-      import { square, diag } from 'lib';
-      console.log(square(11)); // 121
+//------ main.js ------
+import { square, diag } from 'lib';
+console.log(square(11)); // 121
       </code></pre>
     </section>
 
@@ -124,16 +124,16 @@
     <section class="slide">
       <h2>New iterator syntax</h2>
       <pre><code>
-        for (let word of ["one", "two", "three"])
-            alert(word);
+for (let word of ["one", "two", "three"])
+    alert(word);
 
-        let s = new Set([3, 4, 5]);
-        for (let value of s)
-            alert(value);
+let s = new Set([3, 4, 5]);
+for (let value of s)
+    alert(value);
 
-        let m = new Map([['red', 'rojo'], ['blue', 'azul']]);
-        for (let [name, value] of m)
-            alert(name + " = " + value);
+let m = new Map([['red', 'rojo'], ['blue', 'azul']]);
+for (let [name, value] of m)
+    alert(name + " = " + value);
       </code></pre>
     </section>
 
