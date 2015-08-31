@@ -80,6 +80,7 @@ class Eightball {
     console.log("nope");
   }
 }
+Eightball.question("Am I the greatest programmer ever?")
       </code></pre>
     </section>
 
@@ -118,7 +119,15 @@ console.log(square(11)); // 121
 
     <section class="slide">
       <h2>Promises</h2>
-      <pre><code></code></pre>
+      <pre><code>
+var promise = new Promise( function (resolve, reject) {
+   if (something) {
+     resolve("IT works");
+   } else {
+     reject("Failure buddy!");
+   }
+}
+      </code></pre>
     </section>
 
     <section class="slide">
