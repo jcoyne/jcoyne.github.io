@@ -10,7 +10,8 @@
 
   <article class="deck-container">
     <section class="slide">
-      <h1>EcmaScript 6</h1>
+      <h2>EcmaScript 2015</h2>
+      <h3>AKA EcmaScript 6</h3>
     </section>
 
     <section class="slide">
@@ -20,11 +21,122 @@
     <section class="slide">
       <h2>What's new? </h2>
       <ul>
+        <li>Template strings</li>
         <li>Classes</li>
-        <li>Import/Export</li>
         <li>static methods</li>
+        <li>Modules</li>
+        <li>Set, Map and weak</li>
+        <li>Promises</li>
+        <li>iterator syntax</li>
       </ul>
     </section>
+
+
+    <section class="slide">
+      <h2>Template strings</h2>
+      <pre><code>
+        var a = 5;
+        var b = 10;
+        console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
+        // "Fifteen is 15 and
+        // not 20."
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Classes</h2>
+      <pre><code>
+        class Animal {
+          constructor(name, sound) {
+            this.name = name;
+            this.sound = sound;
+          }
+
+          speak() {
+            console.log(this.name + ' makes a ' + this.sound +'.');
+          }
+        }
+        var pig = new Animal(4, 'pink');
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Inheritance</h2>
+      <pre><code>
+        class Cat extends Animal {
+          speak() {
+            console.log('Mau!')
+          }
+        }
+        var gorby = new Cat('Gorbypuff', 'meow');
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Static methods</h2>
+      <pre><code>
+        class Eightball {
+          static question(r1) {
+            console.log("nope");
+          }
+        }
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Modules</h2>
+      <pre><code>
+      //------ lib.js ------
+      export const sqrt = Math.sqrt;
+      export function square(x) {
+          return x * x;
+      }
+      export function diag(x, y) {
+          return sqrt(square(x) + square(y));
+      }
+
+      //------ main.js ------
+      import { square, diag } from 'lib';
+      console.log(square(11)); // 121
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Set, Map and weak</h2>
+      <pre><code>
+      entries()
+      keys()
+      values()
+      forEach()
+      has()
+      get()
+      set()
+      delete()
+      clear()
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Promises</h2>
+      <pre><code></code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>New iterator syntax</h2>
+      <pre><code>
+        for (let word of ["one", "two", "three"])
+            alert(word);
+
+        let s = new Set([3, 4, 5]);
+        for (let value of s)
+            alert(value);
+
+        let m = new Map([['red', 'rojo'], ['blue', 'azul']]);
+        for (let [name, value] of m)
+            alert(name + " = " + value);
+      </code></pre>
+    </section>
+
 
     <section class="slide">
       <h2>Who is using it?</h2>
