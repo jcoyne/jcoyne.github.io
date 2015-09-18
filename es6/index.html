@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="../css/deck/core/deck.core.css">
     <link rel="stylesheet" href="../css/deck/themes/web-2.0.css">
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/prism.css">
     <script src="../js/modernizr.custom.js"></script>
   </head>
   <body class="home">
@@ -34,8 +35,7 @@
 
     <section class="slide">
       <h2>Template strings</h2>
-      <pre><code>
-var a = 5;
+      <pre><code class="language-ruby">var a = 5;
 var b = 10;
 console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
 // "Fifteen is 15 and
@@ -45,8 +45,7 @@ console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
 
     <section class="slide">
       <h2>Classes</h2>
-      <pre><code>
-class Animal {
+      <pre><code class="language-ruby">class Animal {
   constructor(name, sound) {
     this.name = name;
     this.sound = sound;
@@ -62,8 +61,7 @@ var p = new Animal('pig', 'oink');
 
     <section class="slide">
       <h2>Inheritance</h2>
-      <pre><code>
-class Cat extends Animal {
+      <pre><code class="language-ruby">class Cat extends Animal {
   speak() {
     console.log('Mau!')
   }
@@ -74,8 +72,7 @@ var gorby = new Cat('Gorbypuff', 'meow');
 
     <section class="slide">
       <h2>Parameters</h2>
-      <pre><code>
-function f(a = 7, b = 3) {
+      <pre><code class="language-ruby">function f(a = 7, b = 3) {
   return a + b;
 }
 f() // 10
@@ -84,8 +81,7 @@ f() // 10
 
     <section class="slide">
       <h2>Rest parameter</h2>
-      <pre><code>
-function f(a, b, ...rest) {
+      <pre><code class="language-ruby">function f(a, b, ...rest) {
   return a + b + rest.length
 }
 f(3, 5, 'one', 'two') // 10
@@ -95,8 +91,7 @@ f(3, 5, 'one', 'two') // 10
 
     <section class="slide">
       <h2>Static methods</h2>
-      <pre><code>
-class Eightball {
+      <pre><code class="language-ruby">class Eightball {
   static question(r1) {
     console.log("nope");
   }
@@ -107,8 +102,7 @@ Eightball.question("Am I the greatest programmer ever?")
 
     <section class="slide">
       <h2>Modules</h2>
-      <pre><code>
-//------ lib.js ------
+      <pre><code class="language-ruby">//------ lib.js ------
 export const sqrt = Math.sqrt;
 export function square(x) {
     return x * x;
@@ -124,8 +118,8 @@ console.log(square(11)); // 121
     </section>
 
     <section class="slide">
-      <h2>Set, Map and weak</h2>
-      <pre><code>
+      <h2>Set, Map and Weak*</h2>
+      <pre><code class="language-ruby">
       entries()
       keys()
       values()
@@ -140,7 +134,7 @@ console.log(square(11)); // 121
 
     <section class="slide">
       <h2>Promises</h2>
-      <pre><code>
+      <pre><code class="language-ruby">
 var promise = new Promise( function (resolve, reject) {
    if (something) {
      resolve("IT works");
@@ -155,8 +149,7 @@ myMethod().then(callbackSuccess).catch(callbackFail);
 
     <section class="slide">
       <h2>New iterator syntax</h2>
-      <pre><code>
-for (let word of ["one", "two", "three"])
+      <pre><code class="language-ruby">for (let word of ["one", "two", "three"])
     alert(word);
 
 let s = new Set([3, 4, 5]);
@@ -166,6 +159,30 @@ for (let value of s)
 let m = new Map([['red', 'rojo'], ['blue', 'azul']]);
 for (let [name, value] of m)
     alert(name + " = " + value);
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Generators</h2>
+      <pre><code class="language-ruby">function* anotherGenerator(i) {
+  yield i + 1;
+  yield i + 2;
+  yield i + 3;
+}
+
+function* generator(i){
+  yield i;
+  yield* anotherGenerator(i);
+  yield i + 10;
+}
+
+var gen = generator(10);
+
+console.log(gen.next().value); // 10
+console.log(gen.next().value); // 11
+console.log(gen.next().value); // 12
+console.log(gen.next().value); // 13
+console.log(gen.next().value); // 20
       </code></pre>
     </section>
 
@@ -240,7 +257,7 @@ gem 'sprockets-es6'
   <!-- <script src="./js/deck/extensions/navigation/deck.navigation.js"></script> -->
   <script src="../js/deck/extensions/status/deck.status.js"></script>
   <!-- <script src="./js/deck/extensions/hash/deck.hash.js"></script> -->
-  <script src="../js/prism.ruby-default.js"></script>
+  <script src="../js/prism.js"></script>
   <script src="../js/home.js"></script>
   </body>
 </html>

@@ -15,9 +15,8 @@
     </section>
 
     <section class="slide">
-      <h2>Indexer</h2>
-      <pre><code class="language-ruby">
-class Image < ActiveFedora::Base
+      <h2>Ye Olde Methode</h2>
+      <pre><code class="language-ruby">class Image < ActiveFedora::Base
   def to_solr(solr_doc=Hash.new)
     super.tap do |solr_doc|
       solr_doc['field1_ssi'] = some_value if some_condition?
@@ -61,7 +60,6 @@ end
     </section>
 
     <section class="slide">
-      <h2>Example presenter</h2>
       <pre><code class="language-ruby">class ArticlePresenter
   include Hydra::Presenter
 
@@ -81,10 +79,26 @@ end
     </section>
 
     <section class="slide">
-      <h2>Example presenter</h2>
       <pre><code class="language-ruby"># app/controllers/article_controller.rb
 article = Article.find(params[:id])
 @presenter = ArticlePresenter.new(article)
+
+
+<% # app/views/articles/show.html.erb %>
+<%= link_to @presenter.title, @presenter %>
+<%= @presenter.byline %>
+
+      </code>
+      </pre>
+
+    </section>
+
+    <section class="slide">
+      <pre><code class="language-ruby"># app/controllers/article_controller.rb
+ _, document_list = search_results(params,
+                      CatalogController.search_params_logic)
+@presenter = ArticlePresenter.new(document_list.first)
+
 
 <% # app/views/articles/show.html.erb %>
 <%= link_to @presenter.title, @presenter %>
@@ -101,13 +115,29 @@ article = Article.find(params[:id])
     </section>
 
     <section class="slide">
-      <h2>Form</h2>
-      <ul>
-        <li>Represent the edit page.</li>
-        <li>Interface between Controller - View</li>
-        <li>Input for the update action</li>
-        <li>Could be use to autogenerate the form</li>
-      </ul>
+      <img src="think.jpg">
+      <p>https://flic.kr/p/9YW6go - https://creativecommons.org/licenses/by-nc-nd/2.0/</p>
+    </section>
+
+    <section class="slide">
+      <pre><code class="language-ruby">class AudioForm
+  include HydraEditor::Form
+  self.model_class = Audio
+  self.terms = [:title, :creator, :description, :subject, :isPartOf]
+  self.required_fields = [:title, :creator]
+end
+
+audio = Audio.find(param[:id])
+@form = AudioForm.new(audio)
+       </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>As an update helper</h2>
+      <pre><code class="language-ruby">
+AudioForm.model_attributes(params[:audio])
+# => { title: 'My new image' }
+       </code></pre>
     </section>
 
 
