@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Notes for forms, presenters, indexers</h1>
+    <h2>Indexers:</h2>
+      <ul>
+        <li>New part of ActiveFedora 9 (Jan 2015)</li>
+        <li>Replaces overriding to_solr</li>
+        <li>Put a Fedora model into Solr</li>
+        <li>Keeps the concern of "how to index" out of the model.</li>
+        <li>Supports testing</li>
+      </ul>
+
+    <h2>Presenter</h2>
+      <ul>
+        <li>Interface between Controller - View</li>
+        <li>Represents the model in a specific context (e.g. the show page)</li>
+        <li>Can have multiple presenters for each object class</li>
+        <li>Could wrap a Fedora model, but in Hydra we get better perfomance if we wrap a SolrDocument</li>
+        <li>Could be use to autogenerate part of the view page</li>
+        <li>Can replace Helpers</li>
+      </ul>
+
+    <h2>Index + Presenter = BFF</h2>
+      <ul>
+        <li>Indexer - Map to solr</li>
+        <li>Presenter - Map from solr</li>
+        <li>WARNING: lossy!</li>
+      </ul>
+  </body>
+</html>

@@ -4,13 +4,100 @@
     <link rel="stylesheet" href="../css/deck/core/deck.core.css">
     <link rel="stylesheet" href="../css/deck/themes/web-2.0.css">
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/prism.ruby-default.css">
     <script src="../js/modernizr.custom.js"></script>
   </head>
   <body class="home">
 
   <article class="deck-container">
     <section class="slide">
-      <h1>Forms and Presenters and Indexers! Oh my!</h1>
+      <h2>Forms and Presenters and Indexers! Oh my!</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Indexer</h2>
+      <pre><code class="language-ruby">
+class Image < ActiveFedora::Base
+  def to_solr(solr_doc=Hash.new)
+    super.tap do |solr_doc|
+      solr_doc['field1_ssi'] = some_value if some_condition?
+    end
+  end
+end
+      </code></pre>
+    </section>
+    <section class="slide">
+      <h2>Indexer (Model)</h2>
+      <pre><code class="language-ruby">
+class Image < ActiveFedora::Base
+  def self.indexer
+    ImageIndexer
+  end
+end
+      </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Indexer (Indexer)</h2>
+      <pre><code class="language-ruby">
+class ImageIndexer < ActiveFedora::IndexingService
+  def generate_solr_document
+    super do |solr_doc|
+      solr_doc['field1_ssi'] = some_value if some_condition?
+      solr_doc['field2_ssi'] = other_value if other_condition?
+    end
+  end
+end
+        </code></pre>
+    </section>
+
+    <section class="slide">
+      <h2>Presenter</h2>
+      <img src="Model View Controller-1.svg" style="height: 400px">
+    </section>
+    <section class="slide">
+      <h2>Presenter</h2>
+      <img src="Model View Controller-2.svg" style="height: 400px">
+    </section>
+
+    <section class="slide">
+      <h2>Example presenter</h2>
+      <pre><code class="language-ruby">class ArticlePresenter
+  include Hydra::Presenter
+
+  delegate :title, to: :model
+
+  def byline
+    "#{model.created_at.strftime('%m/%d/%Y')} - by #{author_name}"
+  end
+
+  def author_name
+    "#{model.author.first_name} #{model.author.last_name}"
+  end
+end
+      </code>
+      </pre>
+
+    </section>
+
+    <section class="slide">
+      <h2>Example presenter</h2>
+      <pre><code class="language-ruby"># app/controllers/article_controller.rb
+article = Article.find(params[:id])
+@presenter = ArticlePresenter.new(article)
+
+<% # app/views/articles/show.html.erb %>
+<%= link_to @presenter.title, @presenter %>
+<%= @presenter.byline %>
+
+      </code>
+      </pre>
+
+    </section>
+
+    <section class="slide">
+      <h2>Indexer + Presenter = BFF</h2>
+      <img src="spongebob.png" style="height: 400px">
     </section>
 
     <section class="slide">
@@ -23,26 +110,6 @@
       </ul>
     </section>
 
-    <section class="slide">
-      <h2>Presenter</h2>
-      <ul>
-        <li>Represent the show page.</li>
-        <li>Interface between Controller - View</li>
-        <li>Could wrap a Fedora model, but in Hydra we get better perfomance if we wrap a SolrDocument</li>
-        <li>Could be use to autogenerate part of the view page</li>
-        <li>Can replace Helpers</li>
-      </ul>
-    </section>
-
-    <section class="slide">
-      <h2>Indexer</h2>
-      <ul>
-        <li>New part of Hydra</li>
-        <li>replaces overriding <pre>to_solr</pre></li>
-        <li>Put a Fedora model into Solr</li>
-        <li>Companion to Presenter. Indexer - Map to solr. Presenter - Map from solr.</li>
-      </ul>
-    </section>
 
     <section class="slide">
       <h2>Why?</h2>
