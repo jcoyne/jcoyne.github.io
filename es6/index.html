@@ -35,7 +35,7 @@
 
     <section class="slide">
       <h2>Template strings</h2>
-      <pre><code class="language-ruby">var a = 5;
+      <pre><code class="language-js">var a = 5;
 var b = 10;
 console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
 // "Fifteen is 15 and
@@ -45,7 +45,7 @@ console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
 
     <section class="slide">
       <h2>Classes</h2>
-      <pre><code class="language-ruby">class Animal {
+      <pre><code class="language-js">class Animal {
   constructor(name, sound) {
     this.name = name;
     this.sound = sound;
@@ -61,7 +61,7 @@ var p = new Animal('pig', 'oink');
 
     <section class="slide">
       <h2>Inheritance</h2>
-      <pre><code class="language-ruby">class Cat extends Animal {
+      <pre><code class="language-js">class Cat extends Animal {
   speak() {
     console.log('Mau!')
   }
@@ -72,7 +72,7 @@ var gorby = new Cat('Gorbypuff', 'meow');
 
     <section class="slide">
       <h2>Parameters</h2>
-      <pre><code class="language-ruby">function f(a = 7, b = 3) {
+      <pre><code class="language-js">function f(a = 7, b = 3) {
   return a + b;
 }
 f() // 10
@@ -81,7 +81,7 @@ f() // 10
 
     <section class="slide">
       <h2>Rest parameter</h2>
-      <pre><code class="language-ruby">function f(a, b, ...rest) {
+      <pre><code class="language-js">function f(a, b, ...rest) {
   return a + b + rest.length
 }
 f(3, 5, 'one', 'two') // 10
@@ -91,7 +91,7 @@ f(3, 5, 'one', 'two') // 10
 
     <section class="slide">
       <h2>Static methods</h2>
-      <pre><code class="language-ruby">class Eightball {
+      <pre><code class="language-js">class Eightball {
   static question(r1) {
     console.log("nope");
   }
@@ -102,7 +102,7 @@ Eightball.question("Am I the greatest programmer ever?")
 
     <section class="slide">
       <h2>Modules</h2>
-      <pre><code class="language-ruby">//------ lib.js ------
+      <pre><code class="language-js">//------ lib.js ------
 export const sqrt = Math.sqrt;
 export function square(x) {
     return x * x;
@@ -119,7 +119,7 @@ console.log(square(11)); // 121
 
     <section class="slide">
       <h2>Set, Map and Weak*</h2>
-      <pre><code class="language-ruby">
+      <pre><code class="language-js">
       entries()
       keys()
       values()
@@ -134,7 +134,7 @@ console.log(square(11)); // 121
 
     <section class="slide">
       <h2>Promises</h2>
-      <pre><code class="language-ruby">
+      <pre><code class="language-js">
 var promise = new Promise( function (resolve, reject) {
    if (something) {
      resolve("IT works");
@@ -149,7 +149,7 @@ myMethod().then(callbackSuccess).catch(callbackFail);
 
     <section class="slide">
       <h2>New iterator syntax</h2>
-      <pre><code class="language-ruby">for (let word of ["one", "two", "three"])
+      <pre><code class="language-js">for (let word of ["one", "two", "three"])
     alert(word);
 
 let s = new Set([3, 4, 5]);
@@ -164,7 +164,7 @@ for (let [name, value] of m)
 
     <section class="slide">
       <h2>Generators</h2>
-      <pre><code class="language-ruby">function* anotherGenerator(i) {
+      <pre><code class="language-js">function* anotherGenerator(i) {
   yield i + 1;
   yield i + 2;
   yield i + 3;
@@ -208,17 +208,24 @@ console.log(gen.next().value); // 20
     </section>
 
     <section class="slide">
-      <pre><code>
+      <pre><code class="language-ruby">
 # Gemfile
 gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
+      </code></pre>
+      OR
+      <pre><code class="language-ruby">
+gem 'sass-rails', github: 'rails/sass-rails'
+gem 'sprockets', github: 'rails/sprockets'
+gem 'sprockets-rails', github: 'rails/sprockets-rails'
+gem 'babel-transpiler'
       </code></pre>
     </section>
 
     <section class="slide">
       Upgrade to a manifest
       <aside>Sprockets 3.0 has a preference for a manifest.js file instead of using <pre>config.assets.precompile</pre></aside>
-      <pre><code>
+      <pre><code class="language-js">
 // app/assets/manifest.js
 //
 // JS bundles
@@ -237,6 +244,39 @@ gem 'sprockets-es6'
       config.assets.precompile = ["manifest.js"]
       </code></pre>
     </section>
+
+    <section class="slide">
+      <h2>Just one problem...</h2>
+
+      <div class="slide">
+         Modules.
+       </div>
+    </section>
+
+    <section class="slide">
+      <h2>At least three solutions</h2>
+
+      <ul>
+        <li class="slide">Ignore them</li>
+        <li class="slide">AMD - include almond.js in the stack</li>
+        <li class="slide">Common-JS - gem <a href="https://github.com/TannerRogalsky/sprockets-commonjs">sprockets-commonjs</a></li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <pre><code class="language-ruby"># config/initializers/assets.rb
+Rails.application.config.assets.configure do |env|
+  es6amd = Sprockets::BabelProcessor.new('modules' => 'amd', 'moduleIds' => true)
+  # Replace the default transformer to transpile each `.es6` file with `define`
+  # and `require` from the AMD spec.
+  # Just be sure to add `almond.js` to the application and
+  # require it before requiring other assets on `application.js`
+  env.register_transformer 'application/ecmascript-6', 'application/javascript', es6amd
+end
+      </code></pre>
+    </section>
+
+
 
     <section class="slide">
       <h1>Fin.</h1>
