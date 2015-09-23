@@ -11,11 +11,15 @@
 
   <article class="deck-container">
     <section class="slide">
-      <h2>Forms and Presenters and Indexers! Oh my!</h2>
+      <img src="Wizard-of-Oz.jpg" />
     </section>
 
     <section class="slide">
-      <h2>Ye Olde Methode</h2>
+      <h2 style="text-align: center">Forms and Presenters and Indexers! Oh my!</h2>
+    </section>
+
+    <section class="slide">
+      <h2>Indexing <small style="color: gray; font-size: 20pt">(The old way)</small></h2>
       <pre><code class="language-ruby">class Image < ActiveFedora::Base
   def to_solr(solr_doc=Hash.new)
     super.tap do |solr_doc|
