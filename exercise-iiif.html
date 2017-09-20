@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Images: SlideShow  </title>
+<script>
+  var i=0;
+  var timeout;
+  function  preloader() {
+    if(document.images){
+      cities  = new Array();
+      steps = 32;
+      alpha = 360 / steps
+      for(i=0; i < steps; i++) {
+       cities[i]=new  Image();
+       cities[i]=`http://sul-imageserver-prod-b.stanford.edu/iiif/2/ff%2F139%2Fpd%2F0160%2F67352ccc-d1b0-11e1-89ae-279075081939.jp2/full/pct:25/${i*alpha}/default.jpg`;
+      }
+    } else { alert("No Image Found");}
+  }
+
+function beginSlider(){
+  if(i  < cities.length ){
+    document.images["urban"].src =  cities[i] ;
+    i++;
+      }
+   else{ i=0;
+     document.images["urban"].src =  cities[i];
+     }
+   timeout =  setTimeout('beginSlider()',1500);
+     }
+  function endSlider(){
+ clearTimeout(timeout); }
+
+</script>
+</head>
+<body onload="preloader()" >
+  <img name="urban" src="http://sul-imageserver-prod-b.stanford.edu/iiif/2/ff%2F139%2Fpd%2F0160%2F67352ccc-d1b0-11e1-89ae-279075081939.jp2/full/pct:25/0/default.jpg" height="355" width="355"/>
+
+  <form>
+    <input type="button" value="Begin Slide Show"
+    onClick="return beginSlider()"/>
+
+    <input type="button" value="Stop Slide Show"
+    onClick="return stopSlider()"/>
+</form>
+</body>
+</html>
