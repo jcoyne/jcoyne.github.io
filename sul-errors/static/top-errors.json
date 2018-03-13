@@ -1,1 +1,428 @@
-{"access":[{"notices_count":58685,"klass":"ActionView::Template::Error","message":"undefined method `callnumber' for nil:NilClass","url":"https://app.honeybadger.io/projects/49963/faults/31426519","resolved":false,"project_name":"sul-requests"},{"notices_count":28559,"klass":"Harvestdor::Errors::MissingPurlPage","message":"gy824nr0427","url":"https://app.honeybadger.io/projects/49092/faults/32603300","resolved":false,"project_name":"exhibits"},{"notices_count":14782,"klass":"NoMethodError","message":"undefined method `[]' for nil:NilClass","url":"https://app.honeybadger.io/projects/49896/faults/33187657","resolved":false,"project_name":"frda"},{"notices_count":12659,"klass":"DiscoveryIndexer::Errors::MissingPurlPage","message":"https://purl.stanford.edu/qw290xk0627.xml","url":"https://app.honeybadger.io/projects/48949/faults/37014123","resolved":false,"project_name":"sw-indexer"},{"notices_count":9611,"klass":"Harvestdor::Errors::MissingContentMetadata","message":"#<Nokogiri::XML::Document:0x3fb98fa92ff8 name=\"document\" children=[#<Nokogiri::XML::Element:0x3fb98fa92b34 name=\"publicObject\" attributes=[#<Nokogiri::XML::Attr:0x3fb99e1d9f9c name=\"id\" value=\"druid:xc954qp6797\">, #<Nokogiri::XML::Attr:0x3fb99e1d9f74 name=\"published\" value=\"2017-08-09T22:51:09Z\">, #<Nokogiri::XML::Attr:0x3fb99e1d9f60 name=\"publishVersion\" value=\"dor-services/5.21.3\">] children=[#<Nokogiri::XML::Text:0x3fb99e1d9448 \"\\n  \">, #<Nokogiri::XML::Element:0x3fb98fa928f0 name=\"identityMetadata\" children=[#<Nokogiri::XML::Text:0x3fb99e1d9100 \"\\n    \">, #<Nokogiri::XML::Element:0x3fb99e1d9024 name=\"sourceId\" attributes=[#<Nokogiri::XML::Attr:0x3fb99e1d8fac name=\"source\" value=\"sul\">] children=[#<Nokogiri::XML::Text:0x3fb99e1d8944 \" 36105003534729\">]>, #<Nokogiri::XML::Text:0x3fb99e1d8700 \"\\n    \">, #<Nokogiri::XML::Element:0x3fb99e1d85fc name=\"objectId\" children=[#<Nokogiri::XML::Text:0x3fb99e1d837c \"druid:xc954qp6797\">]>, #<Nokogiri::XML::Text:0x3fb99e1d8160 \"\\n    \">, #<Nokogiri::XML::Element:0x3fb99e1d800c name=\"objectCreator\" children=[#<Nokogiri::XML::Text:0x3fb99e1d9128 \"DOR\">]>, #<Nokogiri::XML::Text:0x3fb99e1d9f88 \"\\n    \">, #<Nokogiri::XML::Element:0x3fb98bc8bf20 name=\"objectLabel\" children=[#<Nokogiri::XML::Text:0x3fb98bc8bca0 \"⇥Annual commencement; order of exercises.\">]>, #<Nokogiri::XML::Text:0x3fb98bc8ba98 \"\\n    \">, #<Nokogiri::XML::Element:0x3fb98bc8b980 name=\"objectType\" children=[#<Nokogiri::XML::Text:0x3fb98bc8b728 \"item\">]>, #<Nokogiri::XML::Text:0x3fb98bc8b4d0 \"\\n    \">, #<Nokogiri::XML::Element:0x3fb98bc8b408 name=\"otherId\" attributes=[#<Nokogiri::XML::Attr:0x3fb98bc8b37c name=\"name\" value=\"label\">]>, #<Nokogiri::XML::Text:0x3fb98bc8ae40 \"\\n    \">, #<Nokogiri::XML::Element:0x3fb98bc8ad78 name=\"otherId\" attributes=[#<Nokogiri::XML::Attr:0x3fb98bc8ad00 name=\"name\" value=\"uuid\">] children=[#<Nokogiri::XML::Text:0x3fb98bc8a79c \"9e2ec17e-e05f-11e3-8600-0050569b3c3c\">]>, #<Nokogiri::XML::Text:0x3fb98bc8a5a8 \"\\n    \">, #<Nokogiri::XML::Element:0x3fb[TRUNCATED]","url":"https://app.honeybadger.io/projects/49092/faults/32603412","resolved":false,"project_name":"exhibits"},{"notices_count":9457,"klass":"Riiif::ImageNotFoundError","message":"Riiif::ImageNotFoundError","url":"https://app.honeybadger.io/projects/49092/faults/32646884","resolved":false,"project_name":"exhibits"},{"notices_count":8978,"klass":"Errno::ECONNRESET","message":"Connection reset by peer","url":"https://app.honeybadger.io/projects/50045/faults/32755338","resolved":false,"project_name":"revs"},{"notices_count":6790,"klass":"NoMethodError","message":"undefined method `[]' for nil:NilClass","url":"https://app.honeybadger.io/projects/49896/faults/33241418","resolved":false,"project_name":"frda"},{"notices_count":4121,"klass":"AbstractController::DoubleRenderError","message":"Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like \"redirect_to(...) and return\".","url":"https://app.honeybadger.io/projects/50051/faults/31774387","resolved":false,"project_name":"bassi_veratti"},{"notices_count":3997,"klass":"ActionView::Template::Error","message":"undefined method `slug' for nil:NilClass","url":"https://app.honeybadger.io/projects/49891/faults/34807349","resolved":false,"project_name":"library_hours_rails"},{"notices_count":3982,"klass":"ActionView::Template::Error","message":"Location#node_id delegated to node_mapping.node_id, but node_mapping is nil: #<Location id: 83, name: \"Operations\", slug: \"operations\", keeps_hours: true, library_id: 24, created_at: \"2015-09-15 17:48:03\", updated_at: \"2015-09-15 17:48:03\">","url":"https://app.honeybadger.io/projects/49891/faults/31311994","resolved":false,"project_name":"library_hours_rails"},{"notices_count":3083,"klass":"ArgumentError","message":"invalid date","url":"https://app.honeybadger.io/projects/49891/faults/31779664","resolved":false,"project_name":"library_hours_rails"},{"notices_count":2721,"klass":"ActiveJob::DeserializationError","message":"Error while trying to deserialize arguments: Couldn't find MediatedPage with 'id'=118349 [WHERE `requests`.`type` IN ('MediatedPage')]","url":"https://app.honeybadger.io/projects/49963/faults/31911913","resolved":false,"project_name":"sul-requests"},{"notices_count":2542,"klass":"ArgumentError","message":"invalid date","url":"https://app.honeybadger.io/projects/49891/faults/32995716","resolved":false,"project_name":"library_hours_rails"},{"notices_count":2179,"klass":"ActionView::Template::Error","message":"undefined method `-' for {\"0\"=>\"md903dt5665\"}:ActiveSupport::HashWithIndifferentAccess","url":"https://app.honeybadger.io/projects/50022/faults/33184961","resolved":false,"project_name":"SearchWorks"},{"notices_count":1983,"klass":"Blacklight::Exceptions::InvalidRequest","message":"RSolr::Error::Http - 404 Not Found\nError:     Not Found\n\nURI: http://blacklight-solr-internal-prod.us-west-2.elasticbeanstalk.com/solr/blacklight-core/select?wt=json&facet.field=format&facet.field=%7B%21ex%3Dpub_date_single%7Dpub_date&facet.field=subject_topic_facet&facet.field=language_facet&facet.field=lc_1letter_facet&facet.field=subject_geo_facet&facet.field=subject_era_facet&facet.query=pub_date%3A%5B2013+TO+*%5D&facet.query=pub_date%3A%5B2008+TO+*%5D&facet.query=pub_date%3A%5B1993+TO+*%5D&facet.pivot=format%2Clanguage_facet&&&rows=10&facet=true&f.subject_topic_facet.facet.limit=21&f.language_facet.facet.limit=11&sort=score+desc%2C+pub_date_sort+desc%2C+title_sort+asc\n\nBacktrace: /opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/gems/rsolr-2.1.0/lib/rsolr/client.rb:196:in `rescue in execute'\n/opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/gems/rsolr-2.1.0/lib/rsolr/client.rb:186:in `execute'\n/opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/gems/rsolr-2.1.0/lib/rsolr/client.rb:181:in `send_and_receive'\n/opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/bundler/gems/blacklight-704a0c1d678a/lib/blacklight/solr/repository.rb:38:in `block in send_and_receive'\n/opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/gems/activesupport-5.1.4/lib/active_support/benchmarkable.rb:41:in `block in benchmark'\n/opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'\n/opt/rubies/ruby-2.3.4/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'\n/opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/gems/activesupport-5.1.4/lib/active_support/core_ext/benchmark.rb:12:in `ms'\n/opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/gems/activesupport-5.1.4/lib/active_support/benchmarkable.rb:41:in `benchmark'\n/opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/bundler/gems/blacklight-704a0c1d678a/lib/blacklight/solr/repository.rb:36:in `send_and_receive'\n/opt/rubies/ruby-2.3.4/lib/ruby/gems/2.3.0/bundler/gems/blacklight-704a0c1d678a/lib/blacklight/solr/repository.rb:22:in `search'","url":"https://app.honeybadger.io/projects/53186/faults/36336554","resolved":false,"project_name":"demo.projectblacklight.org"},{"notices_count":1804,"klass":"NoMethodError","message":"undefined method `-' for {\"0\"=>\"Road & Track magazine records\"}:ActionController::Parameters","url":"https://app.honeybadger.io/projects/50045/faults/32252203","resolved":false,"project_name":"revs"},{"notices_count":1748,"klass":"ActionController::UrlGenerationError","message":"No route matches {:action=>\"show\", :controller=>\"catalog\", :id=>nil, :locale=>:en, :mode=>\"image\"} missing required keys: [:id]","url":"https://app.honeybadger.io/projects/49896/faults/33254087","resolved":false,"project_name":"frda"},{"notices_count":1543,"klass":"Errno::ECONNRESET","message":"Connection reset by peer - SSL_connect","url":"https://app.honeybadger.io/projects/49896/faults/33340715","resolved":false,"project_name":"frda"},{"notices_count":1284,"klass":"ActionView::MissingTemplate","message":"Missing template catalog/500, application/500 with {:locale=>[:en], :formats=>[:rss], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby]}. Searched in:\n  * \"/opt/app/bv/bassi-lib/releases/20170403234503/app/views\"\n  * \"/opt/app/bv/bassi-lib/shared/bundle/ruby/2.3.0/bundler/gems/blacklight_range_limit-3d54465870d9/app/views\"\n  * \"/opt/app/bv/bassi-lib/shared/bundle/ruby/2.3.0/gems/blacklight-4.7.0/app/views\"\n  * \"/opt/app/bv/bassi-lib/shared/bundle/ruby/2.3.0/gems/kaminari-0.14.1/app/views\"","url":"https://app.honeybadger.io/projects/50051/faults/31783481","resolved":false,"project_name":"bassi_veratti"}],"infrastructure":[{"notices_count":654140,"klass":"RuntimeError","message":"RestClient error downloading memento text from https://swap.stanford.edu/20161114200020id_/http://www.zxd.org.cn/.\nMaximum number of redirect reached: \nHTTP Status code: \n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/abstract_response.rb:99:in `follow_redirection'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/abstract_response.rb:67:in `return!'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/request.rb:495:in `process_result'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/request.rb:421:in `block in transmit'\n/usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/net/http.rb:853:in `start'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/request.rb:413:in `transmit'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/request.rb:176:in `execute'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/request.rb:41:in `execute'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/abstract_response.rb:111:in `follow_redirection'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/abstract_response.rb:67:in `return!'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/request.rb:495:in `process_result'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/request.rb:421:in `block in transmit'\n/usr/local/rvm/rubies/ruby-2.3.4/lib/ruby/2.3.0/net/http.rb:853:in `start'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/request.rb:413:in `transmit'\n/opt/app/was/was-thumbnail-service/shared/bundle/ruby/2.3.0/gems/rest-client-1.8.0/lib/restclient/request.r[TRUNCATED]","url":"https://app.honeybadger.io/projects/51217/faults/32445942","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":596124,"klass":"RestClient::ResourceNotFound","message":"404 Resource Not Found","url":"https://app.honeybadger.io/projects/51217/faults/32445954","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":237160,"klass":"RestClient::ResourceNotFound","message":"404 Resource Not Found","url":"https://app.honeybadger.io/projects/51217/faults/32445948","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":208152,"klass":"RuntimeError","message":"Thumbnail for memento https://swap.stanford.edu/20110207205732/http://starwarsgalaxies.station.sony.com/ can't be generated.\n#FAIL# Unable to load the address! with HTTP status: 200, HTTP message: OK","url":"https://app.honeybadger.io/projects/51217/faults/34245896","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":186166,"klass":"NoMethodError","message":"undefined method `document' for nil:NilClass","url":"https://app.honeybadger.io/projects/49898/faults/32913872","resolved":false,"project_name":"dor_indexing_app"},{"notices_count":56414,"klass":"NoMethodError","message":"undefined method `[]' for nil:NilClass","url":"https://app.honeybadger.io/projects/52892/faults/34206434","resolved":false,"project_name":"dor-utils"},{"notices_count":54806,"klass":"RSolr::Error::Http","message":"RSolr::Error::Http - 502 Bad Gateway\nError: <!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">\n<html><head>\n<title>502 Proxy Error</title>\n</head><body>\n<h1>Proxy Error</h1>\n<p>The proxy server received an invalid\r\nresponse from an upstream server.<br />\r\nThe proxy server could not handle the request <em><a href=\"/solr/argo3_prod/update\">POST&nbsp;/solr/argo3_prod/update</a></em>.<p>\nReason: <strong>Error reading from remote server</strong></p></p>\n</body></html>\n\nURI: https://sul-solr.stanford.edu/solr/argo3_prod/update?wt=json\nRequest Headers: {\"Content-Type\"=>\"application/json\"}\nRequest Data: \"{\\\"add\\\":{\\\"commitWithin\\\":10000,\\\"doc\\\":{\\\"system_create_dtsi\\\":\\\"2012-11-17T02:48:46Z\\\",\\\"system_modified_dtsi\\\":\\\"2018-01-13T03:03:16Z\\\",\\\"object_state_ssi\\\":\\\"A\\\",\\\"active_fedora_model_ssi\\\":\\\"Dor::Item\\\",\\\"id\\\":\\\"druid:km770yh0091\\\",\\\"object_profile_ssm\\\":\\\"{\\\\\\\"datastreams\\\\\\\":{\\\\\\\"DC\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Dublin Core Record for this object\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"DC1.0\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2012-11-17T02:48:46Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":\\\\\\\"http://www.openarchives.org/OAI/2.0/oai_dc/\\\\\\\",\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":396,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+DC+DC1.0\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":null,\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"RELS-EXT\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Fedora Object-to-Object Relationship Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"RELS-EXT.1\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2012-11-17T02:48:51Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"application/rdf+xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":919,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+RELS-EXT+RELS-EXT.1\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":null,\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"identityMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Identity Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"identityMetadata.6\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2015-02-12T09:28:39Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":455,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+identityMetadata+identityMetadata.6\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":null,\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"workflows\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Workflow\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"workflows.10\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2015-02-12T09:33:27Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"application/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"E\\\\\\\",\\\\\\\"dsSize\\\\\\\":0,\\\\\\\"dsVersionable\\\\\\\":false,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"https://lyberservices-prod.stanford.edu/workflow/dor/objects/druid:km770yh0091/workflows\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"URL\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"rightsMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Rights Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"rightsMetadata.3\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-13T03:00:30Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"M\\\\\\\",\\\\\\\"dsSize\\\\\\\":511,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+rightsMetadata+rightsMetadata.3\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"descMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":null,\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"descMetadata.5\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-13T03:00:30Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"M\\\\\\\",\\\\\\\"dsSize\\\\\\\":409,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+descMetadata+descMetadata.5\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"technicalMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Technical Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"technicalMetadata.6\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-13T03:01:56Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"M\\\\\\\",\\\\\\\"dsSize\\\\\\\":3698,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+technicalMetadata+technicalMetadata.6\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"provenanceMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Provenance Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"provenanceMetadata.6\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-13T03:03:16Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":265,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+provenanceMetadata+provenanceMetadata.6\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"events\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":null,\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"events.5\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2015-02-12T09:28:39Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"M\\\\\\\",\\\\\\\"dsSize\\\\\\\":883,\\\\\\\"dsVersionable\\\\\\\":false,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+events+events.5\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"versionMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Version Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"versionMetadata.12\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-13T03:00:40Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":790,\\\\\\\"dsVersionable\\\\\\\":false,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+versionMetadata+versionMetadata.12\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"embargoMetadata\\\\\\\":{},\\\\\\\"geoMetadata\\\\\\\":{},\\\\\\\"contentMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":null,\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"contentMetadata.2\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-13T03:00:30Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"M\\\\\\\",\\\\\\\"dsSize\\\\\\\":844,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:km770yh0091+contentMetadata+contentMetadata.2\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"}},\\\\\\\"objLabel\\\\\\\":\\\\\\\"Ford Galaxie Road Test\\\\\\\",\\\\\\\"objOwnerId\\\\\\\":\\\\\\\"preassembly@sul-lyberservices-prod.stanford.edu\\\\\\\",\\\\\\\"objModels\\\\\\\":[\\\\\\\"info:fedora/fedora-system:FedoraObject-3.0\\\\\\\",\\\\\\\"info:fedora/afmodel:Dor_Item\\\\\\\"],\\\\\\\"objCreateDate\\\\\\\":\\\\\\\"2012-11-17T02:48:46Z\\\\\\\",\\\\\\\"objLastModDate\\\\\\\":\\\\\\\"2018-01-13T03:03:16Z\\\\\\\",\\\\\\\"objDissIndexViewURL\\\\\\\":\\\\\\\"https://localhost:443/fedora/objects/druid%3Akm770yh0091/methods/fedora-system%3A3/viewMethodIndex\\\\\\\",\\\\\\\"objItemIndexViewURL\\\\\\\":\\\\\\\"https://localhost:443/fedora/objects/druid%3Akm770yh0091/methods/fedora-system%3A3/viewItemIndex\\\\\\\",\\\\\\\"objState\\\\\\\":\\\\\\\"A\\\\\\\"}\\\",\\\"title_ssi\\\":\\\"Ford Galaxy (RT) 7/10/1961\\\",\\\"title_tesim\\\":\\\"Ford Galaxy (RT) 7/10/1961\\\",\\\"identifier_ssim\\\":[\\\"Revs:2006-001PHIL-1961-b1_35.0_0014\\\",\\\"uuid:4e6abfda-3061-11e2-a0b1-0050569b52d5\\\"],\\\"identifier_tesim\\\":[\\\"Revs:2006-001PHIL-1961-b1_35.0_0014\\\",\\\"uuid:4e6abfda-3061-11e2-a0b1-0050569b52d5\\\"],\\\"dc_title_ssi\\\":\\\"Ford Galaxy (RT) 7/10/1961\\\",\\\"dc_title_tesim\\\":\\\"Ford Galaxy (RT) 7/10/1961\\\",\\\"dc_identifier_druid_ssi\\\":\\\"km770yh0091\\\",\\\"dc_identifier_druid_tesim\\\":\\\"km770yh0091\\\",\\\"objectId_ssim\\\":\\\"druid:km770yh0091\\\",\\\"objectType_ssim\\\":\\\"item\\\",\\\"tag_ssim\\\":[\\\"Project : Revs\\\",\\\"Remediated By : 4.17.1\\\"],\\\"objectCreator_tesim\\\":\\\"DOR\\\",\\\"objectCreator_ssim\\\":\\\"DOR\\\",\\\"obj_label_tesim\\\":\\\"Ford Galaxie Road Test\\\",\\\"obj_label_ssim\\\":\\\"Ford Galaxie Road Test\\\",\\\"obj_owner_id_tesim\\\":\\\"preassembly@sul-lyberservices-prod.stanford.edu\\\",\\\"obj_owner_id_ssim\\\":\\\"preassembly@sul-lyberservices-prod.stanford.edu\\\",\\\"obj_models_tesim\\\":[\\\"info:fedora/fedora-system:FedoraObject-3.0\\\",\\\"info:fedora/afmodel:Dor_Item\\\"],\\\"obj_models_ssim\\\":[\\\"info:fedora/fedora-system:FedoraObject-3.0\\\",\\\"info:fedora/afmodel:Dor_Item\\\"],\\\"obj_create_date_tesim\\\":\\\"2012-11-17T02:48:46.544Z\\\",\\\"obj_last_mod_date_tesim\\\":\\\"2018-01-13T03:03:16.455Z\\\",\\\"obj_diss_index_view_url_tesim\\\":\\\"https://localhost:443/fedora/objects/druid%3Akm770yh0091/methods/fedora-system%3A3/viewMethodIndex\\\",\\\"obj_diss_index_view_url_ssim\\\":\\\"https://localhost:443/fedora/objects/druid%3Akm770yh0091/methods/fedora-system%3A3/viewMethodIndex\\\",\\\"obj_item_index_view_url_tesim\\\":\\\"https://localhost:443/fedora/objects/druid%3Akm770yh0091/methods/fedora-system%3A3/viewItemIndex\\\",\\\"obj_item_index_view_url_ssim\\\":\\\"https://localhost:443/fedora/objects/druid%3Akm770yh0091/methods/fedora-system%3A3/viewItemIndex\\\",\\\"obj_state_tesim\\\":\\\"A\\\",\\\"obj_state_ssim\\\":\\\"A\\\",\\\"dor_id_tesim\\\":[\\\"2006-001PHIL-1961-b1_35.0_0014\\\",\\\"4e6abfda-3061-11e2-a0b1-0050569b52d5\\\"],\\\"dor_id_ssim\\\":[\\\"2006-001PHIL-1961-b1_35.0_0014\\\",\\\"4e6abfda-3061-11e2-a0b1-0050569b52d5\\\"],\\\"source_id_ssim\\\":\\\"Revs:2006-001PHIL-1961-b1_35.0_0014\\\",\\\"uuid_id_ssim\\\":\\\"4e6abfda-3061-11e2-a0b1-0050569b52d5\\\",\\\"project_tag_ssim\\\":\\\"Revs\\\",\\\"exploded_tag_ssim\\\":[\\\"Project\\\",\\\"Project : Revs\\\",\\\"Remediated By\\\",\\\"Remediated By : 4.17.1\\\"],\\\"remediated_by_tag_ssim\\\":\\\"4.17.1\\\",\\\"wf_ssim\\\":[\\\"accessionWF\\\",\\\"accessionWF\\\",\\\"accessionWF\\\",\\\"accessionWF\\\",\\\"accessionWF\\\",\\\"accessionWF\\\",\\\"assemblyWF\\\",\\\"disseminationWF\\\",\\\"disseminationWF\\\",\\\"disseminationWF\\\",\\\"disseminationWF\\\",\\\"disseminationWF\\\",\\\"disseminationWF\\\",\\\"versioningWF\\\",\\\"versioningWF\\\",\\\"versioningWF\\\",\\\"versioningWF\\\",\\\"versioningWF\\\",\\\"sdrAuditWF\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF\\\"],\\\"wf_wps_ssim\\\":[\\\"accessionWF\\\",\\\"accessionWF:start-accession\\\",\\\"accessionWF:start-accession:completed\\\",\\\"accessionWF:descriptive-metadata\\\",\\\"accessionWF:descriptive-metadata:completed\\\",\\\"accessionWF:rights-metadata\\\",\\\"accessionWF:rights-metadata:completed\\\",\\\"accessionWF:content-metadata\\\",\\\"accessionWF:content-metadata:completed\\\",\\\"accessionWF:technical-metadata\\\",\\\"accessionWF:technical-metadata:completed\\\",\\\"accessionWF:remediate-object\\\",\\\"accessionWF:remediate-object:completed\\\",\\\"accessionWF:shelve\\\",\\\"accessionWF:shelve:completed\\\",\\\"accessionWF:publish\\\",\\\"accessionWF:publish:completed\\\",\\\"accessionWF:provenance-metadata\\\",\\\"accessionWF:provenance-metadata:completed\\\",\\\"accessionWF:sdr-ingest-transfer\\\",\\\"accessionWF:sdr-ingest-transfer:completed\\\",\\\"accessionWF:sdr-ingest-received\\\",\\\"accessionWF:sdr-ingest-received:completed\\\",\\\"accessionWF:end-accession\\\",\\\"accessionWF:end-accession:completed\\\",\\\"accessionWF:reset-workspace\\\",\\\"accessionWF:reset-workspace:completed\\\",\\\"assemblyWF\\\",\\\"assemblyWF:start-assembly\\\",\\\"assemblyWF:start-assembly:completed\\\",\\\"assemblyWF:jp2-create\\\",\\\"assemblyWF:jp2-create:completed\\\",\\\"assemblyWF:checksum-compute\\\",\\\"assemblyWF:checksum-compute:completed\\\",\\\"assemblyWF:exif-collect\\\",\\\"assemblyWF:exif-collect:completed\\\",\\\"assemblyWF:accessioning-initiate\\\",\\\"assemblyWF:accessioning-initiate:completed\\\",\\\"disseminationWF\\\",\\\"disseminationWF:cleanup\\\",\\\"disseminationWF:cleanup:completed\\\",\\\"versioningWF\\\",\\\"versioningWF:start-version\\\",\\\"versioningWF:start-version:completed\\\",\\\"versioningWF:submit-version\\\",\\\"versioningWF:submit-version:completed\\\",\\\"versioningWF:start-accession\\\",\\\"versioningWF:start-accession:completed\\\",\\\"sdrAuditWF\\\",\\\"sdrAuditWF:audit-verify\\\",\\\"sdrAuditWF:audit-verify:completed\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF:start-ingest\\\",\\\"sdrIngestWF:start-ingest:completed\\\",\\\"sdrIngestWF:register-sdr\\\",\\\"sdrIngestWF:register-sdr:completed\\\",\\\"sdrIngestWF:transfer-object\\\",\\\"sdrIngestWF:transfer-object:completed\\\",\\\"sdrIngestWF:validate-bag\\\",\\\"sdrIngestWF:validate-bag:completed\\\",\\\"sdrIngestWF:verify-agreement\\\",\\\"sdrIngestWF:verify-agreement:completed\\\",\\\"sdrIngestWF:complete-deposit\\\",\\\"sdrIngestWF:complete-deposit:completed\\\",\\\"sdrIngestWF:update-catalog\\\",\\\"sdrIngestWF:update-catalog:skipped\\\",\\\"sdrIngestWF:create-replica\\\",\\\"sdrIngestWF:create-replica:skipped\\\",\\\"sdrIngestWF:ingest-cleanup\\\",\\\"sdrIngestWF:ingest-cleanup:completed\\\"],\\\"wf_wsp_ssim\\\":[\\\"accessionWF\\\",\\\"accessionWF:completed\\\",\\\"accessionWF:completed:start-accession\\\",\\\"accessionWF:completed:descriptive-metadata\\\",\\\"accessionWF:completed:rights-metadata\\\",\\\"accessionWF:completed:content-metadata\\\",\\\"accessionWF:completed:technical-metadata\\\",\\\"accessionWF:completed:remediate-object\\\",\\\"accessionWF:completed:shelve\\\",\\\"accessionWF:completed:publish\\\",\\\"accessionWF:completed:provenance-metadata\\\",\\\"accessionWF:completed:sdr-ingest-transfer\\\",\\\"accessionWF:completed:sdr-ingest-received\\\",\\\"accessionWF:completed:end-accession\\\",\\\"accessionWF:completed:reset-workspace\\\",\\\"assemblyWF\\\",\\\"assemblyWF:completed\\\",\\\"assemblyWF:completed:start-assembly\\\",\\\"assemblyWF:completed:jp2-create\\\",\\\"assemblyWF:completed:checksum-compute\\\",\\\"assemblyWF:completed:exif-collect\\\",\\\"assemblyWF:completed:accessioning-initiate\\\",\\\"disseminationWF\\\",\\\"disseminationWF:completed\\\",\\\"disseminationWF:completed:cleanup\\\",\\\"versioningWF\\\",\\\"versioningWF:completed\\\",\\\"versioningWF:completed:start-version\\\",\\\"versioningWF:completed:submit-version\\\",\\\"versioningWF:completed:start-accession\\\",\\\"sdrAuditWF\\\",\\\"sdrAuditWF:completed\\\",\\\"sdrAuditWF:completed:audit-verify\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF:completed\\\",\\\"sdrIngestWF:completed:start-ingest\\\",\\\"sdrIngestWF:completed:register-sdr\\\",\\\"sdrIngestWF:completed:transfer-object\\\",\\\"sdrIngestWF:completed:validate-bag\\\",\\\"sdrIngestWF:completed:verify-agreement\\\",\\\"sdrIngestWF:completed:complete-deposit\\\",\\\"sdrIngestWF:skipped\\\",\\\"sdrIngestWF:skipped:update-catalog\\\",\\\"sdrIngestWF:skipped:create-replica\\\",\\\"sdrIngestWF:completed:ingest-cleanup\\\"],\\\"workflow_status_ssim\\\":[\\\"accessionWF|completed|0|dor\\\",\\\"accessionWF|completed|0|dor\\\",\\\"accessionWF|completed|0|dor\\\",\\\"accessionWF|completed|0|dor\\\",\\\"accessionWF|completed|0|dor\\\",\\\"accessionWF|completed|0|dor\\\",\\\"assemblyWF|completed|0|dor\\\",\\\"disseminationWF|completed|0|dor\\\",\\\"disseminationWF|completed|0|dor\\\",\\\"disseminationWF|completed|0|dor\\\",\\\"disseminationWF|completed|0|dor\\\",\\\"disseminationWF|completed|0|dor\\\",\\\"disseminationWF|completed|0|dor\\\",\\\"versioningWF|completed|0|dor\\\",\\\"versioningWF|completed|0|dor\\\",\\\"versioningWF|completed|0|dor\\\",\\\"versioningWF|completed|0|dor\\\",\\\"versioningWF|completed|0|dor\\\",\\\"sdrAuditWF|completed|0|sdr\\\",\\\"sdrIngestWF|completed|0|sdr\\\",\\\"sdrIngestWF|completed|0|sdr\\\",\\\"sdrIngestWF|completed|0|sdr\\\",\\\"sdrIngestWF|completed|0|sdr\\\",\\\"sdrIngestWF|completed|0|sdr\\\",\\\"sdrIngestWF|completed|0|sdr\\\"],\\\"wf_accessionWF_start-accession_dttsi\\\":\\\"2018-01-13T03:00:40Z\\\",\\\"wf_swp_ssim\\\":[\\\"completed\\\",\\\"completed:accessionWF\\\",\\\"completed:accessionWF:start-accession\\\",\\\"completed:accessionWF:descriptive-metadata\\\",\\\"completed:accessionWF:rights-metadata\\\",\\\"completed:accessionWF:content-metadata\\\",\\\"completed:accessionWF:technical-metadata\\\",\\\"completed:accessionWF:remediate-object\\\",\\\"completed:accessionWF:shelve\\\",\\\"completed:accessionWF:publish\\\",\\\"completed:accessionWF:provenance-metadata\\\",\\\"completed:accessionWF:sdr-ingest-transfer\\\",\\\"completed:accessionWF:sdr-ingest-received\\\",\\\"completed:accessionWF:end-accession\\\",\\\"completed:accessionWF:reset-workspace\\\",\\\"completed:assemblyWF\\\",\\\"completed:assemblyWF:start-assembly\\\",\\\"completed:assemblyWF:jp2-create\\\",\\\"completed:assemblyWF:checksum-compute\\\",\\\"completed:assemblyWF:exif-collect\\\",\\\"completed:assemblyWF:accessioning-initiate\\\",\\\"completed:disseminationWF\\\",\\\"completed:disseminationWF:cleanup\\\",\\\"completed:versioningWF\\\",\\\"completed:versioningWF:start-version\\\",\\\"completed:versioningWF:submit-version\\\",\\\"completed:versioningWF:start-accession\\\",\\\"completed:sdrAuditWF\\\",\\\"completed:sdrAuditWF:audit-verify\\\",\\\"completed:sdrIngestWF\\\",\\\"completed:sdrInges...","url":"https://app.honeybadger.io/projects/49898/faults/31597687","resolved":false,"project_name":"dor_indexing_app"},{"notices_count":33766,"klass":"RestClient::MaxRedirectsReached","message":"Maximum number of redirect reached","url":"https://app.honeybadger.io/projects/51217/faults/32445941","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":33000,"klass":"Dor::WorkflowException","message":"Failed to retrieve resource: get https://lyberservices-prod.stanford.edu/workflow/dor/objects/druid:kq088kb4387/lifecycle (HTTP status 502)","url":"https://app.honeybadger.io/projects/49898/faults/33007858","resolved":false,"project_name":"dor_indexing_app"},{"notices_count":28947,"klass":"URI::InvalidURIError","message":"bad URI(is not URI?): https://swap.stanford.edu/timemap/link/http://blog.sina.com.cn/txxwjy/","url":"https://app.honeybadger.io/projects/51217/faults/33588103","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":20893,"klass":"Errno::ENOENT","message":"No such file or directory @ rb_sysopen - tmp/20101107205348.jpeg","url":"https://app.honeybadger.io/projects/51217/faults/34245895","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":15080,"klass":"RestClient::BadRequest","message":"400 Bad Request","url":"https://app.honeybadger.io/projects/51217/faults/33159147","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":11964,"klass":"Rack::Timeout::RequestTimeoutException","message":"Request ran for longer than 60000ms","url":"https://app.honeybadger.io/projects/49898/faults/31430326","resolved":false,"project_name":"dor_indexing_app"},{"notices_count":11699,"klass":"ActiveFedora::ObjectNotFoundError","message":"Unable to find 'bj888yn7429' in fedora. See logger for details.","url":"https://app.honeybadger.io/projects/50568/faults/34487208","resolved":false,"project_name":"dor-services-app"},{"notices_count":8825,"klass":"RestClient::ServiceUnavailable","message":"503 Service Unavailable","url":"https://app.honeybadger.io/projects/51217/faults/32445949","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":6821,"klass":"RSolr::Error::ConnectionRefused","message":"Connection refused - {:logger=>#<Logger:0x00000005ad0bb0 @progname=nil, @level=0, @default_formatter=#<Logger::Formatter:0x00000005ad0b88 @datetime_format=nil>, @formatter=#<Proc:0x00000005ad08e0@/opt/app/dor_indexer/dor_indexing_app/shared/bundle/ruby/2.3.0/gems/dor-services-5.26.1/lib/dor/services/indexing_service.rb:13>, @logdev=#<Logger::LogDevice:0x00000005ad0b38 @shift_size=1048576, @shift_age=\"daily\", @filename=\"log/indexer.log\", @dev=#<File:log/indexer.log>, @mon_owner=nil, @mon_count=0, @mon_mutex=#<Thread::Mutex:0x00000005ad0b10>, @next_rotate_time=2018-03-14 00:00:00 -0700>>, :data=>\"{\\\"add\\\":{\\\"commitWithin\\\":10000,\\\"doc\\\":{\\\"system_create_dtsi\\\":\\\"2015-05-22T19:26:53Z\\\",\\\"system_modified_dtsi\\\":\\\"2018-01-05T10:30:06Z\\\",\\\"object_state_ssi\\\":\\\"A\\\",\\\"active_fedora_model_ssi\\\":\\\"Dor::Item\\\",\\\"id\\\":\\\"druid:th707sb3733\\\",\\\"object_profile_ssm\\\":\\\"{\\\\\\\"datastreams\\\\\\\":{\\\\\\\"DC\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Dublin Core Record for self object\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"DC.1\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2015-05-22T19:26:56Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":\\\\\\\"http://www.openarchives.org/OAI/2.0/oai_dc/\\\\\\\",\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":432,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+DC+DC.1\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":null,\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"RELS-EXT\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Fedora Object-to-Object Relationship Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"RELS-EXT.1\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2015-05-22T19:26:56Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"application/rdf+xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":919,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+RELS-EXT+RELS-EXT.1\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":null,\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"identityMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Identity Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"identityMetadata.1\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2015-05-22T19:52:51Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":453,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+identityMetadata+identityMetadata.1\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":null,\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"workflows\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Workflows\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"workflows.0\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2015-05-22T19:26:53Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"application/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"E\\\\\\\",\\\\\\\"dsSize\\\\\\\":0,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"https://sul-lyberservices-prod.stanford.edu/workflow/dor/objects/druid:th707sb3733/workflows\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"URL\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"descMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Descriptive Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"descMetadata.1\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-05T10:27:41Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"M\\\\\\\",\\\\\\\"dsSize\\\\\\\":524,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+descMetadata+descMetadata.1\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"rightsMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Rights Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"rightsMetadata.1\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-05T10:27:41Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":517,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+rightsMetadata+rightsMetadata.1\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"technicalMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Technical Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"technicalMetadata.2\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-05T10:28:52Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"M\\\\\\\",\\\\\\\"dsSize\\\\\\\":6713,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+technicalMetadata+technicalMetadata.2\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"events\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Events\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"events.1\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2015-05-22T19:52:51Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":146,\\\\\\\"dsVersionable\\\\\\\":false,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+events+events.1\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"provenanceMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Provenance Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"provenanceMetadata.1\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-05T10:30:06Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":265,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+provenanceMetadata+provenanceMetadata.1\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"versionMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Version Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"versionMetadata.3\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-05T10:27:46Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":290,\\\\\\\"dsVersionable\\\\\\\":false,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+versionMetadata+versionMetadata.3\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"geoMetadata\\\\\\\":{},\\\\\\\"embargoMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Embargo metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"embargoMetadata.0\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2015-05-22T19:26:57Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"X\\\\\\\",\\\\\\\"dsSize\\\\\\\":248,\\\\\\\"dsVersionable\\\\\\\":false,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+embargoMetadata+embargoMetadata.0\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"URL\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"},\\\\\\\"contentMetadata\\\\\\\":{\\\\\\\"dsLabel\\\\\\\":\\\\\\\"Content Metadata\\\\\\\",\\\\\\\"dsVersionID\\\\\\\":\\\\\\\"contentMetadata.1\\\\\\\",\\\\\\\"dsCreateDate\\\\\\\":\\\\\\\"2018-01-05T10:27:41Z\\\\\\\",\\\\\\\"dsState\\\\\\\":\\\\\\\"A\\\\\\\",\\\\\\\"dsMIME\\\\\\\":\\\\\\\"text/xml\\\\\\\",\\\\\\\"dsFormatURI\\\\\\\":null,\\\\\\\"dsControlGroup\\\\\\\":\\\\\\\"M\\\\\\\",\\\\\\\"dsSize\\\\\\\":850,\\\\\\\"dsVersionable\\\\\\\":true,\\\\\\\"dsInfoType\\\\\\\":null,\\\\\\\"dsLocation\\\\\\\":\\\\\\\"druid:th707sb3733+contentMetadata+contentMetadata.1\\\\\\\",\\\\\\\"dsLocationType\\\\\\\":\\\\\\\"INTERNAL_ID\\\\\\\",\\\\\\\"dsChecksumType\\\\\\\":\\\\\\\"DISABLED\\\\\\\",\\\\\\\"dsChecksum\\\\\\\":\\\\\\\"none\\\\\\\"}},\\\\\\\"objLabel\\\\\\\":\\\\\\\"Road Atlanta SCCA Runoffs\\\\\\\",\\\\\\\"objOwnerId\\\\\\\":\\\\\\\"preassembly@sul-lyberservices-prod.stanford.edu\\\\\\\",\\\\\\\"objModels\\\\\\\":[\\\\\\\"info:fedora/fedora-system:FedoraObject-3.0\\\\\\\",\\\\\\\"info:fedora/afmodel:Dor_Item\\\\\\\"],\\\\\\\"objCreateDate\\\\\\\":\\\\\\\"2015-05-22T19:26:53Z\\\\\\\",\\\\\\\"objLastModDate\\\\\\\":\\\\\\\"2018-01-05T10:30:06Z\\\\\\\",\\\\\\\"objDissIndexViewURL\\\\\\\":\\\\\\\"https://localhost:443/fedora/objects/druid%3Ath707sb3733/methods/fedora-system%3A3/viewMethodIndex\\\\\\\",\\\\\\\"objItemIndexViewURL\\\\\\\":\\\\\\\"https://localhost:443/fedora/objects/druid%3Ath707sb3733/methods/fedora-system%3A3/viewItemIndex\\\\\\\",\\\\\\\"objState\\\\\\\":\\\\\\\"A\\\\\\\"}\\\",\\\"title_ssi\\\":\\\"\\\",\\\"title_tesim\\\":\\\"\\\",\\\"creator_ssi\\\":\\\"\\\",\\\"creator_tesim\\\":\\\"\\\",\\\"identifier_ssim\\\":[\\\"Revs:2012-015GHEW-CO-1980-b1_1.18_0009\\\",\\\"uuid:7e9aac86-00b8-11e5-92db-0050569b52d5\\\"],\\\"identifier_tesim\\\":[\\\"Revs:2012-015GHEW-CO-1980-b1_1.18_0009\\\",\\\"uuid:7e9aac86-00b8-11e5-92db-0050569b52d5\\\"],\\\"dc_title_ssi\\\":\\\"\\\",\\\"dc_title_tesim\\\":\\\"\\\",\\\"dc_creator_ssi\\\":\\\"\\\",\\\"dc_creator_tesim\\\":\\\"\\\",\\\"dc_identifier_druid_ssi\\\":\\\"th707sb3733\\\",\\\"dc_identifier_druid_tesim\\\":\\\"th707sb3733\\\",\\\"objectId_ssim\\\":\\\"druid:th707sb3733\\\",\\\"objectType_ssim\\\":\\\"item\\\",\\\"tag_ssim\\\":[\\\"Project : Revs\\\",\\\"Project : Revs : GHEW-CO-Box1\\\",\\\"Remediated By : 4.20.1\\\"],\\\"objectCreator_tesim\\\":\\\"DOR\\\",\\\"objectCreator_ssim\\\":\\\"DOR\\\",\\\"obj_label_tesim\\\":\\\"Road Atlanta SCCA Runoffs\\\",\\\"obj_label_ssim\\\":\\\"Road Atlanta SCCA Runoffs\\\",\\\"obj_owner_id_tesim\\\":\\\"preassembly@sul-lyberservices-prod.stanford.edu\\\",\\\"obj_owner_id_ssim\\\":\\\"preassembly@sul-lyberservices-prod.stanford.edu\\\",\\\"obj_models_tesim\\\":[\\\"info:fedora/fedora-system:FedoraObject-3.0\\\",\\\"info:fedora/afmodel:Dor_Item\\\"],\\\"obj_models_ssim\\\":[\\\"info:fedora/fedora-system:FedoraObject-3.0\\\",\\\"info:fedora/afmodel:Dor_Item\\\"],\\\"obj_create_date_tesim\\\":\\\"2015-05-22T19:26:53.390Z\\\",\\\"obj_last_mod_date_tesim\\\":\\\"2018-01-05T10:30:06.761Z\\\",\\\"obj_diss_index_view_url_tesim\\\":\\\"https://localhost:443/fedora/objects/druid%3Ath707sb3733/methods/fedora-system%3A3/viewMethodIndex\\\",\\\"obj_diss_index_view_url_ssim\\\":\\\"https://localhost:443/fedora/objects/druid%3Ath707sb3733/methods/fedora-system%3A3/viewMethodIndex\\\",\\\"obj_item_index_view_url_tesim\\\":\\\"https://localhost:443/fedora/objects/druid%3Ath707sb3733/methods/fedora-system%3A3/viewItemIndex\\\",\\\"obj_item_index_view_url_ssim\\\":\\\"https://localhost:443/fedora/objects/druid%3Ath707sb3733/methods/fedora-system%3A3/viewItemIndex\\\",\\\"obj_state_tesim\\\":\\\"A\\\",\\\"obj_state_ssim\\\":\\\"A\\\",\\\"dor_id_tesim\\\":[\\\"2012-015GHEW-CO-1980-b1_1.18_0009\\\",\\\"7e9aac86-00b8-11e5-92db-0050569b52d5\\\"],\\\"dor_id_ssim\\\":[\\\"2012-015GHEW-CO-1980-b1_1.18_0009\\\",\\\"7e9aac86-00b8-11e5-92db-0050569b52d5\\\"],\\\"source_id_ssim\\\":\\\"Revs:2012-015GHEW-CO-1980-b1_1.18_0009\\\",\\\"uuid_id_ssim\\\":\\\"7e9aac86-00b8-11e5-92db-0050569b52d5\\\",\\\"project_tag_ssim\\\":[\\\"Revs\\\",\\\"Revs : GHEW-CO-Box1\\\"],\\\"exploded_tag_ssim\\\":[\\\"Project\\\",\\\"Project : Revs\\\",\\\"Project\\\",\\\"Project : Revs\\\",\\\"Project : Revs : GHEW-CO-Box1\\\",\\\"Remediated By\\\",\\\"Remediated By : 4.20.1\\\"],\\\"remediated_by_tag_ssim\\\":\\\"4.20.1\\\",\\\"wf_ssim\\\":[\\\"accessionWF\\\",\\\"accessionWF\\\",\\\"assemblyWF\\\",\\\"disseminationWF\\\",\\\"disseminationWF\\\",\\\"versioningWF\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF\\\"],\\\"wf_wps_ssim\\\":[\\\"accessionWF\\\",\\\"accessionWF:start-accession\\\",\\\"accessionWF:start-accession:completed\\\",\\\"accessionWF:descriptive-metadata\\\",\\\"accessionWF:descriptive-metadata:completed\\\",\\\"accessionWF:rights-metadata\\\",\\\"accessionWF:rights-metadata:completed\\\",\\\"accessionWF:content-metadata\\\",\\\"accessionWF:content-metadata:completed\\\",\\\"accessionWF:technical-metadata\\\",\\\"accessionWF:technical-metadata:completed\\\",\\\"accessionWF:remediate-object\\\",\\\"accessionWF:remediate-object:completed\\\",\\\"accessionWF:shelve\\\",\\\"accessionWF:shelve:completed\\\",\\\"accessionWF:publish\\\",\\\"accessionWF:publish:completed\\\",\\\"accessionWF:provenance-metadata\\\",\\\"accessionWF:provenance-metadata:completed\\\",\\\"accessionWF:sdr-ingest-transfer\\\",\\\"accessionWF:sdr-ingest-transfer:completed\\\",\\\"accessionWF:sdr-ingest-received\\\",\\\"accessionWF:sdr-ingest-received:completed\\\",\\\"accessionWF:reset-workspace\\\",\\\"accessionWF:reset-workspace:completed\\\",\\\"accessionWF:end-accession\\\",\\\"accessionWF:end-accession:completed\\\",\\\"assemblyWF\\\",\\\"assemblyWF:start-assembly\\\",\\\"assemblyWF:start-assembly:completed\\\",\\\"assemblyWF:jp2-create\\\",\\\"assemblyWF:jp2-create:completed\\\",\\\"assemblyWF:checksum-compute\\\",\\\"assemblyWF:checksum-compute:completed\\\",\\\"assemblyWF:exif-collect\\\",\\\"assemblyWF:exif-collect:completed\\\",\\\"assemblyWF:accessioning-initiate\\\",\\\"assemblyWF:accessioning-initiate:completed\\\",\\\"disseminationWF\\\",\\\"disseminationWF:cleanup\\\",\\\"disseminationWF:cleanup:completed\\\",\\\"versioningWF\\\",\\\"versioningWF:start-version\\\",\\\"versioningWF:start-version:completed\\\",\\\"versioningWF:submit-version\\\",\\\"versioningWF:submit-version:completed\\\",\\\"versioningWF:start-accession\\\",\\\"versioningWF:start-accession:completed\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF:start-ingest\\\",\\\"sdrIngestWF:start-ingest:completed\\\",\\\"sdrIngestWF:register-sdr\\\",\\\"sdrIngestWF:register-sdr:completed\\\",\\\"sdrIngestWF:transfer-object\\\",\\\"sdrIngestWF:transfer-object:completed\\\",\\\"sdrIngestWF:validate-bag\\\",\\\"sdrIngestWF:validate-bag:completed\\\",\\\"sdrIngestWF:verify-agreement\\\",\\\"sdrIngestWF:verify-agreement:completed\\\",\\\"sdrIngestWF:complete-deposit\\\",\\\"sdrIngestWF:complete-deposit:completed\\\",\\\"sdrIngestWF:update-catalog\\\",\\\"sdrIngestWF:update-catalog:skipped\\\",\\\"sdrIngestWF:create-replica\\\",\\\"sdrIngestWF:create-replica:skipped\\\",\\\"sdrIngestWF:ingest-cleanup\\\",\\\"sdrIngestWF:ingest-cleanup:completed\\\"],\\\"wf_wsp_ssim\\\":[\\\"accessionWF\\\",\\\"accessionWF:completed\\\",\\\"accessionWF:completed:start-accession\\\",\\\"accessionWF:completed:descriptive-metadata\\\",\\\"accessionWF:completed:rights-metadata\\\",\\\"accessionWF:completed:content-metadata\\\",\\\"accessionWF:completed:technical-metadata\\\",\\\"accessionWF:completed:remediate-object\\\",\\\"accessionWF:completed:shelve\\\",\\\"accessionWF:completed:publish\\\",\\\"accessionWF:completed:provenance-metadata\\\",\\\"accessionWF:completed:sdr-ingest-transfer\\\",\\\"accessionWF:completed:sdr-ingest-received\\\",\\\"accessionWF:completed:reset-workspace\\\",\\\"accessionWF:completed:end-accession\\\",\\\"assemblyWF\\\",\\\"assemblyWF:completed\\\",\\\"assemblyWF:completed:start-assembly\\\",\\\"assemblyWF:completed:jp2-create\\\",\\\"assemblyWF:completed:checksum-compute\\\",\\\"assemblyWF:completed:exif-collect\\\",\\\"assemblyWF:completed:accessioning-initiate\\\",\\\"disseminationWF\\\",\\\"disseminationWF:completed\\\",\\\"disseminationWF:completed:cleanup\\\",\\\"versioningWF\\\",\\\"versioningWF:completed\\\",\\\"versioningWF:completed:start-version\\\",\\\"versioningWF:completed:submit-version\\\",\\\"versioningWF:completed:start-accession\\\",\\\"sdrIngestWF\\\",\\\"sdrIngestWF:completed\\\",\\\"sdrIngestWF:completed:start-ingest\\\",\\\"sdrIngestWF:completed:register-sdr\\\",\\\"sdrIngestWF:completed:transfer-object\\\",\\\"sdrIngestWF:completed:validate-bag\\\",\\\"sdrIngestWF:completed:verify-agreement\\\",\\\"sdrIngestWF:completed:complete-deposit\\\",\\\"sdrIngestWF:skipped\\\",\\\"sdrIngestWF:skipped:update-catalog\\\",\\\"sdrIngestWF:skipped:create-replica\\\",\\\"sdrIngestWF:completed:ingest-cleanup\\\"],\\\"workflow_status_ssim\\\":[\\\"accessionWF|completed|0|dor\\\",\\\"accessionWF|completed|0|dor\\\",\\\"assemblyWF|completed|0|dor\\\",\\\"disseminationWF|completed|0|dor\\\",\\\"disseminationWF|completed|0|dor\\\",\\\"versioningWF|completed|0|dor\\\",\\\"sdrIngestWF|completed|0|sdr\\\",\\\"sdrIngestWF|completed|0|sdr\\\"],\\\"wf_accessionWF_start-accession_dttsi\\\":\\\"2018-01-05T10:27:47Z\\\",\\\"wf_swp_ssim\\\":[\\\"completed\\\",\\\"completed:accessionWF\\\",\\\"completed:accessionWF:start-accession\\\",\\\"completed:accessionWF:descriptive-metadata\\\",\\\"completed:accessionWF:rights-metadata\\\",\\\"completed:accessionWF:content-metadata\\\",\\\"completed:accessionWF:technical-metadata\\\",\\\"completed:accessionWF:remediate-object\\\",\\\"completed:accessionWF:shelve\\\",\\\"completed:accessionWF:publish\\\",\\\"completed:accessionWF:provenance-metadata\\\",\\\"completed:accessionWF:sdr-ingest-transfer\\\",\\\"completed:accessionWF:sdr-ingest-received\\\",\\\"completed:accessionWF:reset-workspace\\\",\\\"completed:accessionWF:end-accession\\\",\\\"completed:assemblyWF\\\",\\\"completed:assemblyWF:start-assembly\\\",\\\"completed:assemblyWF:jp2-create\\\",\\\"completed:assemblyWF:checksum-compute\\\",\\\"completed:assemblyWF:exif-collect\\\",\\\"completed:assemblyWF:accessioning-initiate\\\",\\\"completed:disseminationWF\\\",\\\"completed:disseminationWF:cleanup\\\",\\\"completed:versioningWF\\\",\\\"completed:versioningWF:start-version\\\",\\\"completed:versioningWF:submit-version\\\",\\\"completed:versioningWF:start-accession\\\",\\\"completed:sdrIngestWF\\\",\\\"completed:sdrIngestWF:start-ingest\\\",\\\"completed:sdrIngestWF:register-sdr\\\",\\\"completed:sdrIngestWF:transfer-object\\\",\\\"completed:sdrIngestWF:validate-bag\\\",\\\"completed:sdrIngestWF:verify-agreement\\\",\\\"completed:sdrIngestWF:complete-deposit\\\",\\\"skipped\\\",\\\"skipped:sdrIngestWF\\\",\\\"skipped:sdrIngestWF:update-catalog\\\",\\\"skipped:sdrIngestWF:create-replica\\\",\\\"completed:sdrIngestWF:i...","url":"https://app.honeybadger.io/projects/49898/faults/34041424","resolved":false,"project_name":"dor_indexing_app"},{"notices_count":5782,"klass":"ActiveFedora::ObjectNotFoundError","message":"Unable to find 'bin/virtual-merge' in fedora. See logger for details.","url":"https://app.honeybadger.io/projects/52892/faults/34671679","resolved":false,"project_name":"dor-utils"},{"notices_count":5706,"klass":"ActiveRecord::RecordInvalid","message":"Validation failed: First name can't be blank","url":"https://app.honeybadger.io/projects/50046/faults/31909575","resolved":false,"project_name":"sul_pub"},{"notices_count":5253,"klass":"Zlib::GzipFile::Error","message":"unexpected end of file","url":"https://app.honeybadger.io/projects/51217/faults/33159155","resolved":false,"project_name":"was-thumbnail-service"},{"notices_count":4824,"klass":"RestClient::ServiceUnavailable","message":"503 Service Unavailable","url":"https://app.honeybadger.io/projects/49898/faults/34329128","resolved":false,"project_name":"dor_indexing_app"}],"unassigned":[{"notices_count":1559,"klass":"SocketError","message":"Failed to open TCP connection to sulpuppet-db.stanford.edu:8080 (getaddrinfo: Name or service not known)","url":"https://app.honeybadger.io/projects/52910/faults/35335485","resolved":false,"project_name":"Quimby"},{"notices_count":380,"klass":"HistonetsCv::Exceptions::CliError","message":"Unable to execute command histonets \"graph '[[[482, 278], [507, 307]], [[68, 218], [93, 247]], [[544, 610], [569, 639]], [[981, 869], [1006, 898]], [[108, 436], [133, 465]], [[842, 30], [867, 59]], [[934, 210], [959, 239]], [[189, 585], [214, 614]], [[29, 696], [54, 725]], [[38, 522], [63, 551]], [[959, 515], [984, 544]], [[982, 459], [1007, 488]], [[514, 897], [539, 926]], [[541, 904], [566, 933]], [[701, 848], [726, 877]], [[936, 290], [961, 319]], [[894, 458], [919, 487]], [[587, 172], [612, 201]], [[931, 675], [956, 704]], [[746, 218], [771, 247]], [[846, 735], [871, 764]], [[103, 203], [128, 232]], [[489, 835], [514, 864]], [[496, 205], [525, 235]], [[635, 442], [664, 472]], [[660, 651], [689, 681]], [[86, 252], [115, 282]], [[194, 669], [223, 699]], [[497, 605], [526, 635]], [[258, 128], [287, 158]], [[485, 26], [550, 92]], [[260, 41], [325, 107]], [[864, 114], [929, 180]], [[803, 652], [868, 718]], [[318, 544], [383, 610]], [[100, 821], [165, 887]], [[631, 19], [696, 85]]]' -sm vw -st 1 -f graphml -pm astar https://cidr-histonets-dev.stanford.edu/image-service/Pennsylvania_1934_b348b968e2172e0a3fb416193d0119d1_171200_2f260d_ea3516_f1825e_postprocess_tmp/full/full/0/default.png -o spec/fixtures/data/b348b968e2172e0a3fb416193d0119d1_171200_2f260d_ea3516_f1825e_postprocess_graph.graphml\"","url":"https://app.honeybadger.io/projects/52634/faults/34751973","resolved":false,"project_name":"histonets"},{"notices_count":333,"klass":"NoMethodError","message":"undefined method `call' for nil:NilClass","url":"https://app.honeybadger.io/projects/52912/faults/36925700","resolved":false,"project_name":"dmstech-blacklight-public"},{"notices_count":166,"klass":"Errno::ECONNRESET","message":"Connection reset by peer - SSL_connect","url":"https://app.honeybadger.io/projects/52910/faults/34480151","resolved":false,"project_name":"Quimby"},{"notices_count":112,"klass":"ArgumentError","message":"string contains null byte","url":"https://app.honeybadger.io/projects/52912/faults/37007481","resolved":false,"project_name":"dmstech-blacklight-public"},{"notices_count":67,"klass":"NoMethodError","message":"undefined method `call' for nil:NilClass","url":"https://app.honeybadger.io/projects/52910/faults/34167445","resolved":false,"project_name":"Quimby"},{"notices_count":38,"klass":"NoMethodError","message":"undefined method `each_pair' for \"edit\":String","url":"https://app.honeybadger.io/projects/52912/faults/37007479","resolved":false,"project_name":"dmstech-blacklight-public"},{"notices_count":29,"klass":"Faraday::ConnectionFailed","message":"execution expired","url":"https://app.honeybadger.io/projects/52910/faults/34467993","resolved":false,"project_name":"Quimby"},{"notices_count":20,"klass":"ActionController::MissingFile","message":"Cannot read file spec/fixtures/data/b348b968e2172e0a3fb416193d0119d1_171200_2f260d_ea3516_f1825e_postprocess_graph.graphml","url":"https://app.honeybadger.io/projects/52634/faults/34751496","resolved":false,"project_name":"histonets"},{"notices_count":11,"klass":"ActionView::Template::Error","message":"undefined method `[]' for nil:NilClass","url":"https://app.honeybadger.io/projects/52912/faults/36940937","resolved":false,"project_name":"dmstech-blacklight-public"},{"notices_count":9,"klass":"RestClient::InternalServerError","message":"500 Internal Server Error","url":"https://app.honeybadger.io/projects/52912/faults/37030691","resolved":false,"project_name":"dmstech-blacklight-public"},{"notices_count":4,"klass":"EOFError","message":"bad content body","url":"https://app.honeybadger.io/projects/52912/faults/37007476","resolved":false,"project_name":"dmstech-blacklight-public"},{"notices_count":4,"klass":"Github::Error::BadGateway","message":"GET https://api.github.com/repos/sul-dlss/bassi_veratti/contents/config/deploy/?access_token=bbe3d3d6181f53a4161f06f50380c80fab1819aa: 502 - <html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body bgcolor=\"white\">\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>","url":"https://app.honeybadger.io/projects/52910/faults/34496519","resolved":false,"project_name":"Quimby"},{"notices_count":3,"klass":"ActionView::Template::Error","message":"undefined method `gemnasium_alerts' for #<Repository:0x0000000428b3c0>","url":"https://app.honeybadger.io/projects/52910/faults/34426950","resolved":false,"project_name":"Quimby"},{"notices_count":3,"klass":"RestClient::RequestTimeout","message":"Request Timeout","url":"https://app.honeybadger.io/projects/52912/faults/37036489","resolved":false,"project_name":"dmstech-blacklight-public"},{"notices_count":3,"klass":"Errno::ECONNRESET","message":"Connection reset by peer","url":"https://app.honeybadger.io/projects/52912/faults/36965429","resolved":false,"project_name":"dmstech-blacklight-public"},{"notices_count":2,"klass":"Errno::ECONNRESET","message":"Connection reset by peer","url":"https://app.honeybadger.io/projects/52912/faults/37030193","resolved":false,"project_name":"dmstech-blacklight-public"},{"notices_count":2,"klass":"Faraday::ConnectionFailed","message":"execution expired","url":"https://app.honeybadger.io/projects/52910/faults/34436738","resolved":false,"project_name":"Quimby"},{"notices_count":1,"klass":"Github::Error::BadRequest","message":"GET https://api.github.com/repos/sul-dlss/dor-fetcher-service/contents/config/deploy/prod.rb?access_token=bbe3d3d6181f53a4161f06f50380c80fab1819aa: 400 - No handler found for uri [/repos/sul-dlss/dor-fetcher-service/contents/config/deploy/prod.rb?access_token=bbe3d3d6181f53a4161f06f50380c80fab1819aa] and method [GET]","url":"https://app.honeybadger.io/projects/52910/faults/35228643","resolved":false,"project_name":"Quimby"},{"notices_count":1,"klass":"RestClient::Unauthorized","message":"401 Unauthorized","url":"https://app.honeybadger.io/projects/52910/faults/35064709","resolved":false,"project_name":"Quimby"}]}
+{
+   "access" : [
+      {
+         "project_name" : "sul-requests",
+         "resolved" : false,
+         "klass" : "ActionView::Template::Error",
+         "notices_count" : 58685,
+         "url" : "https://app.honeybadger.io/projects/49963/faults/31426519"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "exhibits",
+         "klass" : "Harvestdor::Errors::MissingPurlPage",
+         "notices_count" : 28559,
+         "url" : "https://app.honeybadger.io/projects/49092/faults/32603300"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "frda",
+         "klass" : "NoMethodError",
+         "url" : "https://app.honeybadger.io/projects/49896/faults/33187657",
+         "notices_count" : 14782
+      },
+      {
+         "klass" : "DiscoveryIndexer::Errors::MissingPurlPage",
+         "notices_count" : 12659,
+         "url" : "https://app.honeybadger.io/projects/48949/faults/37014123",
+         "resolved" : false,
+         "project_name" : "sw-indexer"
+      },
+      {
+         "url" : "https://app.honeybadger.io/projects/49092/faults/32603412",
+         "notices_count" : 9611,
+         "klass" : "Harvestdor::Errors::MissingContentMetadata",
+         "resolved" : false,
+         "project_name" : "exhibits"
+      },
+      {
+         "project_name" : "exhibits",
+         "resolved" : false,
+         "url" : "https://app.honeybadger.io/projects/49092/faults/32646884",
+         "notices_count" : 9457,
+         "klass" : "Riiif::ImageNotFoundError"
+      },
+      {
+         "project_name" : "revs",
+         "resolved" : false,
+         "klass" : "Errno::ECONNRESET",
+         "notices_count" : 8978,
+         "url" : "https://app.honeybadger.io/projects/50045/faults/32755338"
+      },
+      {
+         "klass" : "NoMethodError",
+         "url" : "https://app.honeybadger.io/projects/49896/faults/33241418",
+         "notices_count" : 6790,
+         "resolved" : false,
+         "project_name" : "frda"
+      },
+      {
+         "project_name" : "bassi_veratti",
+         "resolved" : false,
+         "notices_count" : 4121,
+         "url" : "https://app.honeybadger.io/projects/50051/faults/31774387",
+         "klass" : "AbstractController::DoubleRenderError"
+      },
+      {
+         "klass" : "ActionView::Template::Error",
+         "url" : "https://app.honeybadger.io/projects/49891/faults/34807349",
+         "notices_count" : 3997,
+         "resolved" : false,
+         "project_name" : "library_hours_rails"
+      },
+      {
+         "klass" : "ActionView::Template::Error",
+         "notices_count" : 3982,
+         "url" : "https://app.honeybadger.io/projects/49891/faults/31311994",
+         "resolved" : false,
+         "project_name" : "library_hours_rails"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "library_hours_rails",
+         "klass" : "ArgumentError",
+         "url" : "https://app.honeybadger.io/projects/49891/faults/31779664",
+         "notices_count" : 3083
+      },
+      {
+         "url" : "https://app.honeybadger.io/projects/49963/faults/31911913",
+         "notices_count" : 2721,
+         "klass" : "ActiveJob::DeserializationError",
+         "resolved" : false,
+         "project_name" : "sul-requests"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "library_hours_rails",
+         "klass" : "ArgumentError",
+         "notices_count" : 2542,
+         "url" : "https://app.honeybadger.io/projects/49891/faults/32995716"
+      },
+      {
+         "project_name" : "SearchWorks",
+         "resolved" : false,
+         "klass" : "ActionView::Template::Error",
+         "url" : "https://app.honeybadger.io/projects/50022/faults/33184961",
+         "notices_count" : 2179
+      },
+      {
+         "project_name" : "demo.projectblacklight.org",
+         "resolved" : false,
+         "klass" : "Blacklight::Exceptions::InvalidRequest",
+         "url" : "https://app.honeybadger.io/projects/53186/faults/36336554",
+         "notices_count" : 1983
+      },
+      {
+         "klass" : "NoMethodError",
+         "notices_count" : 1804,
+         "url" : "https://app.honeybadger.io/projects/50045/faults/32252203",
+         "resolved" : false,
+         "project_name" : "revs"
+      },
+      {
+         "url" : "https://app.honeybadger.io/projects/49896/faults/33254087",
+         "notices_count" : 1748,
+         "klass" : "ActionController::UrlGenerationError",
+         "resolved" : false,
+         "project_name" : "frda"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "frda",
+         "klass" : "Errno::ECONNRESET",
+         "notices_count" : 1543,
+         "url" : "https://app.honeybadger.io/projects/49896/faults/33340715"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "bassi_veratti",
+         "notices_count" : 1284,
+         "url" : "https://app.honeybadger.io/projects/50051/faults/31783481",
+         "klass" : "ActionView::MissingTemplate"
+      }
+   ],
+   "infrastructure" : [
+      {
+         "resolved" : false,
+         "project_name" : "was-thumbnail-service",
+         "notices_count" : 654140,
+         "url" : "https://app.honeybadger.io/projects/51217/faults/32445942",
+         "klass" : "RuntimeError"
+      },
+      {
+         "project_name" : "was-thumbnail-service",
+         "resolved" : false,
+         "url" : "https://app.honeybadger.io/projects/51217/faults/32445954",
+         "notices_count" : 596124,
+         "klass" : "RestClient::ResourceNotFound"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "was-thumbnail-service",
+         "url" : "https://app.honeybadger.io/projects/51217/faults/32445948",
+         "notices_count" : 237160,
+         "klass" : "RestClient::ResourceNotFound"
+      },
+      {
+         "project_name" : "was-thumbnail-service",
+         "resolved" : false,
+         "klass" : "RuntimeError",
+         "url" : "https://app.honeybadger.io/projects/51217/faults/34245896",
+         "notices_count" : 208152
+      },
+      {
+         "notices_count" : 186166,
+         "url" : "https://app.honeybadger.io/projects/49898/faults/32913872",
+         "klass" : "NoMethodError",
+         "resolved" : false,
+         "project_name" : "dor_indexing_app"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "dor-utils",
+         "klass" : "NoMethodError",
+         "url" : "https://app.honeybadger.io/projects/52892/faults/34206434",
+         "notices_count" : 56414
+      },
+      {
+         "notices_count" : 54806,
+         "url" : "https://app.honeybadger.io/projects/49898/faults/31597687",
+         "klass" : "RSolr::Error::Http",
+         "resolved" : false,
+         "project_name" : "dor_indexing_app"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "was-thumbnail-service",
+         "klass" : "RestClient::MaxRedirectsReached",
+         "url" : "https://app.honeybadger.io/projects/51217/faults/32445941",
+         "notices_count" : 33766
+      },
+      {
+         "resolved" : false,
+         "project_name" : "dor_indexing_app",
+         "url" : "https://app.honeybadger.io/projects/49898/faults/33007858",
+         "notices_count" : 33000,
+         "klass" : "Dor::WorkflowException"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "was-thumbnail-service",
+         "klass" : "URI::InvalidURIError",
+         "url" : "https://app.honeybadger.io/projects/51217/faults/33588103",
+         "notices_count" : 28947
+      },
+      {
+         "resolved" : false,
+         "project_name" : "was-thumbnail-service",
+         "klass" : "Errno::ENOENT",
+         "notices_count" : 20893,
+         "url" : "https://app.honeybadger.io/projects/51217/faults/34245895"
+      },
+      {
+         "project_name" : "was-thumbnail-service",
+         "resolved" : false,
+         "klass" : "RestClient::BadRequest",
+         "url" : "https://app.honeybadger.io/projects/51217/faults/33159147",
+         "notices_count" : 15080
+      },
+      {
+         "notices_count" : 11964,
+         "url" : "https://app.honeybadger.io/projects/49898/faults/31430326",
+         "klass" : "Rack::Timeout::RequestTimeoutException",
+         "project_name" : "dor_indexing_app",
+         "resolved" : false
+      },
+      {
+         "notices_count" : 11699,
+         "url" : "https://app.honeybadger.io/projects/50568/faults/34487208",
+         "klass" : "ActiveFedora::ObjectNotFoundError",
+         "project_name" : "dor-services-app",
+         "resolved" : false
+      },
+      {
+         "resolved" : false,
+         "project_name" : "was-thumbnail-service",
+         "url" : "https://app.honeybadger.io/projects/51217/faults/32445949",
+         "notices_count" : 8825,
+         "klass" : "RestClient::ServiceUnavailable"
+      },
+      {
+         "klass" : "RSolr::Error::ConnectionRefused",
+         "url" : "https://app.honeybadger.io/projects/49898/faults/34041424",
+         "notices_count" : 6821,
+         "project_name" : "dor_indexing_app",
+         "resolved" : false
+      },
+      {
+         "klass" : "ActiveFedora::ObjectNotFoundError",
+         "notices_count" : 5782,
+         "url" : "https://app.honeybadger.io/projects/52892/faults/34671679",
+         "project_name" : "dor-utils",
+         "resolved" : false
+      },
+      {
+         "resolved" : false,
+         "project_name" : "sul_pub",
+         "klass" : "ActiveRecord::RecordInvalid",
+         "notices_count" : 5706,
+         "url" : "https://app.honeybadger.io/projects/50046/faults/31909575"
+      },
+      {
+         "klass" : "Zlib::GzipFile::Error",
+         "url" : "https://app.honeybadger.io/projects/51217/faults/33159155",
+         "notices_count" : 5253,
+         "project_name" : "was-thumbnail-service",
+         "resolved" : false
+      },
+      {
+         "notices_count" : 4824,
+         "url" : "https://app.honeybadger.io/projects/49898/faults/34329128",
+         "klass" : "RestClient::ServiceUnavailable",
+         "project_name" : "dor_indexing_app",
+         "resolved" : false
+      }
+   ],
+   "unassigned" : [
+      {
+         "project_name" : "Quimby",
+         "resolved" : false,
+         "klass" : "SocketError",
+         "url" : "https://app.honeybadger.io/projects/52910/faults/35335485",
+         "notices_count" : 1559
+      },
+      {
+         "project_name" : "histonets",
+         "resolved" : false,
+         "klass" : "HistonetsCv::Exceptions::CliError",
+         "notices_count" : 380,
+         "url" : "https://app.honeybadger.io/projects/52634/faults/34751973"
+      },
+      {
+         "project_name" : "dmstech-blacklight-public",
+         "resolved" : false,
+         "klass" : "NoMethodError",
+         "url" : "https://app.honeybadger.io/projects/52912/faults/36925700",
+         "notices_count" : 333
+      },
+      {
+         "notices_count" : 166,
+         "url" : "https://app.honeybadger.io/projects/52910/faults/34480151",
+         "klass" : "Errno::ECONNRESET",
+         "project_name" : "Quimby",
+         "resolved" : false
+      },
+      {
+         "notices_count" : 112,
+         "url" : "https://app.honeybadger.io/projects/52912/faults/37007481",
+         "klass" : "ArgumentError",
+         "resolved" : false,
+         "project_name" : "dmstech-blacklight-public"
+      },
+      {
+         "notices_count" : 67,
+         "url" : "https://app.honeybadger.io/projects/52910/faults/34167445",
+         "klass" : "NoMethodError",
+         "resolved" : false,
+         "project_name" : "Quimby"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "dmstech-blacklight-public",
+         "notices_count" : 38,
+         "url" : "https://app.honeybadger.io/projects/52912/faults/37007479",
+         "klass" : "NoMethodError"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "Quimby",
+         "url" : "https://app.honeybadger.io/projects/52910/faults/34467993",
+         "notices_count" : 29,
+         "klass" : "Faraday::ConnectionFailed"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "histonets",
+         "klass" : "ActionController::MissingFile",
+         "notices_count" : 20,
+         "url" : "https://app.honeybadger.io/projects/52634/faults/34751496"
+      },
+      {
+         "url" : "https://app.honeybadger.io/projects/52912/faults/36940937",
+         "notices_count" : 11,
+         "klass" : "ActionView::Template::Error",
+         "resolved" : false,
+         "project_name" : "dmstech-blacklight-public"
+      },
+      {
+         "notices_count" : 9,
+         "url" : "https://app.honeybadger.io/projects/52912/faults/37030691",
+         "klass" : "RestClient::InternalServerError",
+         "project_name" : "dmstech-blacklight-public",
+         "resolved" : false
+      },
+      {
+         "resolved" : false,
+         "project_name" : "dmstech-blacklight-public",
+         "klass" : "EOFError",
+         "notices_count" : 4,
+         "url" : "https://app.honeybadger.io/projects/52912/faults/37007476"
+      },
+      {
+         "url" : "https://app.honeybadger.io/projects/52910/faults/34496519",
+         "notices_count" : 4,
+         "klass" : "Github::Error::BadGateway",
+         "project_name" : "Quimby",
+         "resolved" : false
+      },
+      {
+         "klass" : "ActionView::Template::Error",
+         "notices_count" : 3,
+         "url" : "https://app.honeybadger.io/projects/52910/faults/34426950",
+         "resolved" : false,
+         "project_name" : "Quimby"
+      },
+      {
+         "project_name" : "dmstech-blacklight-public",
+         "resolved" : false,
+         "klass" : "RestClient::RequestTimeout",
+         "notices_count" : 3,
+         "url" : "https://app.honeybadger.io/projects/52912/faults/37036489"
+      },
+      {
+         "klass" : "Errno::ECONNRESET",
+         "url" : "https://app.honeybadger.io/projects/52912/faults/36965429",
+         "notices_count" : 3,
+         "resolved" : false,
+         "project_name" : "dmstech-blacklight-public"
+      },
+      {
+         "project_name" : "dmstech-blacklight-public",
+         "resolved" : false,
+         "klass" : "Errno::ECONNRESET",
+         "notices_count" : 2,
+         "url" : "https://app.honeybadger.io/projects/52912/faults/37030193"
+      },
+      {
+         "project_name" : "Quimby",
+         "resolved" : false,
+         "url" : "https://app.honeybadger.io/projects/52910/faults/34436738",
+         "notices_count" : 2,
+         "klass" : "Faraday::ConnectionFailed"
+      },
+      {
+         "klass" : "Github::Error::BadRequest",
+         "url" : "https://app.honeybadger.io/projects/52910/faults/35228643",
+         "notices_count" : 1,
+         "resolved" : false,
+         "project_name" : "Quimby"
+      },
+      {
+         "resolved" : false,
+         "project_name" : "Quimby",
+         "klass" : "RestClient::Unauthorized",
+         "notices_count" : 1,
+         "url" : "https://app.honeybadger.io/projects/52910/faults/35064709"
+      }
+   ]
+}
