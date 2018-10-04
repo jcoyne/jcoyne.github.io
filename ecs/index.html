@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/deck/core/deck.core.css">
+    <link rel="stylesheet" href="../css/deck/themes/web-2.0.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/prism.ruby-default.css">
+    <script src="../js/modernizr.custom.js"></script>
+  </head>
+  <body class="home">
+
+  <article class="deck-container">
+    <section class="slide"  style="text-align: center">
+      <h2>Deployment with AWS Elastic Container Service</h2>
+      <h3>Justin Coyne</h3>
+      <h4>Stanford Libraries</h3>
+    </section>
+
+    <section class="slide">
+      <h2>An abbreviated history of cloud computing</h2>
+      <img src="cloud.jpg" title="cc by-nc-nd by Aristocrat https://www.flickr.com/photos/netphotography/15036969665">
+
+    </section>
+
+    <section class="slide">
+      <h2>In the beginning there was the server room</h2>
+      <img src="servers.jpg" title="cc by-nc-nd by Berkley Lab https://www.flickr.com/photos/berkeleylab/4157700219">
+
+    </section>
+
+    <section class="slide">
+      <h2>Then Jeff Bezos offered to rent you a virtual machine (2006)</h2>
+      <img src="bezos.jpg" title="cc by Steve Jurvetson https://www.flickr.com/photos/jurvetson/5129286606">
+    </section>
+
+    <section class="slide">
+      <h2>and it was good.</h2>
+      <img src="squirrel.jpg" title="CC by-nc loren chipman https://www.flickr.com/photos/97902275@N05/41767706762">
+      <aside>No need to deal with hardware or manage a server room.</aside>
+    </section>
+
+    <section class="slide">
+      <h2>Next containers appeared (2008)</h2>
+      <img src="docker_logo-1.png">
+      <aside>A container is a set of processes isolated from the rest of the system.
+        Allows us to manage a single service apart from the operating system itself.
+        Docker is the de facto container standard right now, although there are alternatives.
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h2>Container as a Service (CaaS)</h2>
+      <ul style="list-style: none">
+        <li style="display: inline-block;"><img src="acs.png" alt="Microsoft Azure Container Service"></li>
+        <li style="display: inline-block;"><img src="ecs.png" alt="AWS Elastic Container Service"></li>
+        <li style="display: inline-block;"><img src="droplet.svg" alt="DigitalOcean Droplet" style="height: 220px; width: 220px;"></li>
+        <li><img src="gke.png" alt="Google Kubernetes Engine"></li>
+      </ul>
+      <aside>These are hosting + orchestration services.  An orchestration service
+        organizes the individual containers that make up an application at the networking level.
+        Allows us to roll out new versions without disrupting users, scale up, etc.
+    </section>
+
+
+    <section class="slide">
+      <h1>Why use containers?</h1>
+    </section>
+
+    <section class="slide">
+      <h1>Consistent environment</h1>
+      <aside>
+        Containers give a great deal of power and responsibility to the developer.
+        You can run the same container image on your laptop as you deploy in production.
+
+        Far fewer "Works for me" issues and calls from ops team saying "why doesn't it deploy?"
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h1>Isolation</h1>
+      <aside>
+      Where on a virtual machine, the application might be dependent on the host operating system,
+      with containser, we're making all of our dependencies very clear.
+
+      This makes it possible to prevent problems like when database uses up all the memory and crashing the webserver.
+      Each of these processes is now operating in their own container, with their own resource allotment.
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h1>Run Anywhere</h1>
+      <aside>
+        The container images provide portability and version control.
+
+        We can run all the containers on one machine, run multiple copies of one image.
+        If one of our containers is using too many resources we can move that container to a different instance.
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h1>Better deployment</h1>
+      <aside>
+        I argue that pushing a container image is currently the best way to deploy a service.
+
+        Nothing to do on the server other than run the image and provide configuration
+        (typically via environment variables).
+
+        So, hopefully, you now understand why containers seem to be the future.
+      </aside>
+    </section>
+
+
+    <section class="slide">
+      <h2>Amazon Elastic Container Service (ECS)</h2>
+    </section>
+
+
+    <section class="slide">
+      <img src="choice.png">
+
+      <aside>
+        ECS has two modes, Fargate launch type and EC2 launch type.
+
+        With Fargate launch type, all you have to do is package your application
+        in containers, specify the CPU and memory requirements,
+        define networking and IAM policies, and launch the application.
+
+        EC2 launch type allows you to have server-level, more granular control
+        over the infrastructure that runs your container applications. With EC2
+        launch type, you can use Amazon ECS to manage a cluster of servers and
+        schedule placement of containers on the servers. You are responsible for
+        provisioning, patching, and scaling clusters of ec2 instances.
+
+        We've found that for our needs Fargate is far easier to set up and doesn't
+        have instances that we have to patch. It allows us to focus on delivering
+        value to the user.
+      </aside>
+    </section>
+
+    <section class="slide">
+      <img src="network.png">
+    </section>
+
+    <section class="slide">
+      <img src="launch.png">
+    </section>
+
+    <section class="slide">
+      <img src="task.png">
+    </section>
+
+    <section class="slide">
+      <img src="container.png">
+    </section>
+
+    <section class="slide">
+      <img src="launch-task.png">
+    </section>
+
+    <section class="slide">
+      <img src="service1.png">
+    </section>
+
+    <section class="slide">
+      <img src="service2.png">
+    </section>
+
+    <section class="slide">
+      <img src="service3.png">
+    </section>
+
+    <section class="slide">
+      <img src="service4.png">
+    </section>
+
+    <section class="slide">
+      <img src="launch-service.png">
+    </section>
+
+    <section class="slide">
+      <img src="logs.png">
+    </section>
+
+    <section class="slide">
+      <img src="port.png">
+    </section>
+
+    <section class="slide">
+      <img src="rails.png">
+    </section>
+
+    <section class="slide">
+      <h2>Cluster, Service, & Task</h2>
+      <aside>
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h2>Cost</h2>
+       <p>The price per vCPU is $0.00001406 per second ($36.43 per month) and
+         per GB memory is $0.00000353 per second ($9.14 per month).</p>
+
+        <p>~$600 per year</p>
+      <aside>
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h2>Hyrax's big flaw</h2>
+      <img src="hyrax-deploy.svg" style="height: 70vh; width: 80vw;">
+      <aside>
+        A long time ago, I was working with PSU and helped them make the expedient
+        decision that they could scale out their Sufia by just making sure all the nodes
+        had a shared file system. This worked well at the time, but requires a bit
+        of work by whomever manages your servers.  In retrospect, this was a bad
+        decision for the community as the shared file system approach makes Hyrax
+        hard to deploy in the cloud on a scalable infrastructure.
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h2>The Hyku Solution</h2>
+      <img src="hyku-deploy.svg" style="height: 70vh; width: 80vw;">
+      <aside>
+        When we started the Hyku project we hit this shared volume hurdle again.
+        We patched Hyrax so that it can use carrierwave-aws to store files on S3.
+      </aside>
+    </section>
+
+    <section class="slide">
+      <h1>Fin.</h1>
+    </section>
+
+
+  </article> <!-- deck-container -->
+  <p class="deck-status" aria-role="status">
+    <span class="deck-status-current"></span>
+    /
+    <span class="deck-status-total"></span>
+  </p>
+
+  <script src="../js/jquery.min.js"></script>
+
+  <script src="../js/deck/core/deck.core.js"></script>
+  <!-- <script src="./js/deck/extensions/goto/deck.goto.js"></script> -->
+  <!-- <script src="./js/deck/extensions/navigation/deck.navigation.js"></script> -->
+  <script src="../js/deck/extensions/status/deck.status.js"></script>
+  <!-- <script src="./js/deck/extensions/hash/deck.hash.js"></script> -->
+  <script src="../js/prism.ruby-default.js"></script>
+  <script src="../js/home.js"></script>
+  </body>
+</html>
