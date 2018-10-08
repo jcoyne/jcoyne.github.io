@@ -30,18 +30,38 @@
 
     <section class="slide">
       <h2>Then Jeff Bezos offered to rent you a virtual machine (2006)</h2>
-      <img src="bezos.jpg" title="cc by Steve Jurvetson https://www.flickr.com/photos/jurvetson/5129286606">
+      <img src="bezos.jpg" style="height: 65vh" title="cc by Steve Jurvetson https://www.flickr.com/photos/jurvetson/5129286606">
+
     </section>
 
     <section class="slide">
       <h2>and it was good.</h2>
-      <img src="squirrel.jpg" title="CC by-nc loren chipman https://www.flickr.com/photos/97902275@N05/41767706762">
-      <aside>No need to deal with hardware or manage a server room.</aside>
+      <img src="squirrel.jpg"  style="height: 70vh" title="CC by-nc loren chipman https://www.flickr.com/photos/97902275@N05/41767706762">
+      <aside>There's no longer need to deal with hardware or manage a server room.
+
+        What is our core competency in the library/repo/archive?
+        Delivering a repository service: preservation, access, discovery.
+        It is not in managing machines.
+        Cloud allows us to outsource things we need to do, but aren't part of our focus:
+        Negotiating with hardware vendors,
+        Payments,
+        Finding rack space,
+        Installing,
+        network connectivity,
+        cooling,
+        power
+        (and managing the hardware life cycle)
+
+        unless you have a legal requirement to have your own hardware,
+        or you have some funny accounting where your department is not directly
+        paying these costs, it's far more effective to pay AWS to do this work.
+
+      </aside>
     </section>
 
     <section class="slide">
-      <h2>Next containers appeared (2008)</h2>
-      <img src="docker_logo-1.png">
+      <h2>Containers appeared (2008)</h2>
+      <img src="docker_logo-1.png" style="height: 60vh" >
       <aside>A container is a set of processes isolated from the rest of the system.
         Allows us to manage a single service apart from the operating system itself.
         Docker is the de facto container standard right now, although there are alternatives.
@@ -56,7 +76,9 @@
         <li style="display: inline-block;"><img src="droplet.svg" alt="DigitalOcean Droplet" style="height: 220px; width: 220px;"></li>
         <li><img src="gke.png" alt="Google Kubernetes Engine"></li>
       </ul>
-      <aside>These are hosting + orchestration services.  An orchestration service
+      <aside>About 3 years back Containers as a Service offerings began showing up.
+
+        These are hosting + orchestration services.  An orchestration service
         organizes the individual containers that make up an application at the networking level.
         Allows us to roll out new versions without disrupting users, scale up, etc.
     </section>
@@ -67,7 +89,8 @@
     </section>
 
     <section class="slide">
-      <h1>Consistent environment</h1>
+      <h2>Consistent environment</h2>
+      <img src="consistency.jpg"  title="cc by-nc-nd by Adam Vogel https://www.flickr.com/photos/newt0/6614704109">
       <aside>
         Containers give a great deal of power and responsibility to the developer.
         You can run the same container image on your laptop as you deploy in production.
@@ -77,7 +100,9 @@
     </section>
 
     <section class="slide">
-      <h1>Isolation</h1>
+      <h2>Isolation</h2>
+      <img src="isolation.jpg" style="height: 70vh" title="cc by-nc by David Ingram https://www.flickr.com/photos/dingatx/8219989409">
+
       <aside>
       Where on a virtual machine, the application might be dependent on the host operating system,
       with containser, we're making all of our dependencies very clear.
@@ -88,7 +113,9 @@
     </section>
 
     <section class="slide">
-      <h1>Run Anywhere</h1>
+      <h2>Run Anywhere</h2>
+      <img src="run.jpg" style="height: 70vh" title="cc by-nc-nd by Mina Guli https://www.flickr.com/photos/run4water/33318217996">
+
       <aside>
         The container images provide portability and version control.
 
@@ -98,7 +125,8 @@
     </section>
 
     <section class="slide">
-      <h1>Better deployment</h1>
+      <h2>Better deployment</h2>
+      <img src="ankush-minda-549369-unsplash.jpg" style="height: 70vh" title="Photo by Ankush Minda on Unsplash ">
       <aside>
         I argue that pushing a container image is currently the best way to deploy a service.
 
@@ -112,6 +140,10 @@
 
     <section class="slide">
       <h2>Amazon Elastic Container Service (ECS)</h2>
+      <aside>
+        At Stanford we've been using ECS for over a year now and we're pretty
+        happy with out decision. I'm going to walk through what we do to spin this up.
+      </aside>
     </section>
 
 
@@ -119,6 +151,9 @@
       <img src="choice.png">
 
       <aside>
+        At Stanford we've been using ECS for over a year now and we're pretty
+        happy with out decision. I'm going to walk through what we do to spin this up.
+
         ECS has two modes, Fargate launch type and EC2 launch type.
 
         With Fargate launch type, all you have to do is package your application
@@ -127,7 +162,7 @@
 
         EC2 launch type allows you to have server-level, more granular control
         over the infrastructure that runs your container applications. With EC2
-        launch type, you can use Amazon ECS to manage a cluster of servers and
+        launch type, you can use Amazon ECS to manage a cluster of ec2 instances and
         schedule placement of containers on the servers. You are responsible for
         provisioning, patching, and scaling clusters of ec2 instances.
 
@@ -187,20 +222,40 @@
 
     <section class="slide">
       <img src="rails.png">
+      <aside>
+        And that's it! You're up and running.
+
+        At Stanford, we prefer to not click through this stuff, we use Terraform
+        to build this, but we *could* build it this way if we wanted to.
+        We only prefer to keep our infrastructure configuration managed in Git.
+
+        There are a few other steps we may have used in production, such as setting
+        up an Application load balancer to do port forwarding, but thats orthagonal
+        to actually using containers.
+      </aside>
     </section>
 
     <section class="slide">
-      <h2>Cluster, Service, & Task</h2>
+      <h2>AWS Terms</h2>
+      <ul>
+        <li>Cluster - e.g.: The production environment</li>
+        <li>Service - Network, Load balance, Auto scale</li>
+        <li>Task - Which containers should I run and how many resources</li>
+      </ul>
       <aside>
       </aside>
     </section>
 
     <section class="slide">
       <h2>Cost</h2>
-       <p>The price per vCPU is $0.00001406 per second ($36.43 per month) and
+       <p class="slide">The price per vCPU is $0.00001406 per second ($36.43 per month) and
          per GB memory is $0.00000353 per second ($9.14 per month).</p>
 
-        <p>~$600 per year</p>
+        <p class="slide">~$600 per year</p>
+
+        <p class="slide">You can turn it off when you're not using it!</p>
+
+        <p class="slide">Set up autoscaling to add capacity when you need it and scale back when you don't.</p>
       <aside>
       </aside>
     </section>
@@ -224,6 +279,25 @@
       <aside>
         When we started the Hyku project we hit this shared volume hurdle again.
         We patched Hyrax so that it can use carrierwave-aws to store files on S3.
+      </aside>
+    </section>
+
+
+    <section class="slide">
+      <h1>How can we make Hyrax make better use of containers? </h1>
+      <aside>
+        I see Valkyrie playing an important role here -- mediating between services and
+        the application layer.
+
+        In the future, I'd like to see the Hyrax road map consider ActiveStorage for
+        managing uploads and explore ElasticSearch (instead of Solr)
+
+        I think we should increase our investment in Hyku (or another "ready to go" solution)
+        and encourage people to start there. Hyku already has Docker compose files
+        and Cloud Formation scripts.
+
+        I'd like to see people who don't want to use AWS to look at Docker so that
+        everyone can deploy the same way.
       </aside>
     </section>
 
