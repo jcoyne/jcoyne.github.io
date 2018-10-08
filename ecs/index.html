@@ -18,7 +18,7 @@
 
     <section class="slide">
       <h2>An abbreviated history of cloud computing</h2>
-      <img src="cloud.jpg" title="cc by-nc-nd by Aristocrat https://www.flickr.com/photos/netphotography/15036969665">
+      <img src="cloud.jpg"  style="height: 60vh" title="cc by-nc-nd by Aristocrat https://www.flickr.com/photos/netphotography/15036969665">
 
     </section>
 
@@ -85,7 +85,8 @@
 
 
     <section class="slide">
-      <h1>Why use containers?</h1>
+      <h2 style="display:none ">Why use containers?</h2>
+      <img style="height: 100vh" src="ken-treloar-346065-unsplash.jpg" title="Photo by Ken Treloar on Unsplash">
     </section>
 
     <section class="slide">
@@ -126,7 +127,7 @@
 
     <section class="slide">
       <h2>Better deployment</h2>
-      <img src="ankush-minda-549369-unsplash.jpg" style="height: 70vh" title="Photo by Ankush Minda on Unsplash ">
+      <img src="ankush-minda-549369-unsplash.jpg" style="height: 70vh" title="Photo by Ankush Minda on Unsplash">
       <aside>
         I argue that pushing a container image is currently the best way to deploy a service.
 
@@ -239,8 +240,8 @@
       <h2>AWS Terms</h2>
       <ul>
         <li>Cluster - e.g.: The production environment</li>
-        <li>Service - Network, Load balance, Auto scale</li>
         <li>Task - Which containers should I run and how many resources</li>
+        <li>Service - Network, Load balance, Auto scale</li>
       </ul>
       <aside>
       </aside>
@@ -264,9 +265,10 @@
       <h2>Hyrax's big flaw</h2>
       <img src="hyrax-deploy.svg" style="height: 70vh; width: 80vw;">
       <aside>
-        A long time ago, I was working with PSU and helped them make the expedient
-        decision that they could scale out their Sufia by just making sure all the nodes
-        had a shared file system. This worked well at the time, but requires a bit
+        A long time ago, I was working with PSU and they had some capacity problems.
+        I helped them make the expedient decision that they could scale out their
+        Sufia by just making sure all the nodes had a shared file system.
+        This worked well at the time, but requires a bit
         of work by whomever manages your servers.  In retrospect, this was a bad
         decision for the community as the shared file system approach makes Hyrax
         hard to deploy in the cloud on a scalable infrastructure.
@@ -279,25 +281,28 @@
       <aside>
         When we started the Hyku project we hit this shared volume hurdle again.
         We patched Hyrax so that it can use carrierwave-aws to store files on S3.
+
+        Unfortunately this is not the default, and this ties us to AWS.
+        In the future, I'd like to see the Hyrax road map consider ActiveStorage for
+        managing uploads.
       </aside>
     </section>
 
 
     <section class="slide">
-      <h1>How can we make Hyrax make better use of containers? </h1>
+      <h2>How can we make Hyrax make better use of containers?</h2>
       <aside>
         I see Valkyrie playing an important role here -- mediating between services and
         the application layer.
 
-        In the future, I'd like to see the Hyrax road map consider ActiveStorage for
-        managing uploads and explore ElasticSearch (instead of Solr)
+        Explore ElasticSearch (instead of Solr)
 
         I think we should increase our investment in Hyku (or another "ready to go" solution)
         and encourage people to start there. Hyku already has Docker compose files
-        and Cloud Formation scripts.
+        and Cloud Formation scripts. Currently these are targeted at a service provider, but
+        there's no reason these couldn't be standalone.
 
-        I'd like to see people who don't want to use AWS to look at Docker so that
-        everyone can deploy the same way.
+        I'd like to see Docker being the default way to deploy Hyrax, even if you don't use ECS
       </aside>
     </section>
 
