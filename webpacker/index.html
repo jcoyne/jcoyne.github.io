@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../css/deck/core/deck.core.css">
-    <link rel="stylesheet" href="../css/deck/themes/web-2.0.css">
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="../css/prism.ruby-default.css">
-    <script src="../js/modernizr.custom.js"></script>
-  </head>
-  <body class="home">
 
-  <article class="deck-container">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/black.css" id="theme">
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Fjalla+One&display=swap" rel="stylesheet">
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+  <style>
+    .reveal h1, .reveal h2, .reveal h3 {
+
+      font-family: 'Luckiest Guy', cursive;
+
+    }
+
+    .reveal, .reveal h4, .reveal h5 {
+
+      font-family: 'Fjalla One', cursive;
+
+    }
+
+  </style>
+  </head>
+
+  <body class="home">
+  <div class="reveal">
+  <article class="slides">
+    <section class="slide">
+      <h2>Get on board</h2>
+      <pre>git clone https://github.com/jcoyne/samvera_connect_north_by.git
+
+bundle install
+yarn install
+
+./bin/rails db:seed
+./bin/rails server # http://localhost:3000/
+</pre>
+<p>The toggle buttons should not work</p>
+<a href="http://bit.ly/sc2019-stimulus">http://bit.ly/sc2019-stimulus</a>
+
+    </section>
+
     <section class="slide"  style="text-align: center">
-      <h2>Frontends with Webpacker and Stimulus</h2>
+      <h1>Frontends with Webpacker and Stimulus</h1>
       <h3>Justin Coyne</h3>
       <h4>Stanford Libraries</h4>
       <h4>Samvera Connect - October 2019</h4>
@@ -28,30 +60,280 @@
     </section>
 
     <section class="slide">
-      <h2>Ground rules</h2>
-      <ul>
-        <li>We're all here to learn -- ask question</li>
-        <li>Work together</li>
+      <h1>Ground rules:</h1>
+    </section>
+
+    <section class="slide">
+      <h1>We're all here to learn -- ask question</h1>
+    </section>
+
+    <section class="slide">
+      <section>
+        <h1>Work together</h1>
+      </section>
+      <section>
+        <h2>if you are comfortable doing so.</h2>
+      </section>
+    </section>
+
+    <section class="slide">
+      <h1>We have a rails app</h1>
+    </section>
+
+    <section class="slide">
+      <h1>We want to improve the user experience</h1>
+    </section>
+
+    <section class="slide">
+      <h1>But we don't need a single page app</h1>
+    </section>
+
+    <section class="slide">
+      <h1>Logistics</h1>
+    </section>
+
+    <section class="slide">
+      <h2>How do we convert our code into something that the browser will understand?</h2>
+    </section>
+
+    <section class="slide">
+      <h1>Webpack(er)</h1>
+    </section>
+
+    <section class="slide">
+      <ul style="font-size: larger">
+        <li>Bundling</li>
+        <li>Transpiling (using Babel)</li>
+        <li>Linking in 3rd party libraries</li>
       </ul>
     </section>
 
     <section class="slide">
-      <h2>Get on board</h2>
-      <pre><code>git clone
-bundle install
-yarn install
-./bin/rails db:seed
-./bin/rails server # http://localhost:3000/
-</code>
-</pre>
-<p>The toggle buttons should not work</p>
+      <h2>How do we provide structure to our non-SPA front end?</h2>
     </section>
 
     <section class="slide">
-      <h2>Get on board</h2>
-      <a href="http://bit.ly/sc2019-stimulus">http://bit.ly/sc2019-stimulus</a>
+      <h1>Stimulus</h1>
     </section>
 
+    <section class="slide">
+      <h2>"A modest Javascript framework for the HTML you already have"</h2>
+    </section>
+
+    <section class="slide">
+      <h1>Stimulus has 4 concepts</h1>
+    </section>
+
+    <section class="slide">
+      <ul style="font-size: 40pt">
+        <li>Controllers</li>
+        <li>Actions</li>
+        <li>Targets</li>
+        <li>Data Maps</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h1>Controllers</h1>
+    </section>
+
+    <section class="slide">
+      <h1>A controller is where stimulus code is executed</h1>
+    </section>
+
+    <section class="slide">
+      <h1>A controller is bound to a DOM element</h1>
+    </section>
+
+
+    <section>
+      <pre style="font-size: 0.7em"><code class="javascript">// src/controllers/hello_controller.js
+import { Controller } from "stimulus"
+
+export default class extends Controller {
+}
+</code></pre>
+    </section>
+
+    <section>
+      <h4>Identifiers link the DOM to the Controller</h4>
+      <pre style="font-size: 0.7em"><code class="html" data-line-numbers="1"><div data-controller="hello">
+  <input type="text">
+  <button>Greet</button>
+</div>
+</code></pre>
+    </section>
+
+    <section>
+      <h1>Action</h1>
+    </section>
+
+    <section>
+      <h1>Actions respond to DOM events</h1>
+    </section>
+
+    <section class="slide">
+      <pre style="font-size: 0.7em"><code class="javascript">// src/controllers/hello_controller.js
+import { Controller } from "stimulus"
+
+export default class extends Controller {
+  greet() {
+    console.log("Hello, Stimulus!", this.element)
+  }
+}
+</code></pre>
+    </section>
+
+    <section>
+      <pre><code class="html" data-line-numbers="3"><div data-controller="hello">
+  <input type="text">
+  <button data-action="click->hello#greet">Greet</button>
+</div>
+</code></pre>
+    </section>
+
+
+    <section>
+      <h1>Targets</h1>
+    </section>
+
+    <section>
+      <h1>Targets Map Important Elements To Controller Properties</h1>
+    </section>
+
+    <section>
+      <pre><code class="html" data-line-numbers="2"><div data-controller="hello">
+  <input data-target="hello.name" type="text">
+  <button data-action="click->hello#greet">Greet</button>
+</div>
+</code></pre>
+    </section>
+
+    <section class="slide">
+      <pre style="font-size: 0.7em"><code class="javascript">// src/controllers/hello_controller.js
+import { Controller } from "stimulus"
+
+export default class extends Controller {
+  static targets = [ "name" ]
+
+  greet() {
+    const element = this.nameTarget
+    const name = element.value
+    console.log(`Hello, ${name}!`)
+  }
+}
+</code></pre>
+    </section>
+
+    <section class="slide">
+      <pre style="font-size: 0.7em"><code class="javascript">export default class extends Controller {
+  static targets = [ "name" ]
+
+  greet() {
+    console.log(`Hello, ${this.name}!`)
+  }
+
+  get name() {
+    return this.nameTarget.value
+  }
+}
+</code></pre>
+    </section>
+
+
+    <section>
+      <h1>Let's try it together</h1>
+    </section>
+
+    <section>
+      <h1>All the stuff to enter can be found at:</h1>
+      <h5><a href="http://bit.ly/sc2019-stimulus">http://bit.ly/sc2019-stimulus</a></h5>
+    </section>
+
+    <section class="slide">
+      <h5>app/views/schedule/show.html.erb:29-30</h5>
+      <pre style="font-size: 0.5em"><code class="html" data-line-numbers="3">&lt;section class="day-body"
+  id="day-body:<%= schedule_day.day.by_example("2006-01-02") %>"
+  data-controller="toggle">
+</code></pre>
+    </section>
+
+    <section>
+      <h3>Then open the controller at:</h3><pre style="text-align: center">app/javascript/controllers/toggle_controller.js</pre>
+    </section>
+
+    <section class="slide">
+      <pre style="font-size: 0.7em"><code class="javascript">import { Controller } from "stimulus"
+
+export default class extends Controller {
+  connect() {
+    console.log("The Controller is Connected")
+  }
+}
+</code></pre>
+    </section>
+
+    <section>
+      <h1>Reload the page</h1>
+    </section>
+
+    <section>
+      <h5>You'll see in the log:</h5>
+      <pre>[Webpacker] Compiling...</pre>
+    </section>
+
+
+    <section>
+      <h2>and the message in the Javascript console</h2>
+    </section>
+
+
+    <section>
+      <h1>Action</h1>
+    </section>
+
+    <section class="slide">
+      <h5>app/views/works/index.html.erb:14</h5>
+      <pre style="font-size: 0.5em"><code class="html">Files: <button data-action="click->toggle#toggle">Hide</button>
+
+</code></pre>
+    </section>
+
+    <section class="slide">
+      <h5>app/javascript/controllers/toggle_controller.js</h5>
+
+      <pre style="font-size: 0.7em"><code class="javascript">toggle() {
+  console.log("click")
+}
+</code></pre>
+    </section>
+
+    <section>
+      <h2>An action associates an arbitrary event with a controller method</h2>
+      <pre style="text-align: center; font-size: larger">event->controller#method</pre>
+    </section>
+
+    <section>
+      <h2>When the event is emitted, Stimulus invokes the controller method</h2>
+    </section>
+
+    <section>
+      <h3>The HTML element that triggers the event must be contained by the element the controller is bound to.</h3>
+    </section>
+
+    <section>
+      <h1>Target</h1>
+    </section>
+
+    <section>
+      <h1>A target is an HTML element of interest to the controller</h1>
+    </section>
+
+    <section class="slide">
+      <h5>app/views/schedule/show.html.erb:39</h5>
+      <pre style="font-size: 0.5em"><code class="html">&lt;section data-target="toggle.thingToHide">
+</code></pre>
+    </section>
 
     <section class="slide">
       <h1>Fin.</h1>
@@ -59,20 +341,23 @@ yarn install
 
 
   </article> <!-- deck-container -->
+</div>
   <p class="deck-status" aria-role="status">
     <span class="deck-status-current"></span>
     /
     <span class="deck-status-total"></span>
   </p>
 
-  <script src="../js/jquery.min.js"></script>
-
-  <script src="../js/deck/core/deck.core.js"></script>
-  <!-- <script src="./js/deck/extensions/goto/deck.goto.js"></script> -->
-  <!-- <script src="./js/deck/extensions/navigation/deck.navigation.js"></script> -->
-  <script src="../js/deck/extensions/status/deck.status.js"></script>
-  <!-- <script src="./js/deck/extensions/hash/deck.hash.js"></script> -->
-  <script src="../js/prism.ruby-default.js"></script>
-  <script src="../js/home.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+			Reveal.initialize({
+        dependencies: [
+          // Syntax highlight for <code> elements
+          { src: 'plugin/highlight/highlight.js', async: true },
+          // Jump to a slide by typing in the number
+          { src: 'plugin/jump/jump.js', async: true }
+        ]
+      })
+	</script>
   </body>
 </html>
