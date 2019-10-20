@@ -10,15 +10,15 @@
 	<link rel="stylesheet" href="lib/css/monokai.css">
   <style>
     .reveal h1, .reveal h2, .reveal h3 {
-
       font-family: 'Luckiest Guy', cursive;
-
     }
 
     .reveal, .reveal h4, .reveal h5 {
-
       font-family: 'Fjalla One', cursive;
+    }
 
+    .reveal pre {
+      width: 100%;
     }
 
   </style>
@@ -279,7 +279,7 @@ export default class extends Controller {
 
     <section>
       <h5>You'll see in the log:</h5>
-      <pre>[Webpacker] Compiling...</pre>
+      <pre style="font-size: larger">[Webpacker] Compiling...</pre>
     </section>
 
 
@@ -292,14 +292,14 @@ export default class extends Controller {
       <h1>Action</h1>
     </section>
 
-    <section class="slide">
+    <section>
       <h5>app/views/works/index.html.erb:14</h5>
       <pre style="font-size: 0.5em"><code class="html">Files: <button data-action="click->toggle#toggle">Hide</button>
 
 </code></pre>
     </section>
 
-    <section class="slide">
+    <section>
       <h5>app/javascript/controllers/toggle_controller.js</h5>
 
       <pre style="font-size: 0.7em"><code class="javascript">toggle() {
@@ -331,26 +331,330 @@ export default class extends Controller {
 
     <section class="slide">
       <h5>app/views/schedule/show.html.erb:39</h5>
-      <pre style="font-size: 0.5em"><code class="html">&lt;section data-target="toggle.thingToHide">
+      <pre><code class="html">&lt;section data-target="toggle.thingToHide">
 </code></pre>
     </section>
 
+    <section>
+      <h2>...and then register with the controller</h5>
+
+      <pre style="font-size: 0.7em"><code class="javascript">static targets = ["thingsToHide"]
+</code></pre>
+    </section>
+
+    <section>
+      <h2>Targets make it easy to look up elements of interest</h5>
+
+      <ul style="font-family: monospace">
+        <li>this.thingsToHideTarget</li>
+        <li>this.thingsToHideTargets</li>
+        <li>this.hasThingToHideTarget</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Let's update our action</h1>
+    </section>
+
+    <section>
+      <pre style="font-size: 0.65em"><code class="javascript">toggle() {
+  this.thingsToHideTarget.classList.toggle("is-hidden")
+}
+</code></pre>
+    </section>
+
+
+    <section>
+      <h1>Data Map</h1>
+    </section>
+
+
+    <section>
+      <h2>A Data Map allows you to associate data with a controller</h2>
+    </section>
+
     <section class="slide">
+      <h5>app/views/schedule/show.html.erb:29-30</h5>
+      <pre style="font-size: 0.5em"><code class="html" data-line-numbers="4">&lt;section class="day-body"
+  id="day-body:<%= schedule_day.day.by_example("2006-01-02") %>"
+  data-controller="toggle"
+  data-toggle-hidden="false">
+</code></pre>
+    </section>
+
+    <section>
+      <h2>Data maps belong to the controller</h2>
+      <pre style="text-align: center; font-size: larger">data-controllerName-key</pre>
+      <ul style="font-family: monospace">
+        <li>get(key)</li>
+        <li>has(key)</li>
+        <li>set(key, stringValue)</li>
+        <li>delete(key)</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h5>If we add another target</h5>
+      <pre><code class="html"><span data-target="toggle.text">Hide</span>
+</code></pre>
+    </section>
+
+    <section>
+      <h2>We can tie it all together</h2>
+    </section>
+
+    <section class="slide">
+      <pre style="font-size: 0.5em"><code class="javascript" data-line-numbers>import { Controller } from "stimulus"
+
+export default class extends Controller {
+  static targets = ["text", "thingToHide"]
+
+  isHidden() { return this.data.get("hidden") === "true" }
+
+  flip() { this.data.set("hidden", this.isHidden() ? "false" : "true") }
+
+  toggle() {
+    this.flip()
+    this.thingToHideTarget.classList.toggle("is-hidden", this.isHidden())
+    this.textTarget.innerText = this.isHidden() ? "Show" : "Hide"
+  }
+}
+</code></pre>
+    </section>
+
+
+    <section>
+      <h1>Why Stimulus</h1>
+    </section>
+
+    <section>
+      <h2>Low overhead</h2>
+    </section>
+
+    <section>
+      <h2>Easy to follow</h2>
+    </section>
+
+    <section>
+      <h2>Remove boilerplate event binding</h2>
+    </section>
+
+    <section>
+      <h2>Predictable file structure</h2>
+    </section>
+
+    <section>
+      <h2>Easy to write small modular effects</h2>
+    </section>
+
+    <section>
+      <h2>Great at handling dynamic changes to the page</h2>
+    </section>
+
+
+    <section>
+      <h1>Why not Stimulus</h1>
+    </section>
+
+    <section>
+      <h2>No router / SPA</h2>
+    </section>
+
+    <section>
+      <h2>Not super-helpful if there's a lot of state</h2>
+    </section>
+
+    <section>
+      <h1>Webpack</h1>
+    </section>
+
+    <section>
+      <h2>"At its core, webpack is a <em>static module bundler</em> for modern JavaScript applications"</h2>
+    </section>
+
+    <section class="slide">
+      <ul style="font-size: larger">
+        <li>Entry</li>
+        <li>Output</li>
+        <li>Loaders / Plugins</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Entry</h1>
+      <p>A file that references other files in use</p>
+    </section>
+
+    <section>
+      <h2>Webpack uses entry points to build a dependency graph</h2>
+    </section>
+
+    <section>
+      <h1>Output</h1>
+      <p>where the bundle ends up</p>
+      <p>often a single file</p>
+    </section>
+
+    <section>
+      <h1>Loaders</h1>
+      <p>transform files</p>
+    </section>
+
+    <section>
+      <h1>For Example</h1>
+      <p>Typescript compiler</p>
+      <p>CSS loader</p>
+      <p>File loader</p>
+    </section>
+
+    <section>
+      <h2>So what is Webpacker?</h2>
+    </section>
+
+    <section>
+      <h2>"Webpacker makes it easy to use webpack to manage JavaScript in Rails"</h2>
+    </section>
+
+    <section>
+      <p>Useful defaults</p>
+      <p>Makes some behavior easier to override</p>
+    </section>
+
+    <section>
+      <h2>Webpacker is the default for new Rails 6 apps</h2>
+    </section>
+
+    <section>
+      <h5 style="font-family: monospace">./bin/rails webpacker:install</h5>
+    </section>
+
+    <section class="slide">
+      <h3>Providing defaults for</h3>
+      <ul>
+        <li>React</li>
+        <li>Angular</li>
+        <li>Vue</li>
+        <li>Elm</li>
+        <li>... and more</li>
+      </ul>
+    </section>
+
+    <section class="slide">
+      <h3>and support for</h3>
+      <ul >
+        <li>Rails helpers</li>
+        <li>Erb</li>
+        <li>asset compression</li>
+        <li>code splitting</li>
+        <li>images and fonts</li>
+        <li>... and more</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Important files:</h2>
+    </section>
+
+    <section style="font-family: monospace">
+      <p>package.json</p>
+
+      <p>/node_modules</p>
+    </section>
+
+    <section style="font-family: monospace">
+      <p>config/webpacker.yml</p>
+
+      <p>config/webpack/</p>
+    </section>
+
+    <section style="font-family: monospace">
+      <p>babel.config.js</p>
+
+      <p>postcss.config.js</p>
+    </section>
+
+    <section>
+      <h2>Conventions:</h2>
+    </section>
+
+    <section>
+      <h2>Any file in <span style="font-family: monospace; font-size: smaller">application/javascript/packs</span>
+      is considered and entry point for a pack</h2>
+    </section>
+
+    <section>
+      <h2>Adding <span style="font-family: monospace">javascript_pack_tag</span> or
+         <span style="font-family: monospace">stylesheet_pack_tag</span>
+      adds the pack to the page</h2>
+    </section>
+
+
+    <section>
+      <p><strong>Pro tip:</strong> If you have both JS and CSS in the same pack,
+        import them both in the same
+         <span style="font-family: monospace">.js</span> file, and use both
+         <span style="font-family: monospace">javascript_pack_tag</span> and
+            <span style="font-family: monospace">stylesheet_pack_tag</span>
+      to load them</p>
+    </section>
+
+    <section>
+      <h2>Rails automatically compiles when you hit a page in development</h2>
+    </section>
+
+    <section>
+      <h2>Or you can use</h2>
+      <h5 style="font-family: monospace">webpack-dev-server</h5>
+    </section>
+
+    <section>
+      <h2>which compiles when files change</h2>
+    </section>
+
+    <section>
+      <h2>and live reloads</h2>
+    </section>
+
+    <section>
+      <h1>Hands On</h1>
+    </section>
+
+    <section>
+      <h1>TODO</h1>
+    </section>
+
+    <section>
+      <h1>Takeaways</h1>
+    </section>
+
+    <section>
+      <h2>Webpack and Webpacker are there to help you write the code the way you want to...</h2>
+    </section>
+
+    <section>
+      <h2>And deliver it to the browser as needed</h2>
+    </section>
+
+    <section>
+      <h2>Stimulus is great for small JS interactions that aren't SPA worthy</h2>
+    </section>
+
+    <section>
       <h1>Fin.</h1>
+    </section>
+
+    <section>
+      <h2>Special thanks to Noel Rappin who first presented this workshop at RailsConf 2019</h2>
     </section>
 
 
   </article> <!-- deck-container -->
 </div>
-  <p class="deck-status" aria-role="status">
-    <span class="deck-status-current"></span>
-    /
-    <span class="deck-status-total"></span>
-  </p>
 
   <script src="js/reveal.js"></script>
   <script>
 			Reveal.initialize({
+        slideNumber: true,
         dependencies: [
           // Syntax highlight for <code> elements
           { src: 'plugin/highlight/highlight.js', async: true },
