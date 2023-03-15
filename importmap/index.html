@@ -14,7 +14,7 @@
       }
     }
     </script>
-
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0 /dist/es-module-shims.js" crossorigin="anonymous"></script>
   <!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai.css">
   <style>
@@ -65,7 +65,7 @@
 
 		<section>
       <pre>
-<code>
+<code class="html">
   &lt;script type="importmap"&gt;
     {
       "imports": {
@@ -99,18 +99,43 @@
     </section>
 
     <section>
-      Easier debugging
+      <p>Easier debugging</p>
     </section>
 
     <section>
-      Many small files offers better caching dynamics.
+      <p>Many small files offers better caching dynamics.</p>
+    </section>
+
+    <section>
+      <h2>Dogfooding</h2>
+    </section>
+
+    <section>
+      <h3>Caveat</h3>
+      <p>
+      Not yet supported on Safari 16.3 (but will be in 16.4; not yet released)
+    </p>
+      <pre>
+<code>
+&lt;script async
+src="https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js"
+crossorigin="anonymous"&gt;&lt;/script&gt;
+</code>        
+      </pre>
+    </section>
+
+
+    <section>
+      <h5>Links:</h5>
+      <ul>
+        <li><a href="https://generator.jspm.io">https://generator.jspm.io</a></li>
+        <li><a href="https://caniuse.com/import-maps">https://caniuse.com/import-maps</a></li>
+      </ul>
     </section>
 
     <section>
       <h1>Fin.</h1>
     </section>
-
-
   </article>
   </div>
 
