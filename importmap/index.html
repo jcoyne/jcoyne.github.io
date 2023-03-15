@@ -5,7 +5,17 @@
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/black.css" id="theme">
   <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Fjalla+One&display=swap" rel="stylesheet">
-	<!-- Theme used for syntax highlighting of code -->
+
+  <script type="importmap">
+    {
+      "imports": {
+        "reveal": "https://ga.jspm.io/npm:reveal.js@4.4.0/dist/reveal.esm.js",
+        "highlight": "https://ga.jspm.io/npm:reveal.js@4.4.0/plugin/highlight/highlight.esm.js"
+      }
+    }
+    </script>
+
+  <!-- Theme used for syntax highlighting of code -->
 	<link rel="stylesheet" href="lib/css/monokai.css">
   <style>
     .reveal h1, .reveal h2, .reveal h3 {
@@ -85,7 +95,7 @@
     </section>
 
     <section>
-      No need for transpiling and bundling (webpacker/rollup/esbuild)
+      <p>No need for transpiling and bundling<br>(webpacker/rollup/esbuild)</p>
     </section>
 
     <section>
@@ -104,17 +114,15 @@
   </article>
   </div>
 
-  <script src="js/reveal.js"></script>
-  <script>
-			Reveal.initialize({
-        slideNumber: true,
-        dependencies: [
-          // Syntax highlight for <code> elements
-          { src: 'plugin/highlight/highlight.js', async: true },
-          // Jump to a slide by typing in the number
-          { src: 'plugin/jump/jump.js', async: true }
-        ]
-      })
+  <script type="module">
+    import Reveal from 'reveal'
+    // Syntax highlight for <code> elements
+    import Highlight from 'highlight'
+
+    Reveal.initialize({
+      slideNumber: true,
+      plugins: [ Highlight ]
+    })
 	</script>
   </body>
 </html>
