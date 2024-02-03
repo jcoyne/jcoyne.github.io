@@ -94,6 +94,107 @@
             <li>Not everyone wants their content used to train AIs</li>
           </ul>
         </section>
+
+				<section>
+					<h2>What are we going to do today?</h2>
+					<p>Using a pretrained model to generate embedding vectors and perform a similarity search</p>
+        </section>
+
+				<section>
+					<h2>Whazzat?</h2>
+					<p>We will select a model that can transform a sentence or short snippet of text into a vector that
+						represents the semantics of the text.  This vector is called an embedding.
+						We can use these embeddings to compare semantic meanings.
+					</p>
+        </section>
+
+				<section>
+					<h2>The model</h2>
+					<p>
+						<a href="https://www.sbert.net/">Sentence Transformers</a> based on the paper https://arxiv.org/abs/1908.10084
+						<img src="paper.png" style="height: 40vh; display: block; margin-left:auto; margin-right: auto">
+					</p>
+        </section>
+
+
+				<section>
+					<h2>Hugging face</h2>
+					<p>
+						The Github of AI things.
+						🤗
+					</p>
+					<a href="https://huggingface.co/">https://huggingface.co/</a>
+        </section>
+
+				<section>
+					<h2>Massive Text Embedding Benchmark (MTEB)</h2>
+					<p>
+						<a href="https://huggingface.co/blog/mteb">https://huggingface.co/blog/mteb</a>
+
+						<ul>
+							<li>Embedding dimensions - How big is the resulting vector?</li>
+							<li>Max Tokens - How much input can it accept?</li>
+						</ul>
+					</p>
+        </section>
+
+				<section>
+					<h2>Examine a model</h2>
+					<a href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2">sentence-transformers/all-MiniLM-L6-v2</a>
+
+				</section>
+
+
+				<section>
+					<h2>Tokenizer</h2>
+					<p>
+						Breaks down sentence into pieces called tokens.  Assigns each token a unique id number.
+					</p>
+					<a href="https://platform.openai.com/tokenizer">https://platform.openai.com/tokenizer</a>
+        </section>
+
+				<section>
+					<h2>Produce an embedding</h2>
+					<a href="https://github.com/jcoyne/code4lib-2024-ai-workshop/tree/explore-embeddings">https://github.com/jcoyne/code4lib-2024-ai-workshop/tree/explore-embeddings</a>
+				</section>
+
+				<section>
+					<h2>Compairing vectors</h2>
+					<p>
+						<a href="https://medium.com/advanced-deep-learning/understanding-vector-similarity-b9c10f7506de"
+>https://medium.com/advanced-deep-learning/understanding-vector-similarity-b9c10f7506de</a>
+					</p>
+        </section>
+
+				<section>
+					<h2>Using Pgvector</h2>
+					<p>
+						<a href="https://github.com/pgvector/pgvector"
+>https://github.com/pgvector/pgvector</a>
+
+						Pgvector is an extension for postgres to support vector types and some similarity algorithms.
+					</p>
+        </section>
+
+
+				<section>
+					<h2>Problems and solutions</h2>
+					<ul>
+						<li>Comparing vectors is expensive, especially as the number of vectors grows.</li>
+						<li>Comparing vectors is expensive, especially as the dimensionality of vectors grows.</li>
+						<li>Embedding models have a limit on the number of tokens</li>
+					</ul>
+        </section>
+
+				<section>
+						<p>Comparing vectors is expensive, especially as the number of vectors grows.</p>
+        </section>
+				<section>
+					<p>Comparing vectors is expensive, especially as the dimensionality of vectors grows.</p>
+				</section>
+				<section>
+					<p>Embedding models have a limit on the number of tokens</p>
+				</section>
 			</div>
 		</div>
 
