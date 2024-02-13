@@ -158,6 +158,29 @@
         </section>
 
 				<section>
+					<h2>Using Pgvector</h2>
+					<p>
+						<a href="https://github.com/pgvector/pgvector"
+>https://github.com/pgvector/pgvector</a>
+
+						Pgvector is an extension for postgres to support vector types and some similarity algorithms.
+					</p>
+        </section>
+
+				<section>
+					<h2>Using Pgvector</h2>
+					<pre><code>
+						CREATE EXTENSION vector;
+
+						CREATE TABLE courses(
+							id          SERIAL PRIMARY KEY,
+							title       varchar(200),
+							description text,
+							embedding   vector(384));
+					</code></pre>
+				</section>
+
+				<section>
 					<h2>Produce an embedding</h2>
 					<a href="https://github.com/jcoyne/code4lib-2024-ai-workshop/tree/explore-embeddings">https://github.com/jcoyne/code4lib-2024-ai-workshop/tree/explore-embeddings</a>
 				</section>
@@ -169,17 +192,6 @@
 >https://medium.com/advanced-deep-learning/understanding-vector-similarity-b9c10f7506de</a>
 					</p>
         </section>
-
-				<section>
-					<h2>Using Pgvector</h2>
-					<p>
-						<a href="https://github.com/pgvector/pgvector"
->https://github.com/pgvector/pgvector</a>
-
-						Pgvector is an extension for postgres to support vector types and some similarity algorithms.
-					</p>
-        </section>
-
 
 				<section>
 					<h2>Problems and solutions</h2>
