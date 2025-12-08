@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>What is new in Blacklight - Blacklight Summit 2025</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <style>
+      :root {
+        --r-heading-text-transform: none;
+      }
+    </style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+          <h1>What's New in Blacklight 9</h1>
+          <h2>Justin Coyne / Stanford University Libraries</h2>
+					<aside class="notes">
+						Press 's' for speaker view.
+					</aside>
+        </section>
+
+				<section>
+					<h1>Removing Hurdles</h1>
+	        <img src="nodejsStackedLight.svg" alt="Node js logo" style="width: 30%; height: auto;">
+				</section>
+
+        <section>
+					<h1>Easy Styling with CSS Variables</h1>
+					<pre>
+					<code>
+					:root {
+					    --bl-primary-color: #902048;
+          }
+					</code>
+					</pre>
+				</section>
+
+				<section>
+					<h1>Bootstrap 5</h1>
+					<img src="bootstrap-logo-shadow@2x.png" alt="Bootstrap logo" style="width: 30%; height: auto;">
+				</section>
+
+				<section>
+					<h1>Accessible to All</h1>
+					<h2 style="font-size: 120pt">✊</h2>
+				</section>
+
+				<section>
+					<h1>Better, Simpler Components</h1>
+				</section>
+
+				<section>
+					<h1>Spring cleaning</h1>
+					<h2 style="font-size: 120pt">🧹 ✨</h2>
+				</section>
+
+				<section>
+					<h2>The Road to ElasticSearch</h2>
+			    <img src="pexels-joshsorenson-977603.jpg" alt="road sign pointing opposite directions" style="">
+				</section>
+
+				<section>
+					<h1>Welcome New Contributors!</h1>
+					<ul>
+						<li>@kirkkwang 🎉</li>
+						<li>@paulhagon ❤️</li>
+						<li>@mksndz 🎊</li>
+						<li>@lrullo0 👏</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Join Us!</h1>
+					<div><a href="https://github.com/projectblacklight/blacklight" target="_blank">https://github.com/projectblacklight/blacklight</a></div>
+					<div>code4lib Slack <img src="Slack_icon_2019.svg" style="height: 3rem; width: 3rem; vertical-align: bottom;"></div>
+				</section>
+
+				<section>
+					<h1>What's next?</h1>
+					<h2 style="font-size: 120pt">❓</h2>
+				</section>
+
+				<section>
+					<h2>Questions?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script type="module">
+      import Reveal from './dist/reveal.esm.js';
+      import RevealHighlight from './plugin/highlight/highlight.esm.js';
+      import RevealZoom from './plugin/zoom/zoom.esm.js';
+      import RevealNotes from './plugin/notes/notes.esm.js';
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight, RevealZoom, RevealNotes ]
+			});
+
+		</script>
+
+	</body>
+</html>
