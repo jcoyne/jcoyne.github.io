@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video.js v10 delayed source text-track reproduction</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "@videojs/html/video": "https://cdn.jsdelivr.net/npm/@videojs/html@10.0.0-beta.25/cdn/video.js",
+          "@videojs/html/media/hlsjs-video": "https://cdn.jsdelivr.net/npm/@videojs/html@10.0.0-beta.25/cdn/media/hlsjs-video.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import "@videojs/html/video"
+      import "@videojs/html/media/hlsjs-video"
+
+      const mediaUrl = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"
+
+      const cueCount = track => track?.cues?.length ?? 0
+
+      const renderTrackState = () => {
+        for (const player of document.querySelectorAll("hlsjs-video")) {
+          const rows = Array.from(player.textTracks, track => ({
+            label: track.label,
+            mode: track.mode,
+            cues: cueCount(track),
+          }))
+
+          document.querySelector(`#${player.id}-state`).textContent =
+            JSON.stringify(rows, null, 2)
+        }
+      }
+
+      await customElements.whenDefined("hlsjs-video")
+
+      const delayedPlayer = document.querySelector("#delayed")
+
+      // This simulates assigning the URL after an asynchronous authorization
+      // request. The <track> children were connected before the media source.
+      setTimeout(() => {
+        delayedPlayer.config = {
+          contentType: "application/vnd.apple.mpegurl",
+        }
+        delayedPlayer.preload = "auto"
+        delayedPlayer.src = mediaUrl
+      }, 1000)
+
+      setInterval(renderTrackState, 250)
+      renderTrackState()
+    </script>
+    <style>
+      body {
+        box-sizing: border-box;
+        max-width: 72rem;
+        margin: 0 auto;
+        padding: 1rem;
+        font-family: system-ui, sans-serif;
+      }
+
+      video-player {
+        display: block;
+        max-width: 44rem;
+        aspect-ratio: 16 / 9;
+        background: black;
+      }
+
+      hlsjs-video {
+        width: 100%;
+        height: 100%;
+      }
+
+      pre {
+        min-height: 8rem;
+        padding: 0.75rem;
+        background: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Video.js v10 delayed source text-track reproduction</h1>
+    <p>
+      The player connects with two text tracks, then receives its HLS
+      <code>src</code> one second later.
+    </p>
+
+    <video-player>
+      <video-skin>
+        <hlsjs-video id="delayed" controls crossorigin="anonymous">
+          <track
+            default
+            kind="subtitles"
+            label="English"
+            srclang="en"
+            src="./english.vtt"
+          />
+          <track
+            kind="subtitles"
+            label="Russian"
+            srclang="ru"
+            src="./russian.vtt"
+          />
+        </hlsjs-video>
+      </video-skin>
+    </video-player>
+    <pre id="delayed-state"></pre>
+  </body>
+</html>
