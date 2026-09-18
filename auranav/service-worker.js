@@ -1,4 +1,7 @@
-const SHELL_CACHE = "chartplotter-shell-v3";
+// The build replaces 0f3d44ee3d9b3655 with a hash of the deployed files. A new deployment
+// therefore changes this script, which is what makes the browser reinstall the worker
+// and recache the shell; a byte-identical script is never reinstalled.
+const SHELL_CACHE = "chartplotter-shell-0f3d44ee3d9b3655";
 const BASE = new URL("./", self.registration.scope);
 const STATIC_ASSETS = ["./", "./index.html", "./manifest.webmanifest", "./app-icon-192.png", "./app-icon-512.png", "./fonts/Noto%20Sans%20Regular/0-255.pbf", "./fonts/Noto%20Sans%20Regular/9984-10239.pbf", "./fonts/OFL.txt", "./fonts/README.txt"];
 
@@ -33,7 +36,12 @@ self.addEventListener("fetch", (event) => {
   const request = event.request;
   if (request.method !== "GET" || request.headers.has("range")) return;
   event.respondWith((async () => {
-    if (request.cache === "no-cache" || request.cache === "reload") {
+    // A cached shell keeps requesting the asset URLs it was built with, which a later
+    // deployment has already removed from the server. Revalidate navigations while online
+    // and fall back to the installed shell only when the network is unavailable. The
+    // fallback stays the snapshot written by install, so the shell and the assets it
+    // references remain consistent offline.
+    if (request.mode === "navigate" || request.cache === "no-cache" || request.cache === "reload") {
       try {
         return await fetch(request);
       } catch {
