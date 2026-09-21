@@ -8,5 +8,6 @@ scripts and source fonts from https://github.com/openmaptiles/fonts.
 Noto is licensed under the SIL Open Font License 1.1. The complete license is
 included as ../OFL.txt.
 
-Only ranges 0-255 (current chart labels) and 9984-10239 (the light symbol) are
-packaged so the application does not contact a font server while offline.
+Only range 0-255 (current chart labels) is packaged so the application does not
+contact a font server while offline. Chart symbols are drawn as images rather
+than glyphs, so no other range is needed.
