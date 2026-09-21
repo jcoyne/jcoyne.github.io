@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "packageId": "wisconsin-enc",
   "name": "Wisconsin NOAA ENCs",
-  "generatedAt": "2026-09-18T01:50:02.420Z",
+  "generatedAt": "2026-09-21T20:36:22.676Z",
   "source": {
     "publisher": "NOAA Office of Coast Survey",
     "product": "NOAA ENC",
@@ -37,6 +37,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -53,6 +55,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -69,6 +73,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -85,6 +91,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -101,6 +109,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -117,6 +127,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -158,6 +170,7 @@
         "coverage",
         "coastline",
         "depth-area",
+        "land-area",
         "light"
       ]
     },
@@ -174,6 +187,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -214,7 +229,8 @@
         "coverage",
         "coastline",
         "depth-area",
-        "depth-contour"
+        "depth-contour",
+        "land-area"
       ]
     },
     {
@@ -230,6 +246,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -269,6 +287,7 @@
       "layers": [
         "coverage",
         "depth-area",
+        "land-area",
         "light"
       ]
     },
@@ -285,6 +304,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -328,6 +349,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -344,6 +367,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -360,6 +385,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -404,6 +431,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -417,7 +446,8 @@
       "layers": [
         "coverage",
         "coastline",
-        "depth-area"
+        "depth-area",
+        "land-area"
       ]
     },
     {
@@ -433,6 +463,7 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
         "light"
       ]
     },
@@ -449,6 +480,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -478,6 +511,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -494,6 +529,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -510,6 +547,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -538,7 +577,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -554,6 +595,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -570,6 +613,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -586,6 +631,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -615,6 +662,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -631,6 +680,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -647,6 +698,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -663,6 +716,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -677,6 +732,8 @@
         "coverage",
         "coastline",
         "depth-area",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -693,6 +750,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -709,6 +768,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -725,6 +786,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -741,6 +804,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -757,6 +822,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -773,6 +840,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -789,6 +858,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -805,6 +876,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -821,6 +894,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -837,6 +912,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -852,7 +929,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -866,7 +945,9 @@
         "coverage",
         "coastline",
         "depth-area",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -882,6 +963,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -898,6 +981,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -913,7 +998,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -929,6 +1016,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -960,6 +1049,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -976,6 +1067,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -992,6 +1085,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1008,6 +1103,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1024,6 +1121,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1040,6 +1139,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1056,6 +1157,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1072,6 +1175,7 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
         "light"
       ]
     },
@@ -1088,6 +1192,7 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
         "light"
       ]
     },
@@ -1104,6 +1209,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1120,6 +1227,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1135,7 +1244,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1149,6 +1260,8 @@
         "coverage",
         "coastline",
         "depth-area",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1164,7 +1277,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1180,6 +1295,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1196,6 +1313,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1212,6 +1331,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1227,7 +1348,8 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area"
       ]
     },
     {
@@ -1243,6 +1365,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1259,6 +1383,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1275,6 +1401,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1306,6 +1434,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1336,6 +1466,8 @@
         "coastline",
         "depth-area",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1351,6 +1483,8 @@
         "coastline",
         "depth-area",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1367,6 +1501,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1383,6 +1519,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1398,7 +1536,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1413,7 +1553,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1428,7 +1570,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1443,7 +1587,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1458,7 +1604,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1502,6 +1650,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1517,7 +1667,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1533,6 +1685,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1548,7 +1702,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1577,7 +1733,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1593,6 +1751,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1623,6 +1783,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1639,6 +1801,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1655,6 +1819,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1670,7 +1836,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1685,7 +1853,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1701,6 +1871,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1716,7 +1888,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1731,7 +1905,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1746,7 +1922,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1761,7 +1939,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1777,6 +1957,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1793,6 +1975,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1809,6 +1993,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1825,6 +2011,7 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
         "light"
       ]
     },
@@ -1841,6 +2028,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1857,6 +2046,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1872,7 +2063,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -1902,6 +2095,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1918,6 +2113,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1934,6 +2131,7 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
         "light"
       ]
     },
@@ -1950,6 +2148,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1966,6 +2166,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1982,6 +2184,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -1998,6 +2202,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
+        "land-label",
         "light"
       ]
     },
@@ -2014,6 +2220,7 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
         "light"
       ]
     },
@@ -2029,7 +2236,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "land-area",
+        "land-label"
       ]
     },
     {
@@ -2045,6 +2254,7 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
         "light"
       ]
     },
@@ -2061,6 +2271,7 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
         "light"
       ]
     },
@@ -2077,6 +2288,7 @@
         "depth-area",
         "depth-contour",
         "sounding",
+        "land-area",
         "light"
       ]
     }
