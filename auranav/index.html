@@ -10,18 +10,29 @@
     <link rel="apple-touch-icon" href="/auranav/app-icon-192.png" />
     <link rel="manifest" href="/auranav/manifest.webmanifest" />
     <title>AuraNav — Wisconsin Nautical Charts</title>
-    <script type="module" crossorigin src="/auranav/assets/index-DF-g9UOs.js"></script>
-    <link rel="stylesheet" crossorigin href="/auranav/assets/index-BdCbLAle.css">
+    <script type="module" crossorigin src="/auranav/assets/index-BVWZYAUQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/auranav/assets/index-WYnoVZoR.css">
   </head>
   <body>
     <main class="app-shell">
       <header class="app-header">
+        <button
+          id="drawer-toggle"
+          class="drawer-toggle"
+          type="button"
+          aria-label="Chart and offline menu"
+          aria-expanded="false"
+          aria-controls="drawer"
+        >
+          <span class="drawer-toggle-glyph" aria-hidden="true">☰</span>
+          <span>Charts</span>
+          <span id="drawer-alert" class="drawer-alert" aria-hidden="true" hidden>!</span>
+        </button>
         <div>
           <p class="eyebrow">Wisconsin waters</p>
           <h1>AuraNav</h1>
         </div>
         <p class="disclaimer">For informational use only. Not for navigation.</p>
-        <button id="offline-toggle" class="offline-toggle" type="button" aria-expanded="false" aria-controls="offline-panel">Offline</button>
       </header>
 
       <section class="map-shell" aria-label="Electronic navigation chart">
@@ -29,8 +40,17 @@
         <nav id="map-controls" class="map-controls" aria-label="Map controls"></nav>
         <section id="location-status" class="location-status" role="status" aria-live="polite"></section>
         <section id="scale-status" class="scale-status" role="status" aria-live="polite" hidden></section>
-        <section id="chart-status" class="chart-status" aria-label="Chart information"></section>
-        <section id="offline-panel" class="offline-panel" aria-label="Offline chart storage" hidden></section>
+        <div id="drawer-scrim" class="drawer-scrim" hidden></div>
+        <aside id="drawer" class="drawer" aria-label="Chart and offline menu" inert>
+          <div class="drawer-bar">
+            <h2>Charts</h2>
+            <button id="drawer-close" class="drawer-close" type="button" aria-label="Close menu">✕</button>
+          </div>
+          <div class="drawer-body">
+            <section id="chart-status" class="chart-status" aria-label="Chart information"></section>
+            <section id="offline-panel" class="offline-panel" aria-label="Offline chart storage"></section>
+          </div>
+        </aside>
       </section>
     </main>
   </body>
