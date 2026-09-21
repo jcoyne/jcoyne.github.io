@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "packageId": "wisconsin-enc",
   "name": "Wisconsin NOAA ENCs",
-  "generatedAt": "2026-09-21T20:36:22.676Z",
+  "generatedAt": "2026-09-21T22:18:38.105Z",
   "source": {
     "publisher": "NOAA Office of Coast Survey",
     "product": "NOAA ENC",
@@ -39,7 +39,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -57,7 +61,9 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy"
       ]
     },
     {
@@ -75,7 +81,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -93,7 +104,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -111,7 +127,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -129,7 +150,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -142,7 +168,8 @@
       "layers": [
         "coverage",
         "depth-area",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -156,7 +183,9 @@
         "coverage",
         "depth-area",
         "sounding",
-        "light"
+        "light",
+        "buoy",
+        "restricted-area"
       ]
     },
     {
@@ -171,7 +200,11 @@
         "coastline",
         "depth-area",
         "land-area",
-        "light"
+        "land-label",
+        "water-label",
+        "light",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -189,7 +222,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -202,7 +241,8 @@
       "layers": [
         "coverage",
         "depth-area",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -215,7 +255,8 @@
       "layers": [
         "coverage",
         "depth-area",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -230,7 +271,9 @@
         "coastline",
         "depth-area",
         "depth-contour",
-        "land-area"
+        "land-area",
+        "water-label",
+        "restricted-area"
       ]
     },
     {
@@ -248,7 +291,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -261,7 +308,8 @@
       "layers": [
         "coverage",
         "depth-area",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -274,7 +322,8 @@
       "layers": [
         "coverage",
         "depth-area",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -288,7 +337,11 @@
         "coverage",
         "depth-area",
         "land-area",
-        "light"
+        "land-label",
+        "water-label",
+        "light",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -306,7 +359,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -320,7 +377,8 @@
         "coverage",
         "depth-area",
         "sounding",
-        "light"
+        "light",
+        "restricted-area"
       ]
     },
     {
@@ -333,7 +391,8 @@
       "layers": [
         "coverage",
         "depth-area",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -351,7 +410,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "anchorage",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -369,7 +433,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -387,7 +455,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -401,7 +474,10 @@
         "coverage",
         "depth-area",
         "sounding",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -415,7 +491,10 @@
         "coverage",
         "depth-area",
         "sounding",
-        "light"
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -433,7 +512,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -447,7 +532,9 @@
         "coverage",
         "coastline",
         "depth-area",
-        "land-area"
+        "land-area",
+        "water-label",
+        "restricted-area"
       ]
     },
     {
@@ -464,7 +551,11 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "light"
+        "land-label",
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -482,7 +573,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -495,7 +591,8 @@
       "layers": [
         "coverage",
         "depth-area",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -513,7 +610,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -531,7 +634,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -549,7 +656,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -562,7 +673,9 @@
       "layers": [
         "coverage",
         "depth-area",
-        "sounding"
+        "sounding",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -579,7 +692,9 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "restricted-area"
       ]
     },
     {
@@ -597,7 +712,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -615,7 +734,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area"
       ]
     },
     {
@@ -633,7 +757,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -646,7 +774,9 @@
       "layers": [
         "coverage",
         "depth-area",
-        "sounding"
+        "sounding",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -664,7 +794,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -682,7 +816,14 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "anchorage",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -700,7 +841,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -718,7 +864,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -734,6 +886,7 @@
         "depth-area",
         "land-area",
         "land-label",
+        "water-label",
         "light"
       ]
     },
@@ -752,7 +905,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "cable"
       ]
     },
     {
@@ -770,7 +927,9 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "light",
+        "buoy",
+        "danger"
       ]
     },
     {
@@ -788,6 +947,7 @@
         "sounding",
         "land-area",
         "land-label",
+        "water-label",
         "light"
       ]
     },
@@ -806,7 +966,9 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger"
       ]
     },
     {
@@ -824,7 +986,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -842,7 +1010,10 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -860,7 +1031,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -878,7 +1053,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area"
       ]
     },
     {
@@ -896,7 +1076,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -914,7 +1098,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -931,7 +1121,10 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -947,7 +1140,9 @@
         "depth-area",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "restricted-area"
       ]
     },
     {
@@ -965,7 +1160,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area"
       ]
     },
     {
@@ -983,7 +1183,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area"
       ]
     },
     {
@@ -1000,7 +1205,10 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -1018,7 +1226,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1033,7 +1246,10 @@
         "depth-area",
         "depth-contour",
         "sounding",
-        "light"
+        "light",
+        "buoy",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1051,7 +1267,9 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "light",
+        "buoy",
+        "restricted-area"
       ]
     },
     {
@@ -1069,7 +1287,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -1087,7 +1309,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1105,7 +1331,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1123,7 +1354,14 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "anchorage",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1141,7 +1379,10 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1159,7 +1400,14 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "anchorage",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1176,7 +1424,11 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "cable"
       ]
     },
     {
@@ -1193,7 +1445,12 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "light"
+        "land-label",
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "restricted-area"
       ]
     },
     {
@@ -1211,7 +1468,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area"
       ]
     },
     {
@@ -1229,7 +1491,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1246,7 +1513,10 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1262,7 +1532,10 @@
         "depth-area",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -1279,7 +1552,10 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "danger",
+        "harbour-facility"
       ]
     },
     {
@@ -1297,7 +1573,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "cable"
       ]
     },
     {
@@ -1315,7 +1595,10 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "cable"
       ]
     },
     {
@@ -1333,7 +1616,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "cable"
       ]
     },
     {
@@ -1349,7 +1637,8 @@
         "depth-area",
         "depth-contour",
         "sounding",
-        "land-area"
+        "land-area",
+        "harbour-facility"
       ]
     },
     {
@@ -1367,7 +1656,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "anchorage"
       ]
     },
     {
@@ -1385,7 +1678,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "cable"
       ]
     },
     {
@@ -1403,7 +1700,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1418,7 +1721,12 @@
         "depth-area",
         "depth-contour",
         "sounding",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1436,7 +1744,10 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "light",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1451,7 +1762,11 @@
         "depth-area",
         "depth-contour",
         "sounding",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -1468,7 +1783,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1485,7 +1805,10 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "harbour-facility",
+        "restricted-area"
       ]
     },
     {
@@ -1503,7 +1826,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1521,7 +1848,10 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -1538,7 +1868,9 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "restricted-area"
       ]
     },
     {
@@ -1555,7 +1887,10 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -1572,7 +1907,8 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "restricted-area"
       ]
     },
     {
@@ -1589,7 +1925,9 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "restricted-area"
       ]
     },
     {
@@ -1606,7 +1944,12 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1620,7 +1963,8 @@
         "coverage",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -1634,7 +1978,8 @@
         "coverage",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -1652,7 +1997,9 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "restricted-area"
       ]
     },
     {
@@ -1669,7 +2016,10 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1687,7 +2037,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "anchorage",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1704,7 +2060,9 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "restricted-area"
       ]
     },
     {
@@ -1718,7 +2076,8 @@
         "coverage",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -1735,7 +2094,9 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "restricted-area"
       ]
     },
     {
@@ -1753,7 +2114,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -1767,7 +2132,8 @@
         "coverage",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -1785,7 +2151,9 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "restricted-area"
       ]
     },
     {
@@ -1803,7 +2171,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "anchorage",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1821,7 +2195,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1838,7 +2216,9 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "restricted-area"
       ]
     },
     {
@@ -1855,7 +2235,11 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1873,7 +2257,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1890,7 +2278,11 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1907,7 +2299,9 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "water-label",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -1924,7 +2318,11 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1941,7 +2339,9 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "water-label",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -1959,7 +2359,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1977,7 +2383,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -1995,7 +2407,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "light",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -2012,7 +2428,12 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -2030,7 +2451,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -2048,7 +2474,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -2065,7 +2496,10 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -2079,7 +2513,8 @@
         "coverage",
         "depth-area",
         "depth-contour",
-        "sounding"
+        "sounding",
+        "restricted-area"
       ]
     },
     {
@@ -2097,7 +2532,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -2115,7 +2556,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "anchorage",
+        "restricted-area"
       ]
     },
     {
@@ -2132,7 +2579,10 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "light"
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -2150,7 +2600,11 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -2168,7 +2622,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area"
       ]
     },
     {
@@ -2186,7 +2645,13 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -2204,7 +2669,12 @@
         "sounding",
         "land-area",
         "land-label",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -2221,7 +2691,11 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "light"
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area"
       ]
     },
     {
@@ -2238,7 +2712,12 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "land-label"
+        "land-label",
+        "water-label",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "cable"
       ]
     },
     {
@@ -2255,7 +2734,9 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "light"
+        "water-label",
+        "light",
+        "danger"
       ]
     },
     {
@@ -2272,7 +2753,10 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "light"
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility"
       ]
     },
     {
@@ -2289,7 +2773,8 @@
         "depth-contour",
         "sounding",
         "land-area",
-        "light"
+        "light",
+        "danger"
       ]
     }
   ],
