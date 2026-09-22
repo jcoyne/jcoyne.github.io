@@ -1,7 +1,7 @@
-// The build replaces b56e7a9f11605776 with a hash of the deployed files. A new deployment
+// The build replaces a37c9701dd68967c with a hash of the deployed files. A new deployment
 // therefore changes this script, which is what makes the browser reinstall the worker
 // and recache the shell; a byte-identical script is never reinstalled.
-const SHELL_CACHE = "chartplotter-shell-b56e7a9f11605776";
+const SHELL_CACHE = "chartplotter-shell-a37c9701dd68967c";
 const BASE = new URL("./", self.registration.scope);
 const STATIC_ASSETS = ["./", "./index.html", "./manifest.webmanifest", "./app-icon-192.png", "./app-icon-512.png", "./fonts/Noto%20Sans%20Regular/0-255.pbf", "./fonts/OFL.txt", "./fonts/README.txt"];
 

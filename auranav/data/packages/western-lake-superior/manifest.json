@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "packageId": "western-lake-superior",
   "name": "Western Lake Superior NOAA ENCs",
-  "generatedAt": "2026-09-22T04:14:48.698Z",
+  "generatedAt": "2026-09-22T12:11:49.828Z",
   "source": {
     "publisher": "NOAA Office of Coast Survey",
     "product": "NOAA ENC",
@@ -41,7 +41,8 @@
         "land-label",
         "water-label",
         "light",
-        "buoy"
+        "buoy",
+        "landmark"
       ]
     },
     {
@@ -66,7 +67,8 @@
         "restricted-area",
         "restricted-area-edge",
         "cable",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -84,7 +86,8 @@
         "land-label",
         "water-label",
         "light",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -107,7 +110,8 @@
         "buoy",
         "danger",
         "cable",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -168,7 +172,8 @@
         "water-label",
         "light",
         "danger",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -195,7 +200,8 @@
         "restricted-area-edge",
         "cable",
         "shoreline-structure",
-        "mooring"
+        "mooring",
+        "landmark"
       ]
     },
     {
@@ -240,7 +246,8 @@
         "danger",
         "restricted-area",
         "restricted-area-edge",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -266,7 +273,8 @@
         "restricted-area",
         "restricted-area-edge",
         "shoreline-structure",
-        "mooring"
+        "mooring",
+        "landmark"
       ]
     },
     {
@@ -290,7 +298,8 @@
         "danger",
         "restricted-area",
         "restricted-area-edge",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -314,7 +323,8 @@
         "restricted-area",
         "restricted-area-edge",
         "cable",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -336,7 +346,8 @@
         "buoy",
         "danger",
         "cable",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -357,7 +368,8 @@
         "water-label",
         "danger",
         "harbour-facility",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -381,7 +393,8 @@
         "danger",
         "cable",
         "shoreline-structure",
-        "mooring"
+        "mooring",
+        "landmark"
       ]
     },
     {
@@ -427,7 +440,8 @@
         "danger",
         "harbour-facility",
         "cable",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
@@ -492,7 +506,8 @@
         "harbour-facility",
         "cable",
         "shoreline-structure",
-        "mooring"
+        "mooring",
+        "landmark"
       ]
     },
     {
@@ -513,7 +528,8 @@
         "light",
         "buoy",
         "danger",
-        "shoreline-structure"
+        "shoreline-structure",
+        "landmark"
       ]
     },
     {
