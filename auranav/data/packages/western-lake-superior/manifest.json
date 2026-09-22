@@ -1,0 +1,982 @@
+{
+  "schemaVersion": 1,
+  "packageId": "western-lake-superior",
+  "name": "Western Lake Superior NOAA ENCs",
+  "generatedAt": "2026-09-22T04:14:48.698Z",
+  "source": {
+    "publisher": "NOAA Office of Coast Survey",
+    "product": "NOAA ENC",
+    "downloadUrl": "https://charts.noaa.gov/ENCs/WI_ENCs.zip",
+    "retrievedAt": "2026-09-17T12:00:00Z",
+    "userAgreementPath": "./USER_AGREEMENT.txt"
+  },
+  "bounds": [
+    -96,
+    43.2,
+    -86.4,
+    48
+  ],
+  "depth": {
+    "storedUnit": "metre",
+    "displayUnit": "foot",
+    "verticalDatums": [
+      "International Great Lakes Datum 1985"
+    ]
+  },
+  "tileSets": [
+    {
+      "id": "us2grlba-chart",
+      "cellName": "US2GRLBA",
+      "format": "pmtiles",
+      "url": "./tiles/us2grlba.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "buoy"
+      ]
+    },
+    {
+      "id": "us2grlbb-chart",
+      "cellName": "US2GRLBB",
+      "format": "pmtiles",
+      "url": "./tiles/us2grlbb.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "restricted-area-edge",
+        "cable",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us4wi1pa-chart",
+      "cellName": "US4WI1PA",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1pa.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us4wi1pb-chart",
+      "cellName": "US4WI1PB",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1pb.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "cable",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us4wi1pc-chart",
+      "cellName": "US4WI1PC",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1pc.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "light",
+        "buoy",
+        "danger"
+      ]
+    },
+    {
+      "id": "us4wi1pd-chart",
+      "cellName": "US4WI1PD",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1pd.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us4wi1pe-chart",
+      "cellName": "US4WI1PE",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1pe.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "danger",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us4wi1pf-chart",
+      "cellName": "US4WI1PF",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1pf.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "restricted-area-edge",
+        "cable",
+        "shoreline-structure",
+        "mooring"
+      ]
+    },
+    {
+      "id": "us4wi1pg-chart",
+      "cellName": "US4WI1PG",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1pg.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "danger",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us4wi1qe-chart",
+      "cellName": "US4WI1QE",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1qe.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "restricted-area-edge",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us4wi1qf-chart",
+      "cellName": "US4WI1QF",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1qf.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "restricted-area",
+        "restricted-area-edge",
+        "shoreline-structure",
+        "mooring"
+      ]
+    },
+    {
+      "id": "us4wi1qg-chart",
+      "cellName": "US4WI1QG",
+      "format": "pmtiles",
+      "url": "./tiles/us4wi1qg.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "restricted-area",
+        "restricted-area-edge",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us5mi70m-chart",
+      "cellName": "US5MI70M",
+      "format": "pmtiles",
+      "url": "./tiles/us5mi70m.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "danger",
+        "restricted-area",
+        "restricted-area-edge",
+        "cable",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us5mn11m-chart",
+      "cellName": "US5MN11M",
+      "format": "pmtiles",
+      "url": "./tiles/us5mn11m.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "cable",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us5wi1do-chart",
+      "cellName": "US5WI1DO",
+      "format": "pmtiles",
+      "url": "./tiles/us5wi1do.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "danger",
+        "harbour-facility",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us5wi1dp-chart",
+      "cellName": "US5WI1DP",
+      "format": "pmtiles",
+      "url": "./tiles/us5wi1dp.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "cable",
+        "shoreline-structure",
+        "mooring"
+      ]
+    },
+    {
+      "id": "us5wi1eo-chart",
+      "cellName": "US5WI1EO",
+      "format": "pmtiles",
+      "url": "./tiles/us5wi1eo.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "danger",
+        "cable",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us5wi1ep-chart",
+      "cellName": "US5WI1EP",
+      "format": "pmtiles",
+      "url": "./tiles/us5wi1ep.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "cable",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us5wi21a-chart",
+      "cellName": "US5WI21A",
+      "format": "pmtiles",
+      "url": "./tiles/us5wi21a.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "harbour-facility",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us5wi21b-chart",
+      "cellName": "US5WI21B",
+      "format": "pmtiles",
+      "url": "./tiles/us5wi21b.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "water-label",
+        "light",
+        "danger",
+        "harbour-facility",
+        "anchorage",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us5wi21m-chart",
+      "cellName": "US5WI21M",
+      "format": "pmtiles",
+      "url": "./tiles/us5wi21m.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "land-label",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "cable",
+        "shoreline-structure",
+        "mooring"
+      ]
+    },
+    {
+      "id": "us6mi69m-chart",
+      "cellName": "US6MI69M",
+      "format": "pmtiles",
+      "url": "./tiles/us6mi69m.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "water-label",
+        "light",
+        "buoy",
+        "danger",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us6wi20a-chart",
+      "cellName": "US6WI20A",
+      "format": "pmtiles",
+      "url": "./tiles/us6wi20a.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "water-label",
+        "light",
+        "danger",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us6wi20b-chart",
+      "cellName": "US6WI20B",
+      "format": "pmtiles",
+      "url": "./tiles/us6wi20b.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "light",
+        "buoy",
+        "danger",
+        "harbour-facility",
+        "shoreline-structure"
+      ]
+    },
+    {
+      "id": "us6wi23a-chart",
+      "cellName": "US6WI23A",
+      "format": "pmtiles",
+      "url": "./tiles/us6wi23a.pmtiles",
+      "minZoom": 0,
+      "maxZoom": 16,
+      "layers": [
+        "coverage",
+        "coastline",
+        "depth-area",
+        "depth-contour",
+        "sounding",
+        "land-area",
+        "light",
+        "danger",
+        "shoreline-structure"
+      ]
+    }
+  ],
+  "cells": [
+    {
+      "name": "US2GRLBA",
+      "edition": 1,
+      "updateNumber": 1,
+      "issueDate": "2026-07-23",
+      "updateApplicationDate": "2026-05-07",
+      "usageBand": 2,
+      "compilationScale": 700000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -96,
+        43.2,
+        -91.2,
+        48
+      ]
+    },
+    {
+      "name": "US2GRLBB",
+      "edition": 1,
+      "updateNumber": 3,
+      "issueDate": "2026-08-26",
+      "updateApplicationDate": "2026-05-07",
+      "usageBand": 2,
+      "compilationScale": 700000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -91.2,
+        43.2,
+        -86.4,
+        48
+      ]
+    },
+    {
+      "name": "US4WI1PA",
+      "edition": 3,
+      "updateNumber": 0,
+      "issueDate": "2026-03-04",
+      "updateApplicationDate": "2026-03-04",
+      "usageBand": 4,
+      "compilationScale": 90000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -92.4,
+        46.5,
+        -92.1,
+        46.8
+      ]
+    },
+    {
+      "name": "US4WI1PB",
+      "edition": 5,
+      "updateNumber": 3,
+      "issueDate": "2026-07-22",
+      "updateApplicationDate": "2026-03-04",
+      "usageBand": 4,
+      "compilationScale": 90000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -92.1,
+        46.5,
+        -91.8,
+        46.8
+      ]
+    },
+    {
+      "name": "US4WI1PC",
+      "edition": 2,
+      "updateNumber": 1,
+      "issueDate": "2026-03-31",
+      "updateApplicationDate": "2026-03-04",
+      "usageBand": 4,
+      "compilationScale": 90000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -91.8,
+        46.5,
+        -91.5,
+        46.8
+      ]
+    },
+    {
+      "name": "US4WI1PD",
+      "edition": 3,
+      "updateNumber": 0,
+      "issueDate": "2026-05-26",
+      "updateApplicationDate": "2026-05-26",
+      "usageBand": 4,
+      "compilationScale": 90000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -91.5,
+        46.5,
+        -91.2,
+        46.8
+      ]
+    },
+    {
+      "name": "US4WI1PE",
+      "edition": 2,
+      "updateNumber": 1,
+      "issueDate": "2025-06-10",
+      "updateApplicationDate": "2025-05-28",
+      "usageBand": 4,
+      "compilationScale": 45000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -91.2,
+        46.5,
+        -90.9,
+        46.8
+      ]
+    },
+    {
+      "name": "US4WI1PF",
+      "edition": 5,
+      "updateNumber": 5,
+      "issueDate": "2026-08-26",
+      "updateApplicationDate": "2025-05-28",
+      "usageBand": 4,
+      "compilationScale": 45000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.9,
+        46.5,
+        -90.6,
+        46.8
+      ]
+    },
+    {
+      "name": "US4WI1PG",
+      "edition": 2,
+      "updateNumber": 0,
+      "issueDate": "2025-05-28",
+      "updateApplicationDate": "2025-05-28",
+      "usageBand": 4,
+      "compilationScale": 45000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.6,
+        46.5,
+        -90.3,
+        46.8
+      ]
+    },
+    {
+      "name": "US4WI1QE",
+      "edition": 4,
+      "updateNumber": 2,
+      "issueDate": "2026-05-06",
+      "updateApplicationDate": "2025-05-28",
+      "usageBand": 4,
+      "compilationScale": 45000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -91.2,
+        46.8,
+        -90.9,
+        47.1
+      ]
+    },
+    {
+      "name": "US4WI1QF",
+      "edition": 4,
+      "updateNumber": 4,
+      "issueDate": "2026-07-22",
+      "updateApplicationDate": "2025-05-28",
+      "usageBand": 4,
+      "compilationScale": 45000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.9,
+        46.8,
+        -90.6,
+        47.1
+      ]
+    },
+    {
+      "name": "US4WI1QG",
+      "edition": 4,
+      "updateNumber": 0,
+      "issueDate": "2025-05-28",
+      "updateApplicationDate": "2025-05-28",
+      "usageBand": 4,
+      "compilationScale": 45000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.6,
+        46.8,
+        -90.3,
+        47.1
+      ]
+    },
+    {
+      "name": "US5MI70M",
+      "edition": 3,
+      "updateNumber": 2,
+      "issueDate": "2025-07-30",
+      "updateApplicationDate": "2024-08-13",
+      "usageBand": 5,
+      "compilationScale": 12000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -89.3407639,
+        46.8617778,
+        -89.3041667,
+        46.8869444
+      ]
+    },
+    {
+      "name": "US5MN11M",
+      "edition": 10,
+      "updateNumber": 1,
+      "issueDate": "2025-03-05",
+      "updateApplicationDate": "2024-07-23",
+      "usageBand": 5,
+      "compilationScale": 12000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -91.6810793,
+        46.9965361,
+        -91.6518592,
+        47.0193225
+      ]
+    },
+    {
+      "name": "US5WI1DO",
+      "edition": 2,
+      "updateNumber": 0,
+      "issueDate": "2024-11-05",
+      "updateApplicationDate": "2024-11-05",
+      "usageBand": 5,
+      "compilationScale": 12000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.975,
+        46.575,
+        -90.9,
+        46.65
+      ]
+    },
+    {
+      "name": "US5WI1DP",
+      "edition": 2,
+      "updateNumber": 1,
+      "issueDate": "2026-08-26",
+      "updateApplicationDate": "2024-11-05",
+      "usageBand": 5,
+      "compilationScale": 12000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.9,
+        46.575,
+        -90.825,
+        46.65
+      ]
+    },
+    {
+      "name": "US5WI1EO",
+      "edition": 2,
+      "updateNumber": 0,
+      "issueDate": "2024-11-05",
+      "updateApplicationDate": "2024-11-05",
+      "usageBand": 5,
+      "compilationScale": 12000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.975,
+        46.65,
+        -90.9,
+        46.725
+      ]
+    },
+    {
+      "name": "US5WI1EP",
+      "edition": 2,
+      "updateNumber": 0,
+      "issueDate": "2024-11-05",
+      "updateApplicationDate": "2024-11-05",
+      "usageBand": 5,
+      "compilationScale": 12000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.9,
+        46.65,
+        -90.825,
+        46.725
+      ]
+    },
+    {
+      "name": "US5WI21A",
+      "edition": 1,
+      "updateNumber": 0,
+      "issueDate": "2024-09-04",
+      "updateApplicationDate": "2024-09-04",
+      "usageBand": 5,
+      "compilationScale": 12000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.8568523,
+        46.7843306,
+        -90.8468172,
+        46.7920844
+      ]
+    },
+    {
+      "name": "US5WI21B",
+      "edition": 1,
+      "updateNumber": 1,
+      "issueDate": "2025-03-27",
+      "updateApplicationDate": "2024-09-04",
+      "usageBand": 5,
+      "compilationScale": 12000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.791909,
+        46.7678943,
+        -90.7757636,
+        46.7817659
+      ]
+    },
+    {
+      "name": "US5WI21M",
+      "edition": 5,
+      "updateNumber": 0,
+      "issueDate": "2024-09-04",
+      "updateApplicationDate": "2024-09-04",
+      "usageBand": 5,
+      "compilationScale": 12000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.8270534,
+        46.8015499,
+        -90.8070946,
+        46.8149893
+      ]
+    },
+    {
+      "name": "US6MI69M",
+      "edition": 7,
+      "updateNumber": 1,
+      "issueDate": "2024-10-16",
+      "updateApplicationDate": "2024-08-30",
+      "usageBand": 6,
+      "compilationScale": 4000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.0543889,
+        46.6633611,
+        -90.0428472,
+        46.6747778
+      ]
+    },
+    {
+      "name": "US6WI20A",
+      "edition": 1,
+      "updateNumber": 1,
+      "issueDate": "2024-09-18",
+      "updateApplicationDate": "2024-08-22",
+      "usageBand": 6,
+      "compilationScale": 4000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -91.3879528,
+        46.7876015,
+        -91.3808083,
+        46.7956042
+      ]
+    },
+    {
+      "name": "US6WI20B",
+      "edition": 1,
+      "updateNumber": 1,
+      "issueDate": "2024-09-18",
+      "updateApplicationDate": "2024-08-22",
+      "usageBand": 6,
+      "compilationScale": 4000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -91.1065776,
+        46.8528837,
+        -91.09818,
+        46.8608516
+      ]
+    },
+    {
+      "name": "US6WI23A",
+      "edition": 1,
+      "updateNumber": 0,
+      "issueDate": "2024-08-30",
+      "updateApplicationDate": "2024-08-30",
+      "usageBand": 6,
+      "compilationScale": 2000,
+      "verticalDatum": "International Great Lakes Datum 1985; sounding datum: International Great Lakes Datum 1985",
+      "bounds": [
+        -90.4408166,
+        46.5589805,
+        -90.435025,
+        46.5646861
+      ]
+    }
+  ]
+}
