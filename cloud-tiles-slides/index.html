@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cloud-tiles</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap">
+  <style>
+    :root {
+      --bg: #101014;
+      --bg2: #1a1a20;
+      --ink: #ecebe6;
+      --dim: #8d8b96;
+      --line: #4a4954;
+      --faint: #1f1f26;
+      --accent: #c6ff3d;
+      --body: "Space Grotesk", system-ui, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+    html, body { background: var(--bg); }
+    .reveal-viewport {
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(var(--faint) 1px, transparent 1px),
+        linear-gradient(90deg, var(--faint) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .reveal { font-family: var(--body); font-size: 32px; color: var(--ink); }
+    .reveal .slides { text-align: left; }
+    .reveal h1, .reveal h2 {
+      font-family: var(--body); font-weight: 700; color: var(--ink);
+      text-transform: none; letter-spacing: -0.02em; line-height: 1.05; margin: 0 0 0.6em;
+    }
+    .reveal h1 { font-size: 96px; }
+    .reveal h2 { font-size: 52px; }
+    .reveal p, .reveal li { line-height: 1.35; }
+    .reveal ul { margin: 0 0 0 1em; }
+    .reveal li { margin: 0.35em 0; }
+    .reveal li::marker { color: var(--dim); }
+    .reveal a { color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--accent); }
+    .reveal code, .reveal pre { font-family: var(--mono); }
+    .reveal :not(pre) > code { font-size: 0.85em; color: var(--ink); background: var(--bg2); padding: 0.05em 0.3em; }
+    .reveal pre {
+      width: 100%; box-sizing: border-box; box-shadow: none; margin: 0.8em 0 0; font-size: 22px;
+      background: var(--bg2); border-left: 3px solid var(--line); padding: 0.8em 1em;
+    }
+    .reveal pre code { max-height: none; padding: 0; background: none; color: var(--ink); line-height: 1.5; }
+    .reveal pre .cm { color: var(--dim); }
+
+    .kicker { font-family: var(--mono); font-size: 18px; color: var(--dim); margin-bottom: 14px; }
+    .accent { color: var(--accent); }
+    .dim { color: var(--dim); }
+    .mono { font-family: var(--mono); }
+    .caption { font-size: 26px; color: var(--dim); margin-top: 24px; }
+    .caption b { color: var(--ink); font-weight: 500; }
+
+    /* SVG diagrams: monochrome, one accent */
+    svg.d { width: 100%; height: auto; display: block; overflow: visible; margin: 0 auto; }
+    svg.d text { font-family: var(--mono); fill: var(--ink); font-size: 17px; }
+    svg.d .b { font-weight: 700; }
+    svg.d .s { font-size: 14px; fill: var(--dim); }
+    svg.d .t-acc { fill: var(--accent); }
+    svg.d .t-dk { fill: var(--bg); }
+    svg.d .box { fill: var(--bg2); stroke: var(--line); stroke-width: 2; }
+    svg.d .box.ink { stroke: var(--ink); }
+    svg.d .box.acc { stroke: var(--accent); }
+    svg.d .box.ghost { fill: none; stroke: var(--line); stroke-dasharray: 6 6; }
+    svg.d .cell { fill: none; stroke: var(--line); stroke-width: 1.5; }
+    svg.d .f1 { fill: #3a3944; }
+    svg.d .f2 { fill: #5a5966; }
+    svg.d .f3 { fill: #7c7b88; }
+    svg.d .facc { fill: var(--accent); }
+    svg.d .ln { stroke: var(--dim); stroke-width: 2; fill: none; }
+    svg.d .ln.acc { stroke: var(--accent); }
+    svg.d .ln.dash { stroke: var(--line); stroke-dasharray: 5 5; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin: 0 0 44px; }
+    .stat .n { font-weight: 700; font-size: 48px; line-height: 1; white-space: nowrap; }
+    .stat .l { font-size: 21px; color: var(--dim); margin-top: 10px; line-height: 1.3; }
+    .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; font-size: 26px; }
+    .pc h3 { font-family: var(--body); font-size: 22px; font-weight: 500; color: var(--dim); text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 0.4em; }
+    .pc li { margin: 0.2em 0; }
+
+    /* slide counter, written as the response to a range request */
+    #range { position: fixed; left: 24px; bottom: 18px; z-index: 30; font-family: var(--mono); font-size: 14px; color: var(--dim); }
+    .reveal .progress { height: 3px; color: var(--accent); background: var(--faint); }
+    .reveal .controls { color: var(--dim); }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8d8b96"/></marker>
+      <marker id="arA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c6ff3d"/></marker>
+    </defs>
+  </svg>
+
+  <div id="range"></div>
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1 -->
+      <section>
+        <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:64px; align-items:center; height:640px">
+          <div>
+            <h1>cloud-tiles</h1>
+            <p style="font-size:38px; margin:0 0 1.4em">Deep zoom for JPEG&nbsp;2000,<br>straight from a static file</p>
+            <p class="mono" style="font-size:22px; line-height:1.7">
+              <a href="https://jcoyne.github.io/cloud-tiles/">jcoyne.github.io/cloud-tiles</a><br>
+              <span class="dim">github.com/jcoyne/cloud-tiles</span>
+            </p>
+          </div>
+          <svg class="d" viewBox="0 0 400 400" style="max-width:400px" role="img" aria-label="Three-level wavelet decomposition">
+            <rect class="cell" x="200" y="0" width="200" height="200"/>
+            <rect class="cell" x="0" y="200" width="200" height="200"/>
+            <rect class="cell" x="200" y="200" width="200" height="200"/>
+            <rect class="cell" x="100" y="0" width="100" height="100"/>
+            <rect class="cell" x="0" y="100" width="100" height="100"/>
+            <rect class="cell" x="100" y="100" width="100" height="100"/>
+            <rect class="cell" x="50" y="0" width="50" height="50"/>
+            <rect class="cell" x="0" y="50" width="50" height="50"/>
+            <rect class="cell" x="50" y="50" width="50" height="50"/>
+            <rect class="facc" x="0" y="0" width="50" height="50"/>
+            <text x="300" y="106" text-anchor="middle" class="s">HL1</text>
+            <text x="100" y="306" text-anchor="middle" class="s">LH1</text>
+            <text x="300" y="306" text-anchor="middle" class="s">HH1</text>
+            <text x="25" y="30" text-anchor="middle" class="b t-dk" style="font-size:13px">LL</text>
+          </svg>
+        </div>
+        <aside class="notes">
+          cloud-tiles is a deep-zoom viewer for JPEG 2000 that runs entirely in the browser.
+          It reads one JP2 file from any static host using HTTP range requests. There's no IIIF image server involved.
+          The picture is a wavelet decomposition, which is what makes this possible. We'll come back to it.
+        </aside>
+      </section>
+
+      <!-- 2 -->
+      <section>
+        <div class="kicker">background</div>
+        <h2>Cloud-Optimized GeoTIFF</h2>
+        <svg class="d" viewBox="0 0 1000 260" role="img" aria-label="A map viewport requesting only the tiles it needs from a COG by byte range">
+          <g>
+            <rect class="cell" x="30" y="20" width="70" height="70"/><rect class="cell" x="100" y="20" width="70" height="70"/><rect class="cell" x="170" y="20" width="70" height="70"/>
+            <rect class="cell" x="30" y="90" width="70" height="70"/><rect class="f2" x="100" y="90" width="70" height="70"/><rect class="f2" x="170" y="90" width="70" height="70"/>
+            <rect class="cell" x="30" y="160" width="70" height="70"/><rect class="cell" x="100" y="160" width="70" height="70"/><rect class="cell" x="170" y="160" width="70" height="70"/>
+          </g>
+          <text x="135" y="252" text-anchor="middle" class="s">map viewport</text>
+
+          <text x="320" y="106" class="s">header</text>
+          <text x="420" y="106" class="s">overviews</text>
+          <text x="640" y="106" class="s">full-resolution tiles</text>
+          <rect class="f3" x="320" y="116" width="90" height="50"/>
+          <g class="cell">
+            <rect x="420" y="116" width="40" height="50"/><rect x="460" y="116" width="40" height="50"/>
+            <rect x="510" y="116" width="30" height="50"/><rect x="540" y="116" width="30" height="50"/><rect x="570" y="116" width="30" height="50"/><rect x="600" y="116" width="30" height="50"/>
+            <rect x="640" y="116" width="34" height="50"/><rect x="674" y="116" width="34" height="50"/><rect x="708" y="116" width="34" height="50"/><rect x="742" y="116" width="34" height="50"/>
+            <rect x="810" y="116" width="34" height="50"/><rect x="878" y="116" width="34" height="50"/><rect x="912" y="116" width="34" height="50"/><rect x="946" y="116" width="34" height="50"/>
+          </g>
+          <rect class="facc" x="776" y="116" width="34" height="50"/>
+          <rect class="facc" x="844" y="116" width="34" height="50"/>
+
+          <path class="ln" d="M240,40 C290,40 280,141 314,141" marker-end="url(#ar)"/>
+          <text x="292" y="60" class="s">1</text>
+          <path class="ln acc" d="M240,125 C420,250 700,240 790,172" marker-end="url(#arA)"/>
+          <path class="ln acc" d="M240,140 C440,262 780,250 858,172" marker-end="url(#arA)"/>
+          <text x="560" y="250" class="s">2</text>
+        </svg>
+        <p class="caption"><b>1</b> read the header &nbsp;·&nbsp; <b>2</b> request only the tiles on screen</p>
+        <aside class="notes">
+          Background. Last work cycle Nick and I replaced GeoServer with Cloud-Optimized GeoTIFFs.
+          A COG is an ordinary GeoTIFF laid out so a client can read it in pieces. The header (the IFDs) comes first and says where every internal tile and every lower-resolution overview sits.
+          The client reads the header once, then sends one HTTP Range request per map tile. Any static host works: S3, a CDN.
+        </aside>
+      </section>
+
+      <!-- 3 -->
+      <section>
+        <div class="kicker">the question</div>
+        <h2>That sounds like an image server</h2>
+        <svg class="d" viewBox="0 0 1000 290" role="img" aria-label="Image server path compared with direct range requests">
+          <rect class="box" x="10" y="20" width="180" height="70"/>
+          <text x="100" y="61" text-anchor="middle">browser</text>
+          <path class="ln" d="M190,55 L292,55" marker-end="url(#ar)"/>
+          <rect class="box ink" x="300" y="10" width="380" height="90"/>
+          <text x="490" y="48" text-anchor="middle" class="b">image server</text>
+          <text x="490" y="76" text-anchor="middle" class="s">decode · crop · scale · re-encode</text>
+          <path class="ln" d="M680,55 L782,55" marker-end="url(#ar)"/>
+          <rect class="box" x="790" y="20" width="200" height="70"/>
+          <text x="890" y="61" text-anchor="middle">file.jp2</text>
+
+          <rect class="box" x="10" y="190" width="180" height="70"/>
+          <text x="100" y="221" text-anchor="middle">browser</text>
+          <text x="100" y="244" text-anchor="middle" class="s">+ decoder</text>
+          <rect class="box ghost" x="300" y="180" width="380" height="90"/>
+          <path class="ln acc" d="M190,225 L782,225" marker-end="url(#arA)"/>
+          <text x="490" y="212" text-anchor="middle" class="t-acc">Range: bytes=…</text>
+          <text x="490" y="256" text-anchor="middle" class="s">no server?</text>
+          <rect class="box" x="790" y="190" width="200" height="70"/>
+          <text x="890" y="231" text-anchor="middle">file.jp2</text>
+        </svg>
+        <p class="caption">JPEG 2000 already has <b>multiple resolutions</b> and <b>spatial chunks</b>.</p>
+        <aside class="notes">
+          Then it clicked: "read this region at this size and return pixels" is exactly what our IIIF image server does.
+          COG gets that from a static file and a smart client. Could a JP2 work the same way?
+          JPEG 2000 already has both things you need: resolutions are built into the wavelet transform, and the image can be split spatially into tiles or precincts.
+          The missing piece is a decoder that runs in the browser.
+        </aside>
+      </section>
+
+      <!-- 4 -->
+      <section>
+        <div class="kicker">the decoder</div>
+        <h2>Rust → WebAssembly</h2>
+        <ul>
+          <li>Looking for JPEG 2000 encoders: OpenJPEG has recently been marked as not supported</li>
+          <li>Found <a href="https://github.com/frames-sg/j2k">frames-sg/j2k</a>, a pure Rust implementation</li>
+          <li>Pure Rust compiles to WebAssembly, so it runs in a browser</li>
+        </ul>
+        <pre><code>pub fn decode(bytes: &amp;[u8], reduction: u8,
+              x: u32, y: u32, w: u32, h: u32)
+    -&gt; Result&lt;DecodedImage, JsError&gt;   <span class="cm">// RGBA out</span></code></pre>
+        <aside class="notes">
+          Separately, I'd been looking at JPEG 2000 encoders, because OpenJPEG has recently been marked as not supported.
+          That's how I found frames-sg/j2k: a JPEG 2000 and HTJ2K codec written in pure Rust, with unsafe code forbidden.
+          Pure Rust with no C dependencies compiles straight to wasm32-unknown-unknown. We build with wasm-bindgen and SIMD, and each Web Worker gets its own instance.
+          The whole binding layer is about 130 lines: pass in a codestream, the number of resolution levels to drop, and a region, and you get RGBA back.
+          The catch: it needs a complete, valid codestream. So the real work happens in TypeScript, building one from a handful of byte ranges.
+        </aside>
+      </section>
+
+      <!-- 5 -->
+      <section>
+        <div class="kicker">jpeg 2000 background</div>
+        <h2>How an image is encoded</h2>
+        <svg class="d" viewBox="0 0 1000 290" role="img" aria-label="JPEG 2000 encoding pipeline">
+          <!-- pixels -->
+          <g>
+            <rect class="f1" x="20" y="20" width="40" height="40"/><rect class="f2" x="60" y="20" width="40" height="40"/><rect class="f3" x="100" y="20" width="40" height="40"/><rect class="f1" x="140" y="20" width="40" height="40"/>
+            <rect class="f2" x="20" y="60" width="40" height="40"/><rect class="f3" x="60" y="60" width="40" height="40"/><rect class="f1" x="100" y="60" width="40" height="40"/><rect class="f2" x="140" y="60" width="40" height="40"/>
+            <rect class="f3" x="20" y="100" width="40" height="40"/><rect class="f1" x="60" y="100" width="40" height="40"/><rect class="f2" x="100" y="100" width="40" height="40"/><rect class="f3" x="140" y="100" width="40" height="40"/>
+            <rect class="f1" x="20" y="140" width="40" height="40"/><rect class="f2" x="60" y="140" width="40" height="40"/><rect class="f3" x="100" y="140" width="40" height="40"/><rect class="f1" x="140" y="140" width="40" height="40"/>
+          </g>
+          <!-- colour -->
+          <rect class="box" x="250" y="20" width="120" height="120"/>
+          <rect class="box" x="270" y="40" width="120" height="120"/>
+          <rect class="box" x="290" y="60" width="120" height="120"/>
+          <text x="260" y="40" class="s">Y</text><text x="280" y="60" class="s">Cb</text><text x="300" y="80" class="s">Cr</text>
+          <!-- wavelet -->
+          <g transform="translate(440,20)">
+            <rect class="cell" x="80" y="0" width="80" height="80"/><rect class="cell" x="0" y="80" width="80" height="80"/><rect class="cell" x="80" y="80" width="80" height="80"/>
+            <rect class="cell" x="40" y="0" width="40" height="40"/><rect class="cell" x="0" y="40" width="40" height="40"/><rect class="cell" x="40" y="40" width="40" height="40"/>
+            <rect class="facc" x="0" y="0" width="40" height="40"/>
+          </g>
+          <!-- code-blocks -->
+          <g transform="translate(630,20)">
+            <rect class="cell" x="0" y="0" width="160" height="160"/>
+            <path d="M40,0V160M80,0V160M120,0V160M0,40H160M0,80H160M0,120H160" stroke="#4a4954" stroke-width="1.5"/>
+            <rect class="f3" x="40" y="40" width="40" height="40"/>
+          </g>
+          <!-- packets -->
+          <g transform="translate(830,20)">
+            <rect class="f3" x="0" y="0"   width="22" height="18"/><rect class="cell" x="22" y="0"   width="60"  height="18"/>
+            <rect class="f3" x="0" y="28"  width="22" height="18"/><rect class="cell" x="22" y="28"  width="100" height="18"/>
+            <rect class="f3" x="0" y="56"  width="22" height="18"/><rect class="cell" x="22" y="56"  width="138" height="18"/>
+            <rect class="f3" x="0" y="84"  width="22" height="18"/><rect class="cell" x="22" y="84"  width="80"  height="18"/>
+            <rect class="f3" x="0" y="112" width="22" height="18"/><rect class="cell" x="22" y="112" width="120" height="18"/>
+            <rect class="f3" x="0" y="140" width="22" height="18"/><rect class="cell" x="22" y="140" width="40"  height="18"/>
+          </g>
+          <g>
+            <path class="ln" d="M190,100 L238,100" marker-end="url(#ar)"/>
+            <path class="ln" d="M418,100 L430,100" marker-end="url(#ar)"/>
+            <path class="ln" d="M605,100 L620,100" marker-end="url(#ar)"/>
+            <path class="ln" d="M796,100 L820,100" marker-end="url(#ar)"/>
+          </g>
+          <g text-anchor="middle">
+            <text x="100" y="226" class="b">pixels</text>
+            <text x="330" y="226" class="b">colour</text>
+            <text x="330" y="250" class="s">RGB → YCbCr</text>
+            <text x="520" y="226" class="b">wavelet</text>
+            <text x="520" y="250" class="s">each level halves</text>
+            <text x="710" y="226" class="b">code-blocks</text>
+            <text x="710" y="250" class="s">bit-plane coded</text>
+            <text x="910" y="226" class="b">packets</text>
+            <text x="910" y="250" class="s">header + body</text>
+          </g>
+        </svg>
+        <p class="caption">Lower resolutions are free: <b>stop decoding early</b>.</p>
+        <aside class="notes">
+          A quick tour of how JPEG 2000 encodes an image.
+          First a colour transform from RGB to luma and chroma: the irreversible ICT for lossy, the reversible RCT for lossless.
+          Then the wavelet. The 9/7 filter is lossy, 5/3 is reversible. Each level splits the image into a half-size low-pass band, LL, plus three detail bands. Five levels gives six resolutions, so you can get a smaller version of the image just by decoding fewer levels.
+          The coefficients are quantized and cut into code-blocks, typically 64 by 64, and each block is coded one bit-plane at a time. Classic JPEG 2000 uses EBCOT with an MQ arithmetic coder. HTJ2K swaps in a much faster block coder, which matters in a browser.
+          Two more groupings matter for us. Precincts group code-blocks by position within a resolution, which is how we fetch a region. Layers slice the bit-planes for progressive quality.
+          The unit on disk is the packet: one layer of one precinct of one component at one resolution. Each packet has a header (which blocks are included, zero bit-planes, byte lengths) and a body.
+        </aside>
+      </section>
+
+      <!-- 6 -->
+      <section>
+        <div class="kicker">jpeg 2000 background</div>
+        <h2>The layout of a .jp2 file</h2>
+        <svg class="d" viewBox="0 0 1000 340" role="img" aria-label="JP2 file layout: boxes, codestream markers, and a tile-part">
+          <text x="20" y="18" class="s">boxes</text>
+          <g text-anchor="middle">
+            <rect class="box" x="20"  y="28" width="80"  height="48"/><text x="60"  y="58">jP</text>
+            <rect class="box" x="100" y="28" width="80"  height="48"/><text x="140" y="58">ftyp</text>
+            <rect class="box" x="180" y="28" width="180" height="48"/><text x="270" y="58">jp2h</text>
+            <rect class="box ink" x="360" y="28" width="620" height="48"/><text x="670" y="58">jp2c: codestream</text>
+          </g>
+          <path class="ln dash" d="M360,76 L20,132 M980,76 L980,132"/>
+
+          <g text-anchor="middle">
+            <rect class="box" x="20"  y="132" width="80"  height="48"/><text x="60"  y="162">SOC</text>
+            <rect class="box" x="100" y="132" width="90"  height="48"/><text x="145" y="162">SIZ</text>
+            <rect class="box" x="190" y="132" width="90"  height="48"/><text x="235" y="162">COD</text>
+            <rect class="box" x="280" y="132" width="90"  height="48"/><text x="325" y="162">QCD</text>
+            <rect class="box acc" x="370" y="132" width="90" height="48"/><text x="415" y="162" class="t-acc">TLM</text>
+            <rect class="box ink" x="460" y="132" width="190" height="48"/><text x="555" y="162">tile-part</text>
+            <rect class="box" x="650" y="132" width="190" height="48"/><text x="745" y="162">tile-part</text>
+            <rect class="box ghost" x="840" y="132" width="70" height="48"/><text x="875" y="162">…</text>
+            <rect class="box" x="910" y="132" width="70"  height="48"/><text x="945" y="162">EOC</text>
+          </g>
+          <text x="20" y="204" class="s">main header</text>
+          <path class="ln dash" d="M460,180 L20,236 M650,180 L980,236"/>
+
+          <g text-anchor="middle">
+            <rect class="box" x="20"  y="236" width="90"  height="48"/><text x="65"  y="266">SOT</text>
+            <rect class="box acc" x="110" y="236" width="90" height="48"/><text x="155" y="266" class="t-acc">PLT</text>
+            <rect class="box" x="200" y="236" width="90"  height="48"/><text x="245" y="266">SOD</text>
+          </g>
+          <g>
+            <rect class="f3" x="290" y="236" width="14" height="48"/><rect class="f3" x="306" y="236" width="16" height="48"/><rect class="f3" x="324" y="236" width="18" height="48"/>
+            <rect class="f2" x="344" y="236" width="26" height="48"/><rect class="f2" x="372" y="236" width="30" height="48"/><rect class="f2" x="404" y="236" width="34" height="48"/>
+            <rect class="f1" x="440" y="236" width="50" height="48"/><rect class="f1" x="492" y="236" width="58" height="48"/><rect class="f1" x="552" y="236" width="54" height="48"/>
+            <rect class="cell" x="608" y="236" width="88" height="48"/><rect class="cell" x="698" y="236" width="96" height="48"/><rect class="cell" x="796" y="236" width="90" height="48"/><rect class="cell" x="888" y="236" width="92" height="48"/>
+          </g>
+          <text x="290" y="308" class="s">packets, lowest resolution first</text>
+        </svg>
+        <p class="caption"><span class="accent">TLM</span> locates every tile-part. <span class="accent">PLT</span> gives every packet's length.</p>
+        <aside class="notes">
+          On disk, a .jp2 is a sequence of boxes: the signature box, the file type, a header box with image size and colour, and then jp2c, the codestream itself. JPH files for HTJ2K have the same layout.
+          The codestream is a sequence of markers. SOC starts it. SIZ gives image and tile sizes. COD gives decomposition levels, progression order and precinct sizes. QCD gives quantization.
+          Two optional markers matter most to us, and they're highlighted. TLM, in the main header, is a table of where every tile-part starts. PLT, in a tile-part header, lists the byte length of every packet.
+          Each tile-part is SOT, optionally PLT, then SOD, then the packets. In RPCL order the lowest-resolution packets come first, so the thumbnail is a short prefix of the file.
+          Example: Stanford's archive JP2s, written by Kakadu 7.1, are a single tile, RPCL, 7 layers, 5 levels, with PLT and no TLM. For a 4.5 MB file, the first ~42 KB tells us where every packet is.
+        </aside>
+      </section>
+
+      <!-- 7 -->
+      <section>
+        <div class="kicker">complications</div>
+        <h2>Every JP2 is laid out differently</h2>
+        <svg class="d" viewBox="0 0 1000 440" style="max-height:470px" role="img" aria-label="Decision tree for choosing an access strategy">
+          <g text-anchor="middle">
+            <rect class="box ink" x="380" y="0" width="240" height="46"/><text x="500" y="29">more than one tile?</text>
+
+            <path class="ln" d="M380,23 L240,23 L240,86" marker-end="url(#ar)"/><text x="310" y="14" class="s">yes</text>
+            <path class="ln" d="M620,23 L760,23 L760,86" marker-end="url(#ar)"/><text x="690" y="14" class="s">no</text>
+
+            <rect class="box ink" x="140" y="92" width="200" height="46"/><text x="240" y="121">TLM?</text>
+            <path class="ln" d="M190,138 L130,184" marker-end="url(#ar)"/><text x="140" y="164" class="s">yes</text>
+            <path class="ln" d="M290,138 L350,184" marker-end="url(#ar)"/><text x="344" y="164" class="s">no</text>
+            <rect class="box" x="20" y="190" width="210" height="46"/><text x="125" y="219" class="s">read the index</text>
+            <rect class="box" x="250" y="190" width="210" height="46"/><text x="355" y="219" class="s">walk SOT markers</text>
+            <path class="ln" d="M125,236 L200,276" marker-end="url(#ar)"/>
+            <path class="ln" d="M355,236 L280,276" marker-end="url(#ar)"/>
+            <rect class="box ink" x="120" y="282" width="240" height="46"/><text x="240" y="311">parts by resolution?</text>
+            <path class="ln acc" d="M240,328 L240,372" marker-end="url(#arA)"/>
+            <rect class="box acc" x="140" y="378" width="200" height="46"/><text x="240" y="407" class="t-acc b">tiles</text>
+
+            <rect class="box ink" x="660" y="92" width="200" height="46"/><text x="760" y="121">PLT?</text>
+            <path class="ln" d="M760,138 L760,184" marker-end="url(#ar)"/><text x="780" y="166" class="s">yes</text>
+            <rect class="box ink" x="640" y="190" width="240" height="46"/><text x="760" y="219">packet count OK?</text>
+            <path class="ln acc" d="M760,236 L760,372" marker-end="url(#arA)"/><text x="780" y="310" class="s">yes</text>
+            <rect class="box acc" x="660" y="378" width="200" height="46"/><text x="760" y="407" class="t-acc b">precincts</text>
+
+            <path class="ln" d="M660,115 L560,115 L560,276" marker-end="url(#ar)"/><text x="600" y="106" class="s">no</text>
+            <path class="ln" d="M640,213 L600,213 L600,276" marker-end="url(#ar)"/><text x="620" y="204" class="s">no</text>
+            <rect class="box ghost" x="470" y="282" width="160" height="46"/><text x="550" y="311" style="fill:#8d8b96">whole file</text>
+          </g>
+        </svg>
+        <aside class="notes">
+          Here's where it gets hairy: real-world JP2s are encoded in every possible way.
+          Tiled? Then is there a TLM marker? If so, the main header tells us where every tile-part is. If not, we walk the SOT markers, one small read per tile-part.
+          Are the tile-parts split by resolution, Kakadu's ORGtparts=R? Then we can skip the high-resolution parts entirely.
+          Untiled? Then everything depends on PLT. Without it you have one giant tile and must download the whole file. With it, we build a packet index and check the count against what the geometry predicts. If they disagree, we fall back rather than decode garbage.
+          On top of that, the progression order (LRCP, RLCP, RPCL, PCRL, CPRL) decides where a region's packets sit. RPCL keeps resolutions together; LRCP scatters a region's packets across the whole file. Precinct sizes can differ per resolution, and COC overrides them per component. The geometry code implements the spec's Annex B formulas to track all of this.
+        </aside>
+      </section>
+
+      <!-- 8 -->
+      <section>
+        <div class="kicker">two strategies</div>
+        <h2>Fetch by tile, or by precinct</h2>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start">
+          <div>
+            <svg class="d" viewBox="0 0 440 300" role="img" aria-label="Tiled file: only tiles under the view are fetched">
+              <g>
+                <rect class="cell" x="0"   y="0" width="70" height="70"/><rect class="cell" x="70"  y="0" width="70" height="70"/><rect class="cell" x="140" y="0" width="70" height="70"/><rect class="cell" x="210" y="0" width="70" height="70"/><rect class="cell" x="280" y="0" width="70" height="70"/><rect class="cell" x="350" y="0" width="70" height="70"/>
+                <rect class="cell" x="0"   y="70" width="70" height="70"/><rect class="f1" x="70" y="70" width="70" height="70"/><rect class="f1" x="140" y="70" width="70" height="70"/><rect class="f1" x="210" y="70" width="70" height="70"/><rect class="cell" x="280" y="70" width="70" height="70"/><rect class="cell" x="350" y="70" width="70" height="70"/>
+                <rect class="cell" x="0"   y="140" width="70" height="70"/><rect class="f1" x="70" y="140" width="70" height="70"/><rect class="f1" x="140" y="140" width="70" height="70"/><rect class="f1" x="210" y="140" width="70" height="70"/><rect class="cell" x="280" y="140" width="70" height="70"/><rect class="cell" x="350" y="140" width="70" height="70"/>
+                <rect class="cell" x="0"   y="210" width="70" height="70"/><rect class="cell" x="70" y="210" width="70" height="70"/><rect class="cell" x="140" y="210" width="70" height="70"/><rect class="cell" x="210" y="210" width="70" height="70"/><rect class="cell" x="280" y="210" width="70" height="70"/><rect class="cell" x="350" y="210" width="70" height="70"/>
+                <path d="M70,140H280M140,70V210M210,70V210" stroke="#4a4954" stroke-width="1.5"/>
+              </g>
+              <rect x="105" y="100" width="140" height="80" fill="none" stroke="#c6ff3d" stroke-width="2.5" stroke-dasharray="8 5"/>
+              <text x="175" y="146" text-anchor="middle" class="t-acc">view</text>
+            </svg>
+            <p class="caption" style="font-size:24px"><b>Tiled + TLM:</b> fetch those tiles and rewrite <code>SIZ</code> so they form a small image.</p>
+          </div>
+          <div>
+            <svg class="d" viewBox="0 0 440 300" role="img" aria-label="Untiled file: packets outside the view become empty packets">
+              <text x="0" y="16" class="s">file</text>
+              <g>
+                <rect class="f3" x="0" y="28" width="16" height="50"/><rect class="cell" x="18" y="28" width="22" height="50"/><rect class="f3" x="42" y="28" width="20" height="50"/><rect class="cell" x="64" y="28" width="26" height="50"/>
+                <rect class="cell" x="92" y="28" width="30" height="50"/><rect class="f3" x="124" y="28" width="28" height="50"/><rect class="cell" x="154" y="28" width="34" height="50"/><rect class="cell" x="190" y="28" width="30" height="50"/>
+                <rect class="f3" x="222" y="28" width="40" height="50"/><rect class="cell" x="264" y="28" width="44" height="50"/><rect class="cell" x="310" y="28" width="38" height="50"/><rect class="f3" x="350" y="28" width="46" height="50"/><rect class="cell" x="398" y="28" width="42" height="50"/>
+              </g>
+              <path class="ln" d="M220,96 L220,150" marker-end="url(#ar)"/>
+              <text x="0" y="176" class="s">sent to the decoder</text>
+              <g>
+                <rect class="f3" x="0" y="188" width="16" height="50"/>
+                <rect class="box acc" x="20" y="188" width="8" height="50"/>
+                <rect class="f3" x="32" y="188" width="20" height="50"/>
+                <rect class="box acc" x="56" y="188" width="8" height="50"/>
+                <rect class="box acc" x="68" y="188" width="8" height="50"/>
+                <rect class="f3" x="80" y="188" width="28" height="50"/>
+                <rect class="box acc" x="112" y="188" width="8" height="50"/>
+                <rect class="box acc" x="124" y="188" width="8" height="50"/>
+                <rect class="f3" x="136" y="188" width="40" height="50"/>
+                <rect class="box acc" x="180" y="188" width="8" height="50"/>
+                <rect class="box acc" x="192" y="188" width="8" height="50"/>
+                <rect class="f3" x="204" y="188" width="46" height="50"/>
+                <rect class="box acc" x="254" y="188" width="8" height="50"/>
+              </g>
+              <rect class="box acc" x="0" y="262" width="8" height="18"/>
+              <text x="16" y="276" class="s">one-byte empty packet</text>
+            </svg>
+            <p class="caption" style="font-size:24px"><b>Untiled + PLT:</b> keep the view's packets and swap the rest for empty ones.</p>
+          </div>
+        </div>
+        <aside class="notes">
+          So there are two strategies.
+          For tiled files with TLM: work out which tiles the view overlaps and fetch only those tile-parts, and only up to the resolution we need when the parts are split that way. Then rewrite SIZ so the decoder thinks it's a small image made of just those tiles, renumbered. If we drop resolution levels, we trim COD and QCD as well.
+          For untiled files with PLT there's only one tile, so we can't drop tiles. Instead we keep the full packet sequence but replace every packet outside the view with a single zero byte, which is a legal empty packet. We keep a 16-sample margin because the wavelet filters reach into neighbouring samples. This works on Stanford's existing archive files.
+          Either way the decoder gets a valid codestream. The tests check that both paths are bit-exact against decoding the whole file, and within ±1 of Kakadu.
+        </aside>
+      </section>
+
+      <!-- 9 -->
+      <section>
+        <div class="kicker">putting it together</div>
+        <h2>How a tile is drawn</h2>
+        <svg class="d" viewBox="0 0 1000 400" style="max-height:440px" role="img" aria-label="Swimlane diagram of one tile request">
+          <g>
+            <rect x="0" y="0"   width="1000" height="72" fill="#1a1a20"/>
+            <rect x="0" y="160" width="1000" height="72" fill="#1a1a20"/>
+            <rect x="0" y="320" width="1000" height="72" fill="#1a1a20"/>
+            <text x="14" y="41" class="s">OpenSeadragon</text>
+            <text x="14" y="121" class="s">tile source</text>
+            <text x="14" y="201" class="s">Jp2Image</text>
+            <text x="14" y="281" class="s">HttpRangeSource</text>
+            <text x="14" y="361" class="s">Web Worker</text>
+          </g>
+          <g text-anchor="middle">
+            <rect class="box" x="190" y="12" width="150" height="48"/><text x="265" y="42">tile x, y, z</text>
+            <rect class="box" x="350" y="92" width="150" height="48"/><text x="425" y="122">region</text>
+            <rect class="box" x="510" y="172" width="150" height="48"/><text x="585" y="202">byte ranges</text>
+            <rect class="box" x="670" y="252" width="150" height="48"/><text x="745" y="282">fetch</text>
+            <rect class="box" x="830" y="332" width="160" height="48"/><text x="910" y="362">decode</text>
+            <rect class="box acc" x="830" y="12" width="160" height="48"/><text x="910" y="42" class="t-acc">pixels</text>
+          </g>
+          <path class="ln" d="M340,36 L370,36 L370,86" marker-end="url(#ar)"/>
+          <path class="ln" d="M500,116 L530,116 L530,166" marker-end="url(#ar)"/>
+          <path class="ln" d="M660,196 L690,196 L690,246" marker-end="url(#ar)"/>
+          <path class="ln" d="M820,276 L850,276 L850,326" marker-end="url(#ar)"/>
+          <path class="ln acc" d="M970,332 L970,66" marker-end="url(#arA)"/>
+        </svg>
+        <aside class="notes">
+          Here's what happens for each tile.
+          OpenSeadragon asks for a tile by level, x and y. The tile source turns that into how many resolution levels to drop (maxLevel minus level) and a pixel region at that resolution.
+          Jp2Image.plan returns the byte ranges it needs, plus a function that builds the codestream.
+          HttpRangeSource fetches the ranges. It merges nearby ones into a single request, caps concurrency, and keeps an LRU cache, so the low-resolution data every tile needs is fetched only once.
+          Then we build the small codestream and send it to a worker. The worker runs the WASM decoder and hands back an ImageBitmap without a copy, and OpenSeadragon draws it.
+          If you pan away, queued decodes are cancelled. Fetches aren't, because another tile probably needs the same bytes.
+        </aside>
+      </section>
+
+      <!-- 10 -->
+      <section>
+        <div class="kicker">results</div>
+        <h2>Do we still need an image server?</h2>
+        <div class="stats">
+          <div class="stat"><div class="n">3–5</div><div class="l">requests to open an image</div></div>
+          <div class="stat"><div class="n">15–30%</div><div class="l">of the file for the first view</div></div>
+          <div class="stat"><div class="n">65–85 ms</div><div class="l">to decode a tile</div></div>
+          <div class="stat"><div class="n">±1</div><div class="l">max sample difference from Kakadu</div></div>
+        </div>
+        <div class="pc">
+          <div>
+            <h3>Gains</h3>
+            <ul>
+              <li>Static hosting only</li>
+              <li>No server-side decoding</li>
+              <li>Original pixels, not re-encoded</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Gives up</h3>
+            <ul>
+              <li>Region URLs and derivatives</li>
+              <li>Size limits and access by region</li>
+              <li>Files without PLT or TLM</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mono" style="font-size:22px; margin-top:44px"><a href="https://jcoyne.github.io/cloud-tiles/">jcoyne.github.io/cloud-tiles</a></p>
+        <aside class="notes">
+          So, do we still need an image server? For viewing, not necessarily.
+          Opening an image takes three to five requests, 90 to 275 KB in our samples. The first view fetches 15 to 30 percent of the file. A tile decodes in 65 to 85 milliseconds in the browser. The output is within one of Kakadu, and bit-exact against decoding the whole file.
+          What we gain: any static host with Range and CORS, no server CPU, and the original codestream rather than a second lossy generation.
+          What we give up: region URLs, thumbnails and crops on demand, size limits such as maxWidth, and access control by size or region. It also needs a modern browser. Other IIIF viewers don't know about it, but a manifest can advertise both, and they fall back to the Image API.
+          The one request for our encoding pipeline: turn on PLT (ORGgen_plt=yes). Without it the viewer has to download the whole file.
+          The viewer is live, and the samples menu includes a 1.2 GB piano roll straight from stacks. Questions?
+        </aside>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0.06,
+      hash: true,
+      center: false,
+      transition: "fade",
+      plugins: [RevealNotes],
+    });
+
+    // The slide counter, written as the response line for a range request.
+    const range = document.getElementById("range");
+    function showRange() {
+      const i = Reveal.getState().indexh;
+      range.textContent = `206 Partial Content · Content-Range: slides ${i}-${i}/${Reveal.getTotalSlides()}`;
+    }
+    Reveal.on("ready", showRange);
+    Reveal.on("slidechanged", showRange);
+  </script>
+</body>
+</html>
