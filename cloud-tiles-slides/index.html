@@ -447,7 +447,7 @@
           So there are two strategies.
           For tiled files with TLM: work out which tiles the view overlaps and fetch only those tile-parts, and only up to the resolution we need when the parts are split that way. Then rewrite SIZ so the decoder thinks it's a small image made of just those tiles, renumbered. If we drop resolution levels, we trim COD and QCD as well.
           For untiled files with PLT there's only one tile, so we can't drop tiles. Instead we keep the full packet sequence but replace every packet outside the view with a single zero byte, which is a legal empty packet. We keep a 16-sample margin because the wavelet filters reach into neighbouring samples. This works on Stanford's existing archive files.
-          Either way the decoder gets a valid codestream. The tests check that both paths are bit-exact against decoding the whole file, and within ±1 of Kakadu.
+          Either way the decoder gets a valid codestream. The tests check that both paths are bit-exact against decoding the whole file, and that no 8-bit sample value differs from Kakadu by more than 1.
         </aside>
       </section>
 
@@ -513,7 +513,8 @@
             <h3>Gives up</h3>
             <ul>
               <li>Region URLs and derivatives</li>
-              <li>Size limits and access by region</li>
+              <li>Size limits, like <code>maxWidth</code></li>
+              <li>Access control: all or nothing</li>
               <li>Files without PLT or TLM</li>
             </ul>
           </div>
@@ -521,9 +522,9 @@
         <p class="mono" style="font-size:22px; margin-top:44px"><a href="https://jcoyne.github.io/cloud-tiles/">jcoyne.github.io/cloud-tiles</a></p>
         <aside class="notes">
           So, do we still need an image server? For viewing, not necessarily.
-          Opening an image takes three to five requests, 90 to 275 KB in our samples. The first view fetches 15 to 30 percent of the file. A tile decodes in 65 to 85 milliseconds in the browser. The output is within one of Kakadu, and bit-exact against decoding the whole file.
+          Opening an image takes three to five requests, 90 to 275 KB in our samples. The first view fetches 15 to 30 percent of the file. A tile decodes in 65 to 85 milliseconds in the browser. Compared with Kakadu, no 8-bit sample value (R, G or B, 0 to 255) is off by more than 1, and the output is bit-exact against decoding the whole file.
           What we gain: any static host with Range and CORS, no server CPU, and the original codestream rather than a second lossy generation.
-          What we give up: region URLs, thumbnails and crops on demand, size limits such as maxWidth, and access control by size or region. It also needs a modern browser. Other IIIF viewers don't know about it, but a manifest can advertise both, and they fall back to the Image API.
+          What we give up: region URLs, thumbnails and crops on demand, and size limits such as maxWidth. Access control becomes all or nothing: if you can read the file at all, you can read every region at full resolution, and download the master. An image server can restrict by size or region per request; here the only control is on the whole file, through IIIF Auth and credentialed CORS. It also needs a modern browser. Other IIIF viewers don't know about it, but a manifest can advertise both, and they fall back to the Image API.
           The one request for our encoding pipeline: turn on PLT (ORGgen_plt=yes). Without it the viewer has to download the whole file.
           The viewer is live, and the samples menu includes a 1.2 GB piano roll straight from stacks. Questions?
         </aside>
