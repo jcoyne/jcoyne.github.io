@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f3">
+  <meta name="description" content="Explore public videos from the Stanford Digital Repository. Save favorites, make playlists, and pick up where you left off.">
+  <title>StanfordTube — Explore the archive</title>
+  <link rel="preconnect" href="https://stacks.stanford.edu">
+  <link rel="preconnect" href="https://purl.stanford.edu">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button class="menu-toggle icon-button" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <a class="brand" href="#home" aria-label="StanfordTube home"><span class="brand-mark" aria-hidden="true"><span class="brand-play"></span></span><span>Stanford<span class="brand-accent">Tube</span></span></a>
+      <form class="search" id="search-form" role="search">
+        <span class="search-icon" aria-hidden="true"></span>
+        <input id="search-input" type="search" placeholder="Search videos and collections" autocomplete="off" aria-label="Search videos and collections">
+        <button type="button" id="clear-search" class="clear-search" aria-label="Clear search" hidden>×</button>
+        <kbd class="search-shortcut" aria-hidden="true">/</kbd>
+      </form>
+      <div class="topbar-right"><span class="archive-pill"><span class="live-dot"></span> Stanford Digital Repository</span></div>
+    </header>
+
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-inner">
+        <p class="nav-label">BROWSE</p>
+        <nav class="nav-list" id="main-nav" aria-label="Library">
+          <button class="nav-item active" data-view="home"><span class="nav-icon" aria-hidden="true">⌂</span><span>Home</span></button>
+          <button class="nav-item" data-view="liked"><span class="nav-icon" aria-hidden="true">♡</span><span>Liked</span><span class="nav-count" id="liked-count"></span></button>
+          <button class="nav-item" data-view="history"><span class="nav-icon" aria-hidden="true">↺</span><span>History</span></button>
+          <button class="nav-item" data-view="later"><span class="nav-icon" aria-hidden="true">▱</span><span>Watch later</span><span class="nav-count" id="later-count"></span></button>
+          <button class="nav-item" data-view="playlists"><span class="nav-icon" aria-hidden="true">▤</span><span>Playlists</span></button>
+        </nav>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-section-heading"><p class="nav-label">YOUR PLAYLISTS</p><button id="quick-add-playlist" class="small-add" aria-label="Create playlist" title="Create playlist">+</button></div>
+        <div id="sidebar-playlists" class="sidebar-playlists"></div>
+        <div class="sidebar-foot"><div class="sidebar-foot-icon">✦</div><strong>A world of ideas,<br>on demand.</strong><p>Explore talks, interviews, performances, and more from Stanford's archives.</p></div>
+      </div>
+    </aside>
+    <button id="sidebar-scrim" class="sidebar-scrim" aria-label="Close navigation" hidden></button>
+
+    <main class="content" id="main-content">
+      <section class="intro" id="intro">
+        <div class="eyebrow"><span class="eyebrow-line"></span>THE STANFORD VIDEO ARCHIVE</div>
+        <h1 id="page-title">Ideas worth <em>watching.</em></h1>
+        <p id="page-description">Lectures, conversations, performances, and moments from across Stanford's collections. Find something that stays with you.</p>
+      </section>
+      <section class="browse-panel" id="browse-panel">
+        <div class="section-heading"><div><h2 id="section-title">Explore videos</h2><p id="results-label" class="results-label">Loading the collection…</p></div><span class="section-flourish" aria-hidden="true">✳</span></div>
+        <div class="filters" id="filters" aria-label="Filter by collection"></div>
+        <div class="grid" id="video-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden><span class="empty-icon">◌</span><h3 id="empty-title">Nothing here yet</h3><p id="empty-description"></p><button class="text-action" id="empty-action" hidden></button></div>
+        <div id="load-sentinel" class="load-sentinel" aria-hidden="true"></div>
+      </section>
+      <section class="playlist-overview" id="playlist-overview" hidden></section>
+    </main>
+  </div>
+
+  <dialog class="video-dialog" id="video-modal" aria-labelledby="video-title">
+      <button class="dialog-close" id="close-video" aria-label="Close video">×</button>
+      <div class="player-wrap" id="player-wrap"></div>
+      <div class="video-detail"><div class="detail-main"><p class="detail-kicker" id="detail-collection"></p><h2 id="video-title"></h2><p class="detail-meta" id="detail-meta"></p><p class="detail-description" id="detail-description"></p><a class="source-link" id="source-link" target="_blank" rel="noopener noreferrer">View item in Stanford Digital Repository <span aria-hidden="true">↗</span></a></div><div class="detail-actions"><button id="detail-like" class="detail-action" aria-label="Like video"><span aria-hidden="true">♡</span> Like</button><button id="detail-later" class="detail-action" aria-label="Save to watch later"><span aria-hidden="true">▱</span> Watch later</button><button id="detail-playlist" class="detail-action"><span aria-hidden="true">＋</span> Add to playlist</button></div></div>
+  </dialog>
+  <dialog class="small-dialog" id="playlist-modal" aria-labelledby="playlist-dialog-title"><button class="dialog-close" id="close-playlist" aria-label="Close dialog">×</button><p class="detail-kicker">YOUR LIBRARY</p><h2 id="playlist-dialog-title">Add to playlist</h2><div id="playlist-choices"></div><form id="playlist-form" class="playlist-form"><label for="playlist-name">Create a new playlist</label><div class="playlist-form-row"><input id="playlist-name" maxlength="80" placeholder="Playlist name" required><button type="submit">Create</button></div></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
