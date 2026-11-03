@@ -2,6 +2,8 @@
 
 A static, browser-only way to explore the public video items listed in `videos.csv`.
 
+From this report: https://argo.stanford.edu/catalog?f%5Bcontent_file_mimetypes_ssimdv%5D%5B%5D=video%2Fmp4&f%5Bcontent_file_mimetypes_ssimdv%5D%5B%5D=image%2Fjp2&f%5Bcontent_type_ssimdv%5D%5B%5D=media&f%5Brights_descriptions_ssimdv%5D%5B%5D=world
+
 ## Run locally
 
 Serve this directory with any static file server, for example:
