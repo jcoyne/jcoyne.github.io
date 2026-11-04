@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='utf-8'?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v4#">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>kr104zb7305_0031</fileName>
+    </sourceImageInformation>
+    <OCRProcessing ID="OCR1">
+      <ocrProcessingStep>
+        <processingSoftware>
+          <softwareCreator>Google</softwareCreator>
+          <softwareName>Cloud Vision API DOCUMENT_TEXT_DETECTION</softwareName>
+        </processingSoftware>
+      </ocrProcessingStep>
+    </OCRProcessing>
+  </Description>
+  <Layout>
+    <Page ID="P1" WIDTH="2522" HEIGHT="3257" PHYSICAL_IMG_NR="1" PC="0.9165">
+      <PrintSpace HPOS="0" VPOS="0" WIDTH="2522" HEIGHT="3257">
+        <TextBlock ID="B1" HPOS="970" VPOS="3104" WIDTH="452" HEIGHT="40">
+          <TextLine ID="B1_L1" HPOS="970" VPOS="3104" WIDTH="452" HEIGHT="41">
+            <String ID="B1_L1_W1" CONTENT="NUMBER" HPOS="1207" VPOS="3104" WIDTH="215" HEIGHT="39" WC="0.9886" />
+            <SP />
+            <String ID="B1_L1_W2" CONTENT="OF" HPOS="1110" VPOS="3106" WIDTH="66" HEIGHT="37" WC="0.9892" />
+            <SP />
+            <String ID="B1_L1_W3" CONTENT="FISH" HPOS="970" VPOS="3106" WIDTH="107" HEIGHT="39" WC="0.9748" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B2" HPOS="393" VPOS="2860" WIDTH="35" HEIGHT="92">
+          <TextLine ID="B2_L1" HPOS="393" VPOS="2860" WIDTH="35" HEIGHT="92">
+            <String ID="B2_L1_W1" CONTENT="260" HPOS="393" VPOS="2860" WIDTH="35" HEIGHT="92" WC="0.9621" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B3" HPOS="507" VPOS="2860" WIDTH="36" HEIGHT="91">
+          <TextLine ID="B3_L1" HPOS="507" VPOS="2860" WIDTH="36" HEIGHT="91">
+            <String ID="B3_L1_W1" CONTENT="240" HPOS="507" VPOS="2860" WIDTH="36" HEIGHT="91" WC="0.9895" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B4" HPOS="622" VPOS="2858" WIDTH="33" HEIGHT="95">
+          <TextLine ID="B4_L1" HPOS="622" VPOS="2858" WIDTH="33" HEIGHT="95">
+            <String ID="B4_L1_W1" CONTENT="220" HPOS="622" VPOS="2858" WIDTH="33" HEIGHT="95" WC="0.9634" />
+          </TextLine>
+        </TextBlock>
+        <ComposedBlock ID="B5" TYPE="text" HPOS="205" VPOS="1204" WIDTH="188" HEIGHT="1037">
+          <TextBlock ID="B5_P1" HPOS="208" VPOS="1289" WIDTH="94" HEIGHT="869">
+            <TextLine ID="B5_P1_L1" HPOS="207" VPOS="1289" WIDTH="95" HEIGHT="869">
+              <String ID="B5_P1_L1_W1" CONTENT="REEF" HPOS="211" VPOS="1916" WIDTH="91" HEIGHT="242" WC="0.9833" />
+              <SP />
+              <String ID="B5_P1_L1_W2" CONTENT="SURFPERCH" HPOS="207" VPOS="1289" WIDTH="93" HEIGHT="584" WC="0.9816" />
+            </TextLine>
+          </TextBlock>
+          <TextBlock ID="B5_P2" HPOS="325" VPOS="1204" WIDTH="68" HEIGHT="1036">
+            <TextLine ID="B5_P2_L1" HPOS="326" VPOS="1204" WIDTH="67" HEIGHT="1036">
+              <String ID="B5_P2_L1_W1" CONTENT="in" HPOS="337" VPOS="2197" WIDTH="56" HEIGHT="43" WC="0.9450" />
+              <SP />
+              <String ID="B5_P2_L1_W2" CONTENT="area" HPOS="335" VPOS="2061" WIDTH="57" HEIGHT="110" WC="0.9921" />
+              <SP />
+              <String ID="B5_P2_L1_W3" CONTENT="protected" HPOS="332" VPOS="1803" WIDTH="59" HEIGHT="233" WC="0.9886" />
+              <SP />
+              <String ID="B5_P2_L1_W4" CONTENT="by" HPOS="331" VPOS="1719" WIDTH="56" HEIGHT="58" WC="0.9682" />
+              <SP />
+              <String ID="B5_P2_L1_W5" CONTENT="Seal" HPOS="330" VPOS="1590" WIDTH="57" HEIGHT="108" WC="0.9905" />
+              <SP />
+              <String ID="B5_P2_L1_W6" CONTENT="Rocks" HPOS="328" VPOS="1425" WIDTH="57" HEIGHT="149" WC="0.9696" />
+              <SP />
+              <String ID="B5_P2_L1_W7" CONTENT="(" HPOS="328" VPOS="1375" WIDTH="55" HEIGHT="28" WC="0.9481" />
+              <SP />
+              <String ID="B5_P2_L1_W8" CONTENT="P" HPOS="328" VPOS="1346" WIDTH="55" HEIGHT="36" WC="0.8603" />
+              <SP />
+              <String ID="B5_P2_L1_W9" CONTENT="&lt;" HPOS="327" VPOS="1305" WIDTH="55" HEIGHT="38" WC="0.9139" />
+              <SP />
+              <String ID="B5_P2_L1_W10" CONTENT=".01" HPOS="326" VPOS="1237" WIDTH="56" HEIGHT="70" WC="0.8932" />
+              <SP />
+              <String ID="B5_P2_L1_W11" CONTENT=")" HPOS="326" VPOS="1204" WIDTH="55" HEIGHT="26" WC="0.9702" />
+            </TextLine>
+          </TextBlock>
+        </ComposedBlock>
+        <TextBlock ID="B6" HPOS="740" VPOS="2863" WIDTH="30" HEIGHT="88">
+          <TextLine ID="B6_L1" HPOS="740" VPOS="2863" WIDTH="30" HEIGHT="88">
+            <String ID="B6_L1_W1" CONTENT="200" HPOS="740" VPOS="2863" WIDTH="30" HEIGHT="88" WC="0.9671" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B7" HPOS="851" VPOS="2855" WIDTH="34" HEIGHT="87">
+          <TextLine ID="B7_L1" HPOS="851" VPOS="2855" WIDTH="34" HEIGHT="87">
+            <String ID="B7_L1_W1" CONTENT="180" HPOS="851" VPOS="2855" WIDTH="34" HEIGHT="87" WC="0.9886" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B8" HPOS="963" VPOS="2858" WIDTH="32" HEIGHT="84">
+          <TextLine ID="B8_L1" HPOS="963" VPOS="2858" WIDTH="32" HEIGHT="84">
+            <String ID="B8_L1_W1" CONTENT="160" HPOS="963" VPOS="2858" WIDTH="32" HEIGHT="84" WC="0.9003" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B9" HPOS="1069" VPOS="2857" WIDTH="33" HEIGHT="87">
+          <TextLine ID="B9_L1" HPOS="1069" VPOS="2857" WIDTH="33" HEIGHT="87">
+            <String ID="B9_L1_W1" CONTENT="140" HPOS="1069" VPOS="2857" WIDTH="33" HEIGHT="87" WC="0.9871" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B10" HPOS="1185" VPOS="2855" WIDTH="32" HEIGHT="85">
+          <TextLine ID="B10_L1" HPOS="1185" VPOS="2855" WIDTH="32" HEIGHT="85">
+            <String ID="B10_L1_W1" CONTENT="120" HPOS="1185" VPOS="2855" WIDTH="32" HEIGHT="85" WC="0.9798" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B11" HPOS="1204" VPOS="2073" WIDTH="27" HEIGHT="37">
+          <TextLine ID="B11_L1" HPOS="1204" VPOS="2073" WIDTH="27" HEIGHT="37">
+            <String ID="B11_L1_W1" CONTENT="[" HPOS="1204" VPOS="2087" WIDTH="27" HEIGHT="23" WC="0.6066" />
+            <SP />
+            <String ID="B11_L1_W2" CONTENT="]" HPOS="1204" VPOS="2073" WIDTH="27" HEIGHT="26" WC="0.5518" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B12" HPOS="1298" VPOS="2865" WIDTH="30" HEIGHT="77">
+          <TextLine ID="B12_L1" HPOS="1298" VPOS="2865" WIDTH="30" HEIGHT="77">
+            <String ID="B12_L1_W1" CONTENT="100" HPOS="1298" VPOS="2865" WIDTH="30" HEIGHT="77" WC="0.9743" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B13" HPOS="1409" VPOS="2858" WIDTH="31" HEIGHT="60">
+          <TextLine ID="B13_L1" HPOS="1409" VPOS="2858" WIDTH="31" HEIGHT="60">
+            <String ID="B13_L1_W1" CONTENT="80" HPOS="1409" VPOS="2858" WIDTH="31" HEIGHT="60" WC="0.9886" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B14" HPOS="1517" VPOS="2854" WIDTH="35" HEIGHT="62">
+          <TextLine ID="B14_L1" HPOS="1517" VPOS="2854" WIDTH="35" HEIGHT="62">
+            <String ID="B14_L1_W1" CONTENT="60" HPOS="1517" VPOS="2854" WIDTH="35" HEIGHT="62" WC="0.9853" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B15" HPOS="1741" VPOS="2855" WIDTH="30" HEIGHT="59">
+          <TextLine ID="B15_L1" HPOS="1741" VPOS="2855" WIDTH="30" HEIGHT="59">
+            <String ID="B15_L1_W1" CONTENT="20" HPOS="1741" VPOS="2855" WIDTH="30" HEIGHT="59" WC="0.9803" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B16" HPOS="1640" VPOS="2170" WIDTH="28" HEIGHT="23">
+          <TextLine ID="B16_L1" HPOS="1640" VPOS="2170" WIDTH="28" HEIGHT="23">
+            <String ID="B16_L1_W1" CONTENT="☐" HPOS="1640" VPOS="2170" WIDTH="28" HEIGHT="23" WC="0.9711" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B17" HPOS="1621" VPOS="1513" WIDTH="30" HEIGHT="39">
+          <TextLine ID="B17_L1" HPOS="1621" VPOS="1513" WIDTH="30" HEIGHT="39">
+            <String ID="B17_L1_W1" CONTENT="☐" HPOS="1621" VPOS="1513" WIDTH="30" HEIGHT="39" WC="0.7407" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B18" HPOS="1674" VPOS="1328" WIDTH="35" HEIGHT="40">
+          <TextLine ID="B18_L1" HPOS="1674" VPOS="1328" WIDTH="35" HEIGHT="40">
+            <String ID="B18_L1_W1" CONTENT="☐" HPOS="1674" VPOS="1328" WIDTH="35" HEIGHT="40" WC="0.7778" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B19" HPOS="1804" VPOS="680" WIDTH="29" HEIGHT="31">
+          <TextLine ID="B19_L1" HPOS="1804" VPOS="680" WIDTH="29" HEIGHT="31">
+            <String ID="B19_L1_W1" CONTENT="☐" HPOS="1804" VPOS="680" WIDTH="29" HEIGHT="31" WC="0.5883" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B20" HPOS="1663" VPOS="590" WIDTH="27" HEIGHT="25">
+          <TextLine ID="B20_L1" HPOS="1663" VPOS="590" WIDTH="27" HEIGHT="25">
+            <String ID="B20_L1_W1" CONTENT="☐" HPOS="1663" VPOS="590" WIDTH="27" HEIGHT="25" WC="0.9170" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B21" HPOS="1961" VPOS="2849" WIDTH="36" HEIGHT="99">
+          <TextLine ID="B21_L1" HPOS="1961" VPOS="2849" WIDTH="36" HEIGHT="99">
+            <String ID="B21_L1_W1" CONTENT="-20" HPOS="1961" VPOS="2849" WIDTH="36" HEIGHT="99" WC="0.9639" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B22" HPOS="2044" VPOS="2749" WIDTH="36" HEIGHT="83">
+          <TextLine ID="B22_L1" HPOS="2044" VPOS="2749" WIDTH="36" HEIGHT="83">
+            <String ID="B22_L1_W1" CONTENT="0.5" HPOS="2044" VPOS="2749" WIDTH="36" HEIGHT="83" WC="0.7986" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B23" HPOS="2046" VPOS="2284" WIDTH="33" HEIGHT="73">
+          <TextLine ID="B23_L1" HPOS="2046" VPOS="2284" WIDTH="33" HEIGHT="73">
+            <String ID="B23_L1_W1" CONTENT="1.5" HPOS="2046" VPOS="2284" WIDTH="33" HEIGHT="73" WC="0.8411" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B24" HPOS="2049" VPOS="1818" WIDTH="36" HEIGHT="78">
+          <TextLine ID="B24_L1" HPOS="2049" VPOS="1818" WIDTH="36" HEIGHT="78">
+            <String ID="B24_L1_W1" CONTENT="2.5" HPOS="2049" VPOS="1818" WIDTH="36" HEIGHT="78" WC="0.9823" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B25" HPOS="2051" VPOS="1354" WIDTH="34" HEIGHT="81">
+          <TextLine ID="B25_L1" HPOS="2051" VPOS="1354" WIDTH="34" HEIGHT="81">
+            <String ID="B25_L1_W1" CONTENT="3.5" HPOS="2051" VPOS="1354" WIDTH="34" HEIGHT="81" WC="0.9821" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B26" HPOS="2052" VPOS="891" WIDTH="36" HEIGHT="79">
+          <TextLine ID="B26_L1" HPOS="2052" VPOS="891" WIDTH="36" HEIGHT="79">
+            <String ID="B26_L1_W1" CONTENT="4.5" HPOS="2052" VPOS="891" WIDTH="36" HEIGHT="79" WC="0.9812" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B27" HPOS="2054" VPOS="422" WIDTH="39" HEIGHT="82">
+          <TextLine ID="B27_L1" HPOS="2054" VPOS="422" WIDTH="39" HEIGHT="82">
+            <String ID="B27_L1_W1" CONTENT="5.5" HPOS="2054" VPOS="422" WIDTH="39" HEIGHT="82" WC="0.8800" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B28" HPOS="2149" VPOS="1520" WIDTH="42" HEIGHT="386">
+          <TextLine ID="B28_L1" HPOS="2149" VPOS="1520" WIDTH="42" HEIGHT="386">
+            <String ID="B28_L1_W1" CONTENT="HEIGHT" HPOS="2149" VPOS="1734" WIDTH="40" HEIGHT="172" WC="0.9681" />
+            <SP />
+            <String ID="B28_L1_W2" CONTENT="OF" HPOS="2152" VPOS="1644" WIDTH="38" HEIGHT="67" WC="0.9863" />
+            <SP />
+            <String ID="B28_L1_W3" CONTENT="TIDE" HPOS="2152" VPOS="1520" WIDTH="39" HEIGHT="111" WC="0.9775" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock ID="B29" HPOS="2388" VPOS="1584" WIDTH="40" HEIGHT="253">
+          <TextLine ID="B29_L1" HPOS="2388" VPOS="1584" WIDTH="40" HEIGHT="253">
+            <String ID="B29_L1_W1" CONTENT="Figure" HPOS="2388" VPOS="1651" WIDTH="40" HEIGHT="186" WC="0.9802" />
+            <SP />
+            <String ID="B29_L1_W2" CONTENT="6" HPOS="2391" VPOS="1584" WIDTH="36" HEIGHT="33" WC="0.9767" />
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>
