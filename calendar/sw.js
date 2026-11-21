@@ -1,7 +1,7 @@
 // App-shell cache. Network-first so updates appear right away; cache is the
 // offline fallback. Calendar API responses are not cached here (the app keeps
 // the last fetched week in localStorage instead).
-const CACHE = "calendar-v1";
+const CACHE = "calendar-v2";
 const SHELL = [
   "./",
   "index.html",

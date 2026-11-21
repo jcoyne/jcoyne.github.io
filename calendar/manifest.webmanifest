@@ -4,7 +4,8 @@
   "description": "This week's family calendar at a glance.",
   "start_url": "./",
   "scope": "./",
-  "display": "standalone",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
   "background_color": "#fbfaf7",
   "theme_color": "#2b2925",
   "icons": [

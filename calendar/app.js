@@ -448,11 +448,38 @@ document.querySelector(".week-nav").addEventListener("click", (event) => {
   if (action === "prev") goToWeek(addDays(state.weekStart, -7));
   if (action === "next") goToWeek(addDays(state.weekStart, 7));
   if (action === "today") goToWeek(startOfWeek(new Date()), startOfDay(new Date()));
+  if (action === "fullscreen") toggleFullscreen();
   if (action === "refresh") {
     store("session", "calendar.silentFailed", null);
     refresh();
   }
 });
+
+// Fullscreen fallback for when the installed app still shows browser chrome.
+const fullscreenButton = document.querySelector('[data-action="fullscreen"]');
+const fullscreenQuery = matchMedia("(display-mode: fullscreen)");
+
+function updateFullscreenButton() {
+  const supported = document.fullscreenEnabled || document.webkitFullscreenEnabled;
+  const launchedFullscreen = fullscreenQuery.matches && !document.fullscreenElement && !document.webkitFullscreenElement;
+  fullscreenButton.hidden = !supported || launchedFullscreen;
+  const active = Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+  fullscreenButton.setAttribute("aria-label", active ? "Exit full screen" : "Full screen");
+  fullscreenButton.setAttribute("aria-pressed", String(active));
+}
+
+function toggleFullscreen() {
+  const root = document.documentElement;
+  if (document.fullscreenElement) document.exitFullscreen();
+  else if (document.webkitFullscreenElement) document.webkitExitFullscreen();
+  else if (root.requestFullscreen) root.requestFullscreen({ navigationUI: "hide" }).catch(() => {});
+  else root.webkitRequestFullscreen?.();
+}
+
+document.addEventListener("fullscreenchange", updateFullscreenButton);
+document.addEventListener("webkitfullscreenchange", updateFullscreenButton);
+fullscreenQuery.addEventListener?.("change", updateFullscreenButton);
+updateFullscreenButton();
 
 els.signin.addEventListener("click", () => authorize({ silent: false }));
 
