@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>This Week</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#2b2925">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon-180.png">
+    <link rel="stylesheet" href="app.css">
+    <script type="module" src="app.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <h1 class="brand">This Week</h1>
+        <nav class="week-nav" aria-label="Week navigation">
+          <button type="button" data-action="prev" aria-label="Previous week">‹</button>
+          <button type="button" data-action="today">Today</button>
+          <button type="button" data-action="next" aria-label="Next week">›</button>
+          <button type="button" data-action="refresh" aria-label="Refresh">⟳</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <p class="status" role="status" id="status"></p>
+      <button type="button" class="signin" id="signin" hidden>Sign in with Google</button>
+
+      <section class="today" id="today" aria-labelledby="today-heading" hidden>
+        <h2 id="today-heading"></h2>
+        <ol class="today-list" id="today-list"></ol>
+      </section>
+
+      <section class="week" aria-labelledby="week-heading">
+        <h2 id="week-heading"></h2>
+        <ol class="week-grid" id="week-grid"></ol>
+      </section>
+    </main>
+  </body>
+</html>
