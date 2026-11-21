@@ -501,6 +501,7 @@ async function keepAwake() {
   }
 }
 document.addEventListener("visibilitychange", keepAwake);
+document.addEventListener("click", keepAwake); // in case the browser wants a tap first
 keepAwake();
 
 els.signin.addEventListener("click", () => authorize({ silent: false }));
