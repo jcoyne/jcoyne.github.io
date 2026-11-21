@@ -1,0 +1,274 @@
+:root {
+  --paper-light: #fbfaf7;
+  --paper-dark: #1a1917;
+  --ink-light: #23211e;
+  --ink-dark: #ecebe7;
+  --muted-light: #625e57;
+  --muted-dark: #aaa69e;
+  --rule-light: #e4e0d8;
+  --rule-dark: #34322e;
+  --header-light: #2b2925;
+  --header-dark: #0f0e0d;
+  --accent-light: #9a3412;
+  --accent-dark: #fb923c;
+
+  --paper: var(--paper-light);
+  --ink: var(--ink-light);
+  --muted: var(--muted-light);
+  --rule: var(--rule-light);
+  --header: var(--header-light);
+  --accent: var(--accent-light);
+
+  @media (prefers-color-scheme: dark) {
+    --paper: var(--paper-dark);
+    --ink: var(--ink-dark);
+    --muted: var(--muted-dark);
+    --rule: var(--rule-dark);
+    --header: var(--header-dark);
+    --accent: var(--accent-dark);
+  }
+
+  color-scheme: light dark;
+  accent-color: var(--accent);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1.0625rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.15em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+h1:focus {
+  outline: none;
+}
+
+.site-header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  background: var(--header);
+  color: #f5f3ef;
+}
+
+.header-inner,
+.container {
+  max-inline-size: 72rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.5rem;
+  padding-block: 0.5rem;
+}
+
+.brand {
+  color: inherit;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.brand[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list a,
+.nav-list button {
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-list [hidden] {
+  display: none;
+}
+
+.nav-list a:hover,
+.nav-list button:hover {
+  background: rgb(255 255 255 / 0.12);
+}
+
+.site-header :focus-visible {
+  outline-color: #fdba74;
+}
+
+.container {
+  padding-block: 1.5rem 3rem;
+}
+
+h1 {
+  margin-block: 0 0.5rem;
+  font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.25rem);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h2 {
+  margin-block: 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.status,
+.servings {
+  color: var(--muted);
+}
+
+.servings {
+  margin-block: 0 1rem;
+}
+
+.recipe-list {
+  padding-inline-start: 1.25rem;
+}
+
+.recipe-list li + li {
+  margin-block-start: 0.35rem;
+}
+
+.photo {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 48rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  background: var(--rule);
+}
+
+.recipe-body {
+  display: grid;
+  gap: 2rem;
+  margin-block-start: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .recipe-body {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: 3rem;
+  }
+}
+
+.ingredients ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ingredients li {
+  padding-block: 0.4rem;
+  border-block-end: 1px solid var(--rule);
+}
+
+.preparation ol {
+  margin: 0;
+  padding-inline-start: 1.5rem;
+}
+
+.preparation li {
+  margin-block-end: 1rem;
+  padding-inline-start: 0.25rem;
+  white-space: pre-line;
+}
+
+.preparation li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.password-form {
+  display: grid;
+  gap: 0.5rem;
+  max-inline-size: 20rem;
+}
+
+.password-form label {
+  font-weight: 600;
+}
+
+.password-form input[type="password"],
+.password-form input[type="text"] {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--muted);
+  border-radius: 0.35rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+}
+
+.password-form .show-password {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.password-form .show-password label {
+  font-weight: normal;
+}
+
+.password-form button {
+  justify-self: start;
+  padding: 0.5rem 1.25rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: var(--accent);
+  color: var(--paper);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-error {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.form-error:empty {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

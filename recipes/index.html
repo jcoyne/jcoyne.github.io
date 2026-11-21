@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Recipes</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <!-- Ask search engines not to index or follow anything here (robots.txt only works at the site root). -->
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="stylesheet" href="app.css">
+    <script type="module" src="app.js"></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#/" data-nav="list">Recipes</a>
+        <nav aria-label="Recipe navigation">
+          <ul class="nav-list">
+            <li><button type="button" data-action="random">Random</button></li>
+            <li><a href="#/" data-nav="prev" hidden>Previous</a></li>
+            <li><a href="#/" data-nav="next" hidden>Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="app" class="container">
+      <p class="status" role="status">Loading recipes…</p>
+    </main>
+  </body>
+</html>
