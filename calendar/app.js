@@ -486,6 +486,23 @@ document.addEventListener("webkitfullscreenchange", updateFullscreenButton);
 fullscreenQuery.addEventListener?.("change", updateFullscreenButton);
 updateFullscreenButton();
 
+// Keep the screen on while the app is visible (it's meant to stay up on a wall/desk tablet).
+// The browser releases the lock whenever the page is hidden, so re-acquire it on return.
+let wakeLock = null;
+async function keepAwake() {
+  if (!("wakeLock" in navigator) || document.visibilityState !== "visible" || wakeLock) return;
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    wakeLock.addEventListener("release", () => {
+      wakeLock = null;
+    });
+  } catch {
+    wakeLock = null; // e.g. battery saver; try again on the next visibility change
+  }
+}
+document.addEventListener("visibilitychange", keepAwake);
+keepAwake();
+
 els.signin.addEventListener("click", () => authorize({ silent: false }));
 
 // Keep "today" and the data fresh while the app stays open.
