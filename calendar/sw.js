@@ -1,7 +1,7 @@
 // App-shell cache. Network-first so updates appear right away; cache is the
 // offline fallback. Calendar API responses are not cached here (the app keeps
 // the last fetched week in localStorage instead).
-const CACHE = "calendar-v2";
+const CACHE = "calendar-v3";
 const SHELL = [
   "./",
   "index.html",
@@ -32,7 +32,8 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET" || url.origin !== location.origin) return;
 
   event.respondWith(
-    fetch(event.request)
+    // Revalidate with the server so GitHub Pages' 10-minute HTTP cache never serves stale files.
+    fetch(event.request, { cache: "no-cache" })
       .then((response) => {
         if (response.ok) {
           const copy = response.clone();
