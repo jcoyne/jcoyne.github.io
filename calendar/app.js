@@ -370,11 +370,16 @@ function renderWeek() {
     }),
   );
 
-  els.weekGrid.querySelectorAll(".day-head").forEach((btn, i) => {
-    btn.addEventListener("click", () => {
+  // The whole day cell is tappable; the header button keeps it keyboard accessible.
+  els.weekGrid.querySelectorAll(".day").forEach((cell, i) => {
+    cell.addEventListener("click", () => {
       state.selected = days[i];
       render();
-      if (matchMedia("(max-width: 52rem)").matches) els.today.scrollIntoView({ behavior: "smooth", block: "start" });
+      const top = els.today.getBoundingClientRect().top;
+      const headerBottom = document.querySelector(".site-header").getBoundingClientRect().bottom;
+      if (top < headerBottom || top > innerHeight * 0.6) {
+        els.today.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   });
 }

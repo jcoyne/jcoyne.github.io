@@ -149,6 +149,11 @@ ul {
 
 /* ---------- today / selected day ---------- */
 
+.today {
+  /* keep the heading clear of the sticky header when scrolled to */
+  scroll-margin-top: calc(4.5rem + env(safe-area-inset-top));
+}
+
 .today h2 {
   color: var(--ink);
   font-size: 1.4rem;
@@ -271,6 +276,15 @@ ul {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.day {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.day:hover {
+  border-color: var(--muted);
 }
 
 .day.is-past {
