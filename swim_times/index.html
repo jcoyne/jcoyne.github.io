@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Swim Top 10</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+      :root { color-scheme: light dark; --fg: #111; --bg: #fff; --muted: #555; --accent: #0b5cad; --card: #f4f6f8; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fg: #eee; --bg: #121212; --muted: #aaa; --accent: #6db3ff; --card: #1e1e1e; }
+      }
+      body { font: 16px/1.5 system-ui, sans-serif; color: var(--fg); background: var(--bg);
+             max-width: 640px; margin: 2rem auto; padding: 0 16px; }
+      h1 { margin-bottom: .25rem; }
+      .lede { color: var(--muted); margin-top: 0; }
+      ol li { margin-bottom: .75rem; }
+      .bookmarklet { display: inline-block; padding: 8px 14px; border-radius: 6px; background: var(--accent);
+                     color: var(--bg); font-weight: 600; text-decoration: none; cursor: grab; }
+      .card { background: var(--card); border-radius: 8px; padding: 12px 16px; margin-top: 2rem; }
+      button { font: inherit; padding: 4px 10px; }
+      #copy-status { margin-left: .5rem; color: var(--muted); }
+    </style>
+  </head>
+
+  <body>
+    <h1>Swim Top 10 report</h1>
+    <p class="lede">Builds a top-10 report for each event from mnswimandvibe.com and downloads it as an HTML file.</p>
+
+    <ol>
+      <li>Drag this button to your bookmarks bar:
+        <a class="bookmarklet" id="bookmarklet" href="#" title="Drag me to your bookmarks bar">Swim Top 10</a>
+      </li>
+      <li>Open <a href="https://mnswimandvibe.com/mantaray/" target="_blank" rel="noopener">mnswimandvibe.com/mantaray</a>.</li>
+      <li>Click the <strong>Swim Top 10</strong> bookmark. A panel appears in the top-right corner.</li>
+      <li>Choose the season, set the team code (leave it blank for statewide), and click <strong>Download report</strong>.
+        It takes a minute or so to fetch every event.</li>
+    </ol>
+
+    <div class="card">
+      <strong>Why not right here?</strong>
+      The swim site only answers requests from its own pages, so the script has to run there.
+      <p>
+        If bookmarks aren't an option, copy the script, open DevTools &gt; Console on the swim site,
+        paste it, and press Enter.
+        <br>
+        <button type="button" id="copy">Copy script</button><span id="copy-status" role="status"></span>
+      </p>
+    </div>
+
+    <script type="module">
+      const link = document.getElementById('bookmarklet');
+      const status = document.getElementById('copy-status');
+      let code = null;
+
+      try {
+        const res = await fetch('msv_top10.js', { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        code = await res.text();
+        link.href = 'javascript:' + encodeURIComponent(code);
+      } catch (e) {
+        // Fall back to loading the script from this site at click time.
+        const src = new URL('msv_top10.js', location.href).href;
+        link.href = `javascript:(()=>{const s=document.createElement('script');s.src=${JSON.stringify(src)}+'?'+Date.now();document.body.appendChild(s)})()`;
+      }
+
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Drag this button to your bookmarks bar, then click it while you are on mnswimandvibe.com.');
+      });
+
+      document.getElementById('copy').addEventListener('click', async () => {
+        try {
+          if (!code) throw new Error('Script not loaded');
+          await navigator.clipboard.writeText(code);
+          status.textContent = 'Copied.';
+        } catch {
+          status.textContent = 'Couldn’t copy. Open msv_top10.js and copy it by hand.';
+        }
+      });
+    </script>
+  </body>
+</html>
