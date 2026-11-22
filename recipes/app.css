@@ -1,11 +1,11 @@
 :root {
-  /* A single dark theme. The golden header bar carries soft-black text (7.6:1). */
+  /* A single dark theme. */
   --paper: #1c1c1c;
   --ink: #f5e8d8;
   --muted: #b8ac9e;
   --rule: #4a4a4a;
-  --header: #daa520;
-  --header-ink: #1c1c1c;
+  --header: #0f0e0d;
+  --header-ink: #f5e8d8;
   --accent: #ff6f61;
   --hover: #ff4500;
   --veg: #a3e635;
@@ -29,11 +29,18 @@ body {
 
 a {
   color: var(--accent);
+  text-decoration: none;
   text-underline-offset: 0.15em;
 }
 
 a:hover {
   color: var(--hover);
+}
+
+/* Header links have their own hover style (a highlighted background). */
+main a:hover,
+main a:focus-visible {
+  text-decoration: underline;
 }
 
 :focus-visible {
@@ -109,8 +116,7 @@ h1:focus {
 
 .nav-list a:hover,
 .nav-list button:hover {
-  /* Burnt orange text would be unreadable on the gold bar, so darken the bar instead. */
-  background: rgb(0 0 0 / 0.15);
+  background: rgb(255 255 255 / 0.12);
 }
 
 .site-header :focus-visible {
@@ -174,10 +180,50 @@ h2 {
   flex: none;
 }
 
-/* The filter sits on the right; the list page's h1 is visually hidden. */
+/* Keyword browsing (or a keyword page's heading) on the left, the filter on the right; they
+   stack on narrow screens. The full list's h1 is visually hidden. */
 .list-header {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+
+.list-filter {
+  margin-inline-start: auto;
+}
+
+.keyword-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+}
+
+.keyword-heading h1 {
+  margin-block-end: 0;
+}
+
+.keyword-browse {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  color: var(--muted);
+}
+
+.keyword-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.recipe-keywords {
+  margin-block: -0.5rem 1rem;
 }
 
 .list-filter {

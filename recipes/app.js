@@ -1,6 +1,7 @@
 // Recipe browser: a static, hash-routed page over the recipe files in recipes/.
 //   #/               -> list of recipes
 //   #/recipes/:id    -> a single recipe
+//   #/keywords/:name -> the recipes with that keyword
 // recipes/index.json lists the Base64-encoded JSON recipe files, oldest first.
 // Recipe text comes from scraped sites, so it is only ever inserted as text, never as HTML.
 // All URLs are relative so the site works from any directory (e.g. /recipes/ on GitHub Pages).
@@ -126,10 +127,25 @@ function leafIcon() {
 }
 
 const recipePath = (recipe) => `#/recipes/${encodeURIComponent(recipe.id)}`;
+const keywordPath = (keyword) => `#/keywords/${encodeURIComponent(keyword)}`;
+const keywordsOf = (recipe) => recipe.keywords || [];
+const sameKeyword = (a, b) => a.localeCompare(b, undefined, { sensitivity: "accent" }) === 0;
+
+// Every keyword in use, alphabetically, with how many recipes have it.
+function keywordCounts(recipes) {
+  const counts = new Map();
+  for (const keyword of recipes.flatMap(keywordsOf)) {
+    const known = [...counts.keys()].find((k) => sameKeyword(k, keyword)) ?? keyword;
+    counts.set(known, (counts.get(known) ?? 0) + 1);
+  }
+  return [...counts].sort(([a], [b]) => a.localeCompare(b));
+}
 
 function routeFor(hash) {
-  const match = hash.match(/^#\/recipes\/([^/]+)\/?$/);
+  let match = hash.match(/^#\/recipes\/([^/]+)\/?$/);
   if (match) return { name: "show", id: decodeURIComponent(match[1]) };
+  match = hash.match(/^#\/keywords\/([^/]+)\/?$/);
+  if (match) return { name: "keyword", keyword: decodeURIComponent(match[1]) };
   return { name: "list" };
 }
 
@@ -147,8 +163,14 @@ function updateNav(route, recipes, index) {
   setNeighbor(nextLink, showing ? recipes[index + 1] : undefined);
 }
 
-function listView(recipes) {
-  document.title = "Recipes";
+// The full list, or with a keyword, just the recipes that have it.
+function listView(allRecipes, keyword) {
+  const recipes = keyword ? allRecipes.filter((r) => keywordsOf(r).some((k) => sameKeyword(k, keyword))) : allRecipes;
+  const keywordName = keyword && (recipes.flatMap(keywordsOf).find((k) => sameKeyword(k, keyword)) ?? keyword);
+  document.title = keyword ? `${keywordName} · Recipes` : "Recipes";
+  if (keyword && recipes.length === 0) {
+    return [h("h1", { tabindex: "-1" }, keywordName), h("p", {}, "No recipes have this keyword. ", h("a", { href: "#/" }, "Back to all recipes"))];
+  }
   if (recipes.length === 0) {
     return [h("h1", { tabindex: "-1" }, "Recipes"), h("p", {}, "No recipes yet. Import one with rake import:ba[URL].")];
   }
@@ -190,10 +212,24 @@ function listView(recipes) {
 
   applyFilter();
 
+  const keywords = keywordCounts(allRecipes);
+  const heading = keyword
+    ? h("div", { class: "keyword-heading" },
+      h("h1", { tabindex: "-1" }, keywordName),
+      h("a", { href: "#/" }, "All recipes"))
+    // The site header already says "Recipes"; keep the h1 for screen readers and as the focus target.
+    : h("h1", { class: "visually-hidden", tabindex: "-1" }, "Recipes");
+  const browse = !keyword && keywords.length > 0
+    ? h("nav", { class: "keyword-browse", "aria-labelledby": "keyword-browse-label" },
+      h("span", { id: "keyword-browse-label" }, "Browse by keyword:"),
+      h("ul", { class: "keyword-list" },
+        keywords.map(([name, count]) => h("li", {}, h("a", { href: keywordPath(name) }, name), ` (${count})`))))
+    : null;
+
   return [
     h("div", { class: "list-header" },
-      // The site header already says "Recipes"; keep the h1 for screen readers and as the focus target.
-      h("h1", { class: "visually-hidden", tabindex: "-1" }, "Recipes"),
+      heading,
+      browse,
       h("div", { class: "list-filter" },
         filter,
         h("label", { for: "vegetarian-only" }, leafIcon(), " Vegetarian only"))),
@@ -216,6 +252,10 @@ function recipeView(recipe) {
           recipe.servings,
           recipe.servings && recipe.vegetarian ? " · " : null,
           recipe.vegetarian ? h("span", { class: "vegetarian" }, leafIcon(), " Vegetarian") : null)
+        : null,
+      keywordsOf(recipe).length > 0
+        ? h("ul", { class: "keyword-list recipe-keywords", "aria-label": "Keywords" },
+          keywordsOf(recipe).map((k) => h("li", {}, h("a", { href: keywordPath(k) }, k))))
         : null,
       recipe.image ? h("img", { class: "photo", src: recipe.image, alt: "", decoding: "async" }) : null,
       h("div", { class: "recipe-body" },
@@ -286,6 +326,7 @@ async function render({ focus = true } = {}) {
     const index = route.name === "show" ? recipes.findIndex((r) => String(r.id) === route.id) : -1;
     updateNav(route, recipes, index);
     if (route.name === "list") content = listView(recipes);
+    else if (route.name === "keyword") content = listView(recipes, route.keyword);
     else content = index >= 0 ? recipeView(recipes[index]) : notFoundView();
   } catch (error) {
     updateNav({ name: "error" }, [], -1);
