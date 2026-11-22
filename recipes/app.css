@@ -426,8 +426,18 @@ h2 {
   padding-inline-start: 1.25rem;
 }
 
+.grocery-section h3 {
+  margin-block: 1.25rem 0;
+  padding-block-end: 0.25rem;
+  border-block-end: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .grocery-list {
-  margin: 0.75rem 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }

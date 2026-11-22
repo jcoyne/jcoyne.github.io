@@ -7,7 +7,7 @@
 // Recipe text comes from scraped sites, so it is only ever inserted as text, never as HTML.
 // All URLs are relative so the site works from any directory (e.g. /recipes/ on GitHub Pages).
 
-import { groceryList } from "./grocery.js";
+import { groceryList, STORE_SECTIONS } from "./grocery.js";
 
 const app = document.getElementById("app");
 const prevLink = document.querySelector('[data-nav="prev"]');
@@ -363,12 +363,22 @@ function groceryView(allRecipes) {
       writeGrocery({ ...readGrocery(), checked: [...checked] });
       updateRemaining();
     });
-    return h("li", {},
+    const item = h("li", {},
       h("div", { class: "grocery-item" }, box, h("label", { for: `grocery-${i}` }, group.name)),
       h("ul", { class: "grocery-lines" },
         group.lines.map(({ text, recipe }) => h("li", {}, text, h("span", { class: "grocery-recipe" }, ` — ${recipe.title}`)))));
+    return { group, item };
   });
   updateRemaining();
+
+  // Items under store section headings, in the order of a walk through the store.
+  const sections = STORE_SECTIONS.flatMap((name, i) => {
+    const inSection = items.filter(({ group }) => group.section === name);
+    if (inSection.length === 0) return [];
+    return h("section", { class: "grocery-section", "aria-labelledby": `store-section-${i}` },
+      h("h3", { id: `store-section-${i}` }, name),
+      h("ul", { class: "grocery-list" }, inSection.map(({ item }) => item)));
+  });
 
   const clear = h("button", { type: "button", class: "grocery-button" }, "Clear list");
   clear.addEventListener("click", () => {
@@ -391,7 +401,7 @@ function groceryView(allRecipes) {
     h("section", { "aria-labelledby": "grocery-items-heading" },
       h("h2", { id: "grocery-items-heading" }, "Items"),
       remaining,
-      h("ul", { class: "grocery-list" }, items)),
+      ...sections),
   ];
 }
 
