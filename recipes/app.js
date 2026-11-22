@@ -41,6 +41,32 @@ function unlock() {
   }
 }
 
+// The list page's sections, in order (Recipe::CATEGORIES in lib/recipe.rb). Recipes without a
+// known category go in a final "Other" section.
+const SECTIONS = ["Breakfast", "Mains", "Soups & Stews", "Salads", "Sides", "Desserts"];
+const OTHER = "Other";
+const sectionOf = (recipe) => (SECTIONS.includes(recipe.category) ? recipe.category : OTHER);
+const sectionIndex = (recipe) => [...SECTIONS, OTHER].indexOf(sectionOf(recipe));
+
+const VEGETARIAN_ONLY_KEY = "recipes-vegetarian-only";
+
+function readVegetarianOnly() {
+  try {
+    return localStorage.getItem(VEGETARIAN_ONLY_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function writeVegetarianOnly(value) {
+  try {
+    if (value) localStorage.setItem(VEGETARIAN_ONLY_KEY, "1");
+    else localStorage.removeItem(VEGETARIAN_ONLY_KEY);
+  } catch {
+    // Not remembered; the filter resets on the next page load.
+  }
+}
+
 let recipesPromise;
 
 async function fetchOk(url, options) {
@@ -59,7 +85,9 @@ function loadRecipes() {
   recipesPromise ??= (async () => {
     // Revalidate the index on each visit; the recipe files are named by content, so they can be cached.
     const files = await (await fetchOk("recipes/index.json", { cache: "no-cache" })).json();
-    return Promise.all(files.map(async (file) => decodeRecipe(await (await fetchOk(`recipes/${file}`)).text())));
+    const recipes = await Promise.all(files.map(async (file) => decodeRecipe(await (await fetchOk(`recipes/${file}`)).text())));
+    // List order (section, then title) is also the Previous/Next order.
+    return recipes.sort((a, b) => sectionIndex(a) - sectionIndex(b) || a.title.localeCompare(b.title));
   })()
     .catch((error) => {
       recipesPromise = undefined; // allow a retry on the next navigation
@@ -76,6 +104,25 @@ function h(tag, attrs = {}, ...children) {
   }
   el.append(...children.flat().filter((child) => child !== undefined && child !== null));
   return el;
+}
+
+// A small leaf marking vegetarian recipes. It's decorative: pair it with text for screen readers.
+function leafIcon() {
+  const ns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(ns, "svg");
+  for (const [name, value] of Object.entries({
+    class: "leaf", viewBox: "0 0 24 24", width: "16", height: "16", fill: "none", stroke: "currentColor",
+    "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round", "aria-hidden": "true", focusable: "false",
+  })) svg.setAttribute(name, value);
+  for (const d of [
+    "M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z",
+    "M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12",
+  ]) {
+    const path = document.createElementNS(ns, "path");
+    path.setAttribute("d", d);
+    svg.append(path);
+  }
+  return svg;
 }
 
 const recipePath = (recipe) => `#/recipes/${encodeURIComponent(recipe.id)}`;
@@ -105,9 +152,51 @@ function listView(recipes) {
   if (recipes.length === 0) {
     return [h("h1", { tabindex: "-1" }, "Recipes"), h("p", {}, "No recipes yet. Import one with rake import:ba[URL].")];
   }
+  const items = [];
+  const sections = [...SECTIONS, OTHER].flatMap((name, i) => {
+    const inSection = recipes.filter((recipe) => sectionOf(recipe) === name);
+    if (inSection.length === 0) return [];
+    const headingId = `section-${i}`;
+    const sectionItems = inSection.map((recipe) => {
+      const item = h("li", {},
+        h("a", { href: recipePath(recipe) },
+          recipe.title,
+          recipe.vegetarian ? h("span", { class: "visually-hidden" }, " (vegetarian)") : null),
+        // No space before the leaf, so it never wraps onto a line by itself (app.css spaces it).
+        recipe.vegetarian ? leafIcon() : null);
+      item.dataset.vegetarian = recipe.vegetarian ? "true" : "false";
+      items.push(item);
+      return item;
+    });
+    return h("section", { class: "recipe-section", "aria-labelledby": headingId },
+      h("h2", { id: headingId }, name),
+      h("ul", { class: "recipe-list" }, sectionItems));
+  });
+
+  const filter = h("input", { id: "vegetarian-only", type: "checkbox" });
+  const status = h("p", { class: "filter-status", role: "status" });
+  function applyFilter() {
+    const vegetarianOnly = filter.checked;
+    for (const item of items) item.hidden = vegetarianOnly && item.dataset.vegetarian !== "true";
+    for (const section of sections) section.hidden = !section.querySelector("li:not([hidden])");
+    const shown = items.filter((item) => !item.hidden).length;
+    status.textContent = vegetarianOnly ? `Showing ${shown} vegetarian recipes` : "";
+  }
+  filter.checked = readVegetarianOnly();
+  filter.addEventListener("change", () => {
+    writeVegetarianOnly(filter.checked);
+    applyFilter();
+  });
+
+  applyFilter();
+
   return [
     h("h1", { tabindex: "-1" }, "Recipes"),
-    h("ul", { class: "recipe-list" }, recipes.map((recipe) => h("li", {}, h("a", { href: recipePath(recipe) }, recipe.title)))),
+    h("div", { class: "list-filter" },
+      filter,
+      h("label", { for: "vegetarian-only" }, leafIcon(), " Vegetarian only")),
+    status,
+    ...sections,
   ];
 }
 
@@ -120,7 +209,12 @@ function recipeView(recipe) {
   return [
     h("article", { class: "recipe" },
       h("h1", { tabindex: "-1" }, heading),
-      recipe.servings ? h("p", { class: "servings" }, recipe.servings) : null,
+      recipe.servings || recipe.vegetarian
+        ? h("p", { class: "servings" },
+          recipe.servings,
+          recipe.servings && recipe.vegetarian ? " · " : null,
+          recipe.vegetarian ? h("span", { class: "vegetarian" }, leafIcon(), " Vegetarian") : null)
+        : null,
       recipe.image ? h("img", { class: "photo", src: recipe.image, alt: "", decoding: "async" }) : null,
       h("div", { class: "recipe-body" },
         h("section", { class: "ingredients", "aria-labelledby": "ingredients-heading" },

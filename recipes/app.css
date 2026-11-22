@@ -11,6 +11,8 @@
   --header-dark: #0f0e0d;
   --accent-light: #9a3412;
   --accent-dark: #fb923c;
+  --veg-light: #3f6212;
+  --veg-dark: #a3e635;
 
   --paper: var(--paper-light);
   --ink: var(--ink-light);
@@ -18,6 +20,7 @@
   --rule: var(--rule-light);
   --header: var(--header-light);
   --accent: var(--accent-light);
+  --veg: var(--veg-light);
 
   @media (prefers-color-scheme: dark) {
     --paper: var(--paper-dark);
@@ -26,6 +29,7 @@
     --rule: var(--rule-dark);
     --header: var(--header-dark);
     --accent: var(--accent-dark);
+    --veg: var(--veg-dark);
   }
 
   color-scheme: light dark;
@@ -155,8 +159,67 @@ h2 {
   margin-block: 0 1rem;
 }
 
+.recipe-section {
+  margin-block-start: 1.75rem;
+}
+
+.recipe-section h2 {
+  padding-block-end: 0.25rem;
+  border-block-end: 1px solid var(--rule);
+}
+
 .recipe-list {
+  margin-block: 0.5rem 0;
   padding-inline-start: 1.25rem;
+}
+
+.leaf {
+  color: var(--veg);
+}
+
+.recipe-list .leaf {
+  margin-inline-start: 0.3em;
+}
+
+.leaf {
+  vertical-align: calc(0.5cap - 8px);
+  flex: none;
+}
+
+.list-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-block: 0.75rem 0;
+}
+
+.list-filter label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.filter-status {
+  margin-block: 0.25rem 0;
+  color: var(--muted);
+}
+
+.filter-status:empty {
+  display: none;
+}
+
+.vegetarian {
+  white-space: nowrap;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .recipe-list li + li {
