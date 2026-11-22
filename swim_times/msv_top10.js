@@ -17,10 +17,19 @@
 (() => {
   const AJAX_URL = '/wp-admin/admin-ajax.php';
 
+  // Events in meet order.
   const EVENTS = [
-    '50 Free', '100 Free', '200 Free', '500 Free',
-    '100 Back', '100 Breast', '100 Fly', '200 IM'
+    '200 Medley Relay', '200 Free', '200 IM', '50 Free', '6 Dives', '11 Dives',
+    '100 Fly', '100 Free', '500 Free', '200 Free Relay', '100 Back', '100 Breast',
+    '400 Free Relay'
   ];
+
+  // The site keeps one result per team for relays, with no swimmer names, so
+  // relay tables rank teams instead of athletes.
+  const isRelay = (event) => /relay$/i.test(event);
+
+  // Diving results are scores (higher is better) in the same fields as times.
+  const isDive = (event) => /dives?$/i.test(event);
 
   const SEASONS = [
     ['2026_girls', '2026 Girls'], ['2026_boys', '2026 Boys'],
@@ -99,7 +108,8 @@
     return Number.isFinite(n) ? (GRADE_LABELS[n] ?? String(g)) : '';
   };
 
-  // All pages for an event -> best swim per athlete -> fastest first.
+  // All pages for an event -> best swim per athlete (per team for relays) ->
+  // fastest first (highest score first for diving).
   async function topForEvent(opts, nonce, event) {
     const all = [];
     let previous = null;
@@ -112,27 +122,42 @@
       await sleep(300); // be polite to the server
     }
 
+    // Negative "before" means a ranks ahead of b.
+    const dir = isDive(event) ? -1 : 1;
+    const before = (a, b) => dir * (toSeconds(a) - toSeconds(b));
+
+    const relay = isRelay(event);
     const best = new Map();
     for (const r of all) {
-      if (r.is_relay || !r.athlete_name || !r.time_display) continue;
-      const key = r.athlete_id || String(r.athlete_name).trim().toLowerCase();
+      if (!r.time_display || !Number.isFinite(toSeconds(r))) continue;
+      if (Boolean(r.is_relay) !== relay) continue;
+      const key = relay
+        ? (r.team_abbr || r.team_name || r.athlete_name)
+        : (r.athlete_id || String(r.athlete_name ?? '').trim().toLowerCase());
+      if (!key) continue;
       const cur = best.get(key);
-      if (!cur || toSeconds(r) < toSeconds(cur)) best.set(key, r);
+      if (!cur || before(r, cur) < 0) best.set(key, r);
     }
-    return [...best.values()].sort((a, b) => toSeconds(a) - toSeconds(b)).slice(0, LIMIT);
+    return [...best.values()].sort(before).slice(0, LIMIT);
   }
 
   // ---- report --------------------------------------------------------------
 
   function tableHtml(event, swims) {
+    const relay = isRelay(event);
+    const head = relay
+      ? ['Rank', 'Team', 'Time']
+      : ['Rank', 'Athlete', 'Grade', isDive(event) ? 'Score' : 'Time'];
+    const cells = (s) => relay
+      ? [s.team_name || s.team_abbr || s.athlete_name, s.time_display]
+      : [s.athlete_name, gradeLabel(s.grade), s.time_display];
     const rows = swims.length
       ? swims.map((s, i) =>
-          `      <tr><td>${i + 1}</td><td>${esc(s.athlete_name)}</td>` +
-          `<td>${esc(gradeLabel(s.grade))}</td><td>${esc(s.time_display)}</td></tr>`).join('\n')
-      : '      <tr><td colspan="4">No results</td></tr>';
+          `      <tr><td>${i + 1}</td>${cells(s).map((c) => `<td>${esc(c)}</td>`).join('')}</tr>`).join('\n')
+      : `      <tr><td colspan="${head.length}">No results</td></tr>`;
     return `<h2>${esc(event)}</h2>
-<table>
-  <thead><tr><th>Rank</th><th>Athlete</th><th>Grade</th><th>Time</th></tr></thead>
+<table${relay ? ' class="relay"' : ''}>
+  <thead><tr>${head.map((h) => `<th>${h}</th>`).join('')}</tr></thead>
   <tbody>
 ${rows}
   </tbody>
@@ -151,7 +176,7 @@ ${rows}
   table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
   th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
   th { background: #f2f2f2; }
-  td:first-child, td:nth-child(3) { text-align: center; }
+  td:first-child, table:not(.relay) td:nth-child(3) { text-align: center; }
   td:last-child { font-variant-numeric: tabular-nums; }
 </style>
 </head>
