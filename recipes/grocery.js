@@ -50,9 +50,6 @@ function singular(word) {
 // A line that only labels a group of ingredients ("For the sauce:"), not something to buy.
 export const isLabel = (line) => /:\s*$/.test(line.trim());
 
-// A line naming kitchen equipment ("A potato ricer or food mill"), not food.
-export const isEquipment = (line) => /\b(?:ricer|food mill|thermometer|skewers?|parchment|kitchen twine)\b/i.test(line);
-
 // What to buy, as written: the line without its leading amount and without notes after the
 // first comma or in parentheses. "4 garlic cloves, thinly sliced" -> "garlic cloves".
 export function ingredientName(line) {
@@ -146,7 +143,7 @@ export function groceryList(recipes) {
   const groups = new Map();
   for (const recipe of recipes) {
     for (const text of recipe.ingredients || []) {
-      if (!text.trim() || isLabel(text) || isEquipment(text)) continue;
+      if (!text.trim() || isLabel(text)) continue;
       const keys = ingredientKeys(text);
       for (const key of keys) {
         if (!groups.has(key)) groups.set(key, { key, names: [], lines: [] });
