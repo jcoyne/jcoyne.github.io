@@ -436,7 +436,49 @@ function renderDetail() {
 function render() {
   renderDetail();
   renderWeek();
+  renderQuote();
 }
+
+// ---------- quote of the day ----------
+
+let quotes = null;
+const quoteEls = { box: $("quote"), text: $("quote-text"), by: $("quote-by") };
+
+fetch("quotes.json")
+  .then((r) => (r.ok ? r.json() : []))
+  .then((list) => {
+    quotes = list;
+    renderQuote();
+  })
+  .catch(() => {});
+
+function renderQuote() {
+  if (!quotes?.length) return;
+  const now = new Date();
+  // Same quote all day; stepping by a large prime spreads authors apart day to day.
+  const dayNumber = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86_400_000);
+  const q = quotes[(dayNumber * 7919) % quotes.length];
+  if (quoteEls.text.textContent !== q.text) {
+    quoteEls.text.textContent = q.text;
+    quoteEls.by.replaceChildren(
+      el("cite", { class: "quote-author" }, q.author),
+      q.source && el("span", { class: "quote-source" }, `, ${q.source}`),
+    );
+  }
+  fitQuote();
+}
+
+// Only show the quote when it fits in the empty space below the week.
+function fitQuote() {
+  const box = quoteEls.box;
+  if (!quoteEls.text.textContent) return;
+  const contentBottom = document.querySelector("main").lastElementChild.getBoundingClientRect().bottom + scrollY;
+  const fits = contentBottom + box.offsetHeight + 16 <= innerHeight;
+  box.classList.toggle("is-visible", fits);
+}
+
+new ResizeObserver(fitQuote).observe(document.querySelector("main"));
+addEventListener("resize", fitQuote);
 
 function goToWeek(weekStart, selected) {
   state.weekStart = weekStart;

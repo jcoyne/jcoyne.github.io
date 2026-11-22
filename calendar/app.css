@@ -464,6 +464,7 @@ ul {
   font-style: italic;
   line-height: 1.4;
   text-wrap: balance;
+  white-space: pre-line;
   color: var(--ink);
 }
 
