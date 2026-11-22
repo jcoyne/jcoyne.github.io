@@ -408,6 +408,12 @@ h2 {
   cursor: pointer;
 }
 
+.grocery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .grocery-button:hover,
 .link-button:hover {
   border-color: var(--hover);

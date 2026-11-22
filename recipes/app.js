@@ -386,8 +386,30 @@ function groceryView(allRecipes) {
     render();
   });
 
+  // Copies the items not yet ticked off, one per line in store order. Pasted into Apple
+  // Reminders (or most list apps), each line becomes its own item.
+  const copyStatus = h("p", { class: "filter-status", role: "status" });
+  const copy = h("button", { type: "button", class: "grocery-button" }, "Copy list");
+  copy.addEventListener("click", async () => {
+    const names = STORE_SECTIONS.flatMap((name) => groups.filter((g) => g.section === name && !checked.has(g.key)))
+      .map((g) => g.name);
+    if (names.length === 0) {
+      copyStatus.textContent = "Everything is ticked off, so there’s nothing to copy.";
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(`${names.join("\n")}\n`);
+      copyStatus.textContent = `Copied ${names.length} ${names.length === 1 ? "item" : "items"}. Paste them into a Reminders list.`;
+    } catch {
+      copyStatus.textContent = "Couldn’t copy to the clipboard. Your browser may have blocked it.";
+    }
+  });
+
   return [
-    h("div", { class: "keyword-heading" }, h("h1", { tabindex: "-1" }, "Grocery list"), clear),
+    h("div", { class: "keyword-heading" },
+      h("h1", { tabindex: "-1" }, "Grocery list"),
+      h("div", { class: "grocery-actions" }, copy, clear)),
+    copyStatus,
     h("section", { class: "grocery-recipes", "aria-labelledby": "grocery-recipes-heading" },
       h("h2", { id: "grocery-recipes-heading" }, `For ${recipes.length} ${recipes.length === 1 ? "recipe" : "recipes"}`),
       h("ul", {}, recipes.map((recipe) => {
