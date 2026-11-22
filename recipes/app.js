@@ -191,10 +191,12 @@ function listView(recipes) {
   applyFilter();
 
   return [
-    h("h1", { tabindex: "-1" }, "Recipes"),
-    h("div", { class: "list-filter" },
-      filter,
-      h("label", { for: "vegetarian-only" }, leafIcon(), " Vegetarian only")),
+    h("div", { class: "list-header" },
+      // The site header already says "Recipes"; keep the h1 for screen readers and as the focus target.
+      h("h1", { class: "visually-hidden", tabindex: "-1" }, "Recipes"),
+      h("div", { class: "list-filter" },
+        filter,
+        h("label", { for: "vegetarian-only" }, leafIcon(), " Vegetarian only"))),
     status,
     ...sections,
   ];

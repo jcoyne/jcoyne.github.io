@@ -1,14 +1,13 @@
 :root {
-  /* A single dark theme. Purple is too dark for text on the background (2.4:1), so it only
-     fills the header bar, where off-white text on it has 6.8:1 contrast. */
-  --paper: #181818;
-  --ink: #f7f7f7;
-  --muted: #ababab;
-  --rule: #3a3a3a;
-  --header: #673ab7;
-  --header-ink: #f7f7f7;
-  --accent: #ff5722;
-  --hover: #ffeb3b;
+  /* A single dark theme. The golden header bar carries soft-black text (7.6:1). */
+  --paper: #1c1c1c;
+  --ink: #f5e8d8;
+  --muted: #b8ac9e;
+  --rule: #4a4a4a;
+  --header: #daa520;
+  --header-ink: #1c1c1c;
+  --accent: #ff6f61;
+  --hover: #ff4500;
   --veg: #a3e635;
 
   color-scheme: dark;
@@ -110,12 +109,12 @@ h1:focus {
 
 .nav-list a:hover,
 .nav-list button:hover {
-  background: rgb(0 0 0 / 0.2);
-  color: var(--hover);
+  /* Burnt orange text would be unreadable on the gold bar, so darken the bar instead. */
+  background: rgb(0 0 0 / 0.15);
 }
 
 .site-header :focus-visible {
-  outline-color: var(--hover);
+  outline-color: var(--header-ink);
 }
 
 .container {
@@ -147,9 +146,14 @@ h2 {
   margin-block-start: 1.75rem;
 }
 
+.filter-status + .recipe-section,
+.list-header + .filter-status:empty + .recipe-section {
+  margin-block-start: 0.5rem;
+}
+
 .recipe-section h2 {
   padding-block-end: 0.25rem;
-  border-block-end: 2px solid var(--header);
+  border-block-end: 1px solid var(--rule);
 }
 
 .recipe-list {
@@ -170,11 +174,16 @@ h2 {
   flex: none;
 }
 
+/* The filter sits on the right; the list page's h1 is visually hidden. */
+.list-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .list-filter {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  margin-block: 0.75rem 0;
 }
 
 .list-filter label {
@@ -187,6 +196,7 @@ h2 {
 .filter-status {
   margin-block: 0.25rem 0;
   color: var(--muted);
+  text-align: end;
 }
 
 .filter-status:empty {
