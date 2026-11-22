@@ -1,38 +1,17 @@
 :root {
-  --paper-light: #fbfaf7;
-  --paper-dark: #1a1917;
-  --ink-light: #23211e;
-  --ink-dark: #ecebe7;
-  --muted-light: #625e57;
-  --muted-dark: #aaa69e;
-  --rule-light: #e4e0d8;
-  --rule-dark: #34322e;
-  --header-light: #2b2925;
-  --header-dark: #0f0e0d;
-  --accent-light: #9a3412;
-  --accent-dark: #fb923c;
-  --veg-light: #3f6212;
-  --veg-dark: #a3e635;
+  /* A single dark theme. Purple is too dark for text on the background (2.4:1), so it only
+     fills the header bar, where off-white text on it has 6.8:1 contrast. */
+  --paper: #181818;
+  --ink: #f7f7f7;
+  --muted: #ababab;
+  --rule: #3a3a3a;
+  --header: #673ab7;
+  --header-ink: #f7f7f7;
+  --accent: #ff5722;
+  --hover: #ffeb3b;
+  --veg: #a3e635;
 
-  --paper: var(--paper-light);
-  --ink: var(--ink-light);
-  --muted: var(--muted-light);
-  --rule: var(--rule-light);
-  --header: var(--header-light);
-  --accent: var(--accent-light);
-  --veg: var(--veg-light);
-
-  @media (prefers-color-scheme: dark) {
-    --paper: var(--paper-dark);
-    --ink: var(--ink-dark);
-    --muted: var(--muted-dark);
-    --rule: var(--rule-dark);
-    --header: var(--header-dark);
-    --accent: var(--accent-dark);
-    --veg: var(--veg-dark);
-  }
-
-  color-scheme: light dark;
+  color-scheme: dark;
   accent-color: var(--accent);
 }
 
@@ -54,6 +33,10 @@ a {
   text-underline-offset: 0.15em;
 }
 
+a:hover {
+  color: var(--hover);
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
@@ -68,7 +51,7 @@ h1:focus {
   inset-block-start: 0;
   z-index: 1;
   background: var(--header);
-  color: #f5f3ef;
+  color: var(--header-ink);
 }
 
 .header-inner,
@@ -127,11 +110,12 @@ h1:focus {
 
 .nav-list a:hover,
 .nav-list button:hover {
-  background: rgb(255 255 255 / 0.12);
+  background: rgb(0 0 0 / 0.2);
+  color: var(--hover);
 }
 
 .site-header :focus-visible {
-  outline-color: #fdba74;
+  outline-color: var(--hover);
 }
 
 .container {
@@ -165,7 +149,7 @@ h2 {
 
 .recipe-section h2 {
   padding-block-end: 0.25rem;
-  border-block-end: 1px solid var(--rule);
+  border-block-end: 2px solid var(--header);
 }
 
 .recipe-list {
@@ -316,6 +300,10 @@ h2 {
   font: inherit;
   font-weight: 600;
   cursor: pointer;
+}
+
+.password-form button:hover {
+  background: var(--hover);
 }
 
 .form-error {
