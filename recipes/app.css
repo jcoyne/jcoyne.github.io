@@ -162,9 +162,22 @@ h2 {
   border-block-end: 1px solid var(--rule);
 }
 
+/* Each recipe has a checkbox to put it on the grocery list, so no bullets. */
 .recipe-list {
   margin-block: 0.5rem 0;
-  padding-inline-start: 1.25rem;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.recipe-list > li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.recipe-list .pick {
+  flex: none;
+  margin: 0;
 }
 
 .leaf {
@@ -378,4 +391,81 @@ h2 {
   ::view-transition-new(*) {
     animation: none !important;
   }
+}
+
+.recipe-actions {
+  margin-block: 0 1rem;
+}
+
+.grocery-button,
+.link-button {
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.35rem;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+
+.grocery-button:hover,
+.link-button:hover {
+  border-color: var(--hover);
+  color: var(--hover);
+}
+
+.link-button {
+  padding: 0 0.4rem;
+  border: 0;
+  text-decoration: underline;
+  font-size: 0.9em;
+}
+
+.grocery-recipes ul {
+  margin-block: 0 1.5rem;
+  padding-inline-start: 1.25rem;
+}
+
+.grocery-list {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.grocery-list > li {
+  padding-block: 0.5rem;
+  border-block-end: 1px solid var(--rule);
+}
+
+.grocery-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.grocery-item input {
+  flex: none;
+  margin: 0;
+}
+
+.grocery-lines {
+  margin: 0.15rem 0 0;
+  padding-inline-start: 1.6rem;
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.95em;
+}
+
+.grocery-recipe {
+  font-style: italic;
+}
+
+/* Ticked off while shopping. */
+.grocery-list > li:has(.grocery-item input:checked) {
+  opacity: 0.55;
+}
+
+.grocery-item:has(input:checked) label {
+  text-decoration: line-through;
 }
