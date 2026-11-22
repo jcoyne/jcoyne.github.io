@@ -50,6 +50,10 @@ function singular(word) {
 // A line that only labels a group of ingredients ("For the sauce:"), not something to buy.
 export const isLabel = (line) => /:\s*$/.test(line.trim());
 
+// Water from the tap isn't bought ("2 tablespoons water", "boiling water"); "coconut water",
+// "sparkling water" and "water chestnuts" are.
+const TAP_WATER = /^(?:(?:hot|boiling|ice|tap|filtered|lukewarm|room-temperature)\s+)?water$/;
+
 // What to buy, as written: the line without its leading amount and without notes after the
 // first comma or in parentheses. "4 garlic cloves, thinly sliced" -> "garlic cloves".
 export function ingredientName(line) {
@@ -144,7 +148,7 @@ export function groceryList(recipes) {
   for (const recipe of recipes) {
     for (const text of recipe.ingredients || []) {
       if (!text.trim() || isLabel(text)) continue;
-      const keys = ingredientKeys(text);
+      const keys = ingredientKeys(text).filter((key) => !TAP_WATER.test(key));
       for (const key of keys) {
         if (!groups.has(key)) groups.set(key, { key, names: [], lines: [] });
         const group = groups.get(key);
