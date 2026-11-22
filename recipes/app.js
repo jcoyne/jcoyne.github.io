@@ -14,11 +14,12 @@ const recipeNav = document.querySelector(".site-header nav");
 // A light password gate to keep casual scrapers out. This is NOT security: the password is
 // only Base64-encoded here, and the recipe files themselves can still be fetched directly.
 const PASSWORD_B64 = "cmVjaXBlcw==";
+// Kept in localStorage so the browser stays unlocked across visits, not just for one tab.
 const UNLOCKED_KEY = "recipes-unlocked";
 
 let unlocked = false;
 try {
-  unlocked = sessionStorage.getItem(UNLOCKED_KEY) === "1";
+  unlocked = localStorage.getItem(UNLOCKED_KEY) === "1";
 } catch {
   // Storage unavailable (e.g. blocked); ask for the password on each page load instead.
 }
@@ -34,7 +35,7 @@ function passwordMatches(value) {
 function unlock() {
   unlocked = true;
   try {
-    sessionStorage.setItem(UNLOCKED_KEY, "1");
+    localStorage.setItem(UNLOCKED_KEY, "1");
   } catch {
     // Not remembered; the gate will reappear on the next page load.
   }
