@@ -4,7 +4,7 @@
 
 const NUMBER = String.raw`(?:\d+(?:[.,/]\d+)?|[½⅓⅔¼¾⅕⅛⅜⅝⅞])+`;
 const UNITS = [
-  "cups?", "tablespoons?", "tbsps?\\.?", "teaspoons?", "tsps?\\.?", "ounces?", "oz\\.?", "pounds?", "lbs?\\.?",
+  "cups?", "c(?=\\.)", "tablespoons?", "tbsps?\\.?", "teaspoons?", "tsps?\\.?", "ounces?", "oz\\.?", "pounds?", "lbs?\\.?",
   "grams?", "g", "kilograms?", "kg", "milliliters?", "ml", "liters?", "l", "quarts?", "qt\\.?", "pints?", "gallons?",
   "cloves?", "cans?", "jars?", "packages?", "pkgs?\\.?", "bunch(?:es)?", "heads?", "sprigs?", "slices?", "sticks?",
   "pieces?", "blocks?", "ears?", "stalks?", "bags?", "box(?:es)?", "bottles?", "handfuls?", "pinch(?:es)?", "dash(?:es)?",
@@ -128,7 +128,7 @@ const SECTION_RULES = [
     "sweet potato", "tomato(?:es)?", "cucumbers?", "cabbage", "kale", "spinach", "lettuce", "arugula", "greens?",
     "chard", "bok choy", "broccoli", "cauliflower", "brussels? sprouts?", "sprouts?", "green beans?", "corn",
     "squash", "zucchini", "peppers?", "jalapeños?", "chiles?", "mushrooms?", "avocados?", "lemons?", "limes?",
-    "oranges?", "apples?", "pears?", "berries", "herbs?", "parsley", "cilantro", "basil", "mint", "dill",
+    "oranges?", "apples?", "pears?", "(?:cran|blue|rasp|straw|black)?berr(?:y|ies)", "herbs?", "parsley", "cilantro", "basil", "mint", "dill",
     "thyme", "rosemary", "sage", "chives?", "lemongrass", "radish(?:es)?", "beets?", "fennel", "tarragon", "peas?",
   ])],
 ];
