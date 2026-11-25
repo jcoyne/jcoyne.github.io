@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Thanksgiving Plan</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0f0e0d">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="stylesheet" href="app.css">
+    <style>
+      .plan-intro { color: var(--muted); margin-block: 0 1rem; }
+      .plan-day { margin-block-start: 2rem; }
+      .plan-day h2 {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.25rem 1rem;
+        padding-block-end: 0.25rem;
+        border-block-end: 1px solid var(--rule);
+      }
+      .plan-progress { color: var(--muted); font-size: 0.9rem; font-weight: normal; }
+      .plan-list { margin: 0; padding: 0; list-style: none; }
+      .plan-list > li {
+        display: grid;
+        grid-template-columns: auto 4.5rem minmax(0, 1fr);
+        align-items: baseline;
+        gap: 0 0.6rem;
+        padding-block: 0.55rem;
+        border-block-end: 1px solid var(--rule);
+      }
+      .plan-list.untimed > li { grid-template-columns: auto minmax(0, 1fr); }
+      .plan-list input { margin: 0; inline-size: 1.1rem; block-size: 1.1rem; translate: 0 0.15rem; }
+      .plan-time { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+      .plan-oven {
+        display: inline-block;
+        margin-inline-start: 0.4rem;
+        padding: 0 0.4rem;
+        border: 1px solid var(--rule);
+        border-radius: 0.3rem;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .plan-task label { cursor: pointer; font-weight: 600; }
+      .plan-detail { margin: 0.1rem 0 0; color: var(--muted); font-size: 0.95em; }
+      .plan-list > li:has(input:checked) { opacity: 0.5; }
+      .plan-list > li:has(input:checked) label { text-decoration: line-through; }
+      .plan-notes { margin-block-start: 2rem; }
+      .plan-notes ul { padding-inline-start: 1.25rem; }
+      .plan-notes li + li { margin-block-start: 0.5rem; }
+      .plan-actions { margin-block-start: 2rem; }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html#/">Recipes</a>
+        <nav aria-label="Recipe navigation">
+          <ul class="nav-list">
+            <li><a href="index.html#/keywords/Thanksgiving">Thanksgiving recipes</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1>Thanksgiving plan</h1>
+      <p class="plan-intro">Dinner at 6:00 Thursday, using one oven. Checkboxes are saved in this browser.</p>
+      <div id="days"></div>
+
+      <section class="plan-notes" aria-labelledby="notes-heading">
+        <h2 id="notes-heading">Notes</h2>
+        <ul>
+          <li><strong>Turkey breast timing:</strong> about 2 hours in total (3:15 at 375°, then 400° from 4:05). Go by the thermometer, not the clock: start checking at 4:45, then every 10 minutes, in the thickest part without touching bone. If it's boneless, it will cook faster.</li>
+          <li><strong>If the breast is slow:</strong> if it isn't at 155° by about 5:30, put the thighs in at 400° next to it, and raise the oven to 500° once the breast comes out.</li>
+          <li><strong>Browning:</strong> if the breast skin gets too dark before the inside is done, tent the top loosely with foil.</li>
+          <li><strong>If you sleep past 6:30:</strong> the cheese bread needs 8–12 hours to thaw, so push its bake later, and every 15 minutes of delay pushes the turkey back about 15 minutes.</li>
+          <li><strong>After dinner:</strong> strain the confit fat and save it to reuse.</li>
+        </ul>
+      </section>
+
+      <p class="plan-actions"><button type="button" class="grocery-button" id="reset">Uncheck everything</button></p>
+    </main>
+
+    <script>
+      const RECIPE = (id) => `index.html#/recipes/${id}`;
+      const CONFIT = RECIPE("turkey-thigh-confit-with-citrus-mustard-sauce");
+      const BREAST = RECIPE("roast-turkey-breast");
+      const POTATOES = RECIPE("duchess-style-twice-baked-potatoes");
+      const STUFFING = RECIPE("sausage-stuffing-recipe");
+      const GRAVY = RECIPE("make-ahead-gravy-no-drippings-needed");
+      const SALAD = RECIPE("cabbage-apple-and-date-salad-with-lemon-tahini");
+
+      // Each task has a stable id, so its saved checkbox survives edits to this list.
+      const DAYS = [
+        {
+          id: "wed",
+          title: "Wednesday prep",
+          tasks: [
+            { id: "wed-oven", text: "Clean the oven", detail: "Before the potatoes go in. A self-clean cycle takes 2–4 hours plus cooldown and can get smoky, so open a window. Skip this if you did it Tuesday night." },
+            { id: "wed-check", text: "Check the equipment", detail: "Make sure you have 6 cups of duck fat, a Dutch oven that holds the thighs in one layer, fully covered by the fat, and a roasting pan and 13x9 dish that fit on separate racks." },
+            { id: "wed-gravy", text: "Gravy", link: GRAVY, detail: "Make all of it, about 1½ hours. It keeps 4 days." },
+            { id: "wed-cranberry", text: "Cranberry sauce", detail: "Simmer a 12 oz bag of cranberries, ¾–1 cup sugar and 1 cup water or OJ for about 10 minutes, until most berries pop. Refrigerate." },
+            { id: "wed-stuffing", text: "Assemble the stuffing", link: STUFFING, detail: "Assemble the whole dish in the 13x9 pan (the bread is already dry). Cover and refrigerate." },
+            { id: "wed-potatoes", text: "Potatoes", link: POTATOES, detail: "Bake them (1–1¼ hours at 425°), make the filling, let it cool, and fill the skins. Cover and refrigerate, skipping the paprika and final bake." },
+            { id: "wed-salad", text: "Salad prep", link: SALAD, detail: "Make the tahini dressing, slice the cabbage and shallot, tear the dates, chop the parsley. Store each separately. Leave the apple for Thursday." },
+          ],
+        },
+        {
+          id: "thu",
+          title: "Thursday",
+          timed: true,
+          tasks: [
+            { id: "thu-0630-bread", time: "6:30", text: "Take the cheese bread out of the freezer", detail: "It needs 8–12 hours to thaw before it bakes at 2:45." },
+            { id: "thu-0715-oven", time: "7:15", oven: "→ 200°", text: "Preheat the oven to 200°" },
+            { id: "thu-0715-thighs", time: "7:15", text: "Rinse and dry the thighs. Heat the duck fat to 165°.", link: CONFIT },
+            { id: "thu-0745-confit", time: "7:45", oven: "200°", text: "Thighs into the fat, pot into the oven uncovered", link: CONFIT },
+            { id: "thu-1145-test", time: "11:45", oven: "200°", text: "First skewer test on the thighs", detail: "If they're not done, wait at least 20 minutes before testing again." },
+            { id: "thu-1245-confit-out", time: "~12:45", oven: "off", text: "Confit out of the oven", detail: "Put the lid on and leave the pot on the stovetop." },
+            { id: "thu-1345-stuffing", time: "1:45", text: "Take the stuffing out of the fridge", detail: "It comes to room temp before baking." },
+            { id: "thu-1435-oven", time: "2:35", oven: "→ 325°", text: "Preheat the oven to 325°" },
+            { id: "thu-1445-bread", time: "2:45", oven: "325°", text: "Cheese bread in" },
+            { id: "thu-1445-breast", time: "2:45", text: "Take the turkey breast out of the fridge" },
+            { id: "thu-1515-bread", time: "3:15", oven: "→ 375°", text: "Cheese bread out. Wrap it in foil. Set the oven to 375°." },
+            { id: "thu-1515-breast", time: "3:15", oven: "375°", text: "Turkey breast in, lower-middle rack", link: BREAST, detail: "Put it in right away, while the oven is still heating. Brush with butter or oil and add pepper, but no salt because it's already dry-brined. Baste every 15 minutes." },
+            { id: "thu-1545-potatoes", time: "3:45", text: "Take the potatoes out of the fridge" },
+            { id: "thu-1605-oven", time: "4:05", oven: "→ 400°", text: "Raise the oven to 400°" },
+            { id: "thu-1615-stuffing", time: "4:15", oven: "400°", text: "Stuffing in, covered with foil, on the other rack", link: STUFFING },
+            { id: "thu-1630-confit", time: "4:30", text: "Confit pot on medium-low", detail: "Melt the fat, then hold a bare simmer until the thighs reach 135–140°." },
+            { id: "thu-1645-foil", time: "4:45", oven: "400°", text: "Stuffing should read 160°: take the foil off" },
+            { id: "thu-1645-temp", time: "4:45", text: "Start checking the breast temperature", detail: "Every 10 minutes, in the thickest part without touching bone." },
+            { id: "thu-1710-stuffing", time: "~5:10", oven: "400°", text: "Stuffing out and tented. Potatoes in, with paprika on top.", link: POTATOES },
+            { id: "thu-1715-breast", time: "~5:15", text: "Turkey breast out at 155°, tented to rest", detail: "It can rest 30 minutes without a problem." },
+            { id: "thu-1715-rack", time: "~5:15", text: "Move the thighs to the foil-lined rack", link: CONFIT, detail: "Crumple and flatten foil on a rimmed baking sheet, set a wire rack on it, and put the thighs on skin side up." },
+            { id: "thu-1720-oven", time: "5:20", oven: "→ 500°", text: "Raise the oven to 500°", detail: "Leave the potatoes in while it heats, and watch that the tops don't get too dark." },
+            { id: "thu-1730-thighs", time: "5:30", oven: "500°", text: "Thighs in for 12–15 minutes" },
+            { id: "thu-1730-stuffing", time: "5:30", oven: "500°", text: "Stuffing back in, covered, to reheat" },
+            { id: "thu-1735-potatoes", time: "~5:35", text: "Potatoes out when they're browned and hot through" },
+            { id: "thu-1735-gravy", time: "5:35", text: "Rewarm the gravy" },
+            { id: "thu-1735-cranberry", time: "5:35", text: "Put out the cranberry sauce" },
+            { id: "thu-1735-salad", time: "5:35", text: "Slice the apple and toss the salad with the dressing", link: SALAD },
+            { id: "thu-1745-bread", time: "5:45", oven: "500°", text: "Foil-wrapped cheese bread in for 5 minutes" },
+            { id: "thu-1750-out", time: "5:50", oven: "off", text: "Thighs, stuffing and bread out", detail: "Thighs rest about 15 minutes." },
+            { id: "thu-1750-carve", time: "5:50", text: "Carve the turkey breast", link: BREAST },
+            { id: "thu-1805-thighs", time: "6:05", text: "Debone and slice the thighs. Eat!", link: CONFIT },
+          ],
+        },
+      ];
+
+      const STORAGE_KEY = "thanksgiving-plan-checked";
+
+      function readChecked() {
+        try {
+          return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"));
+        } catch {
+          return new Set();
+        }
+      }
+
+      function writeChecked(checked) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify([...checked]));
+        } catch {
+          // Storage unavailable; checkboxes just won't survive a reload.
+        }
+      }
+
+      function h(tag, attrs = {}, ...children) {
+        const el = document.createElement(tag);
+        for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
+        el.append(...children.flat().filter((c) => c != null));
+        return el;
+      }
+
+      const checked = readChecked();
+      const progressUpdaters = [];
+
+      function render() {
+        const container = document.getElementById("days");
+        container.replaceChildren();
+        progressUpdaters.length = 0;
+
+        for (const day of DAYS) {
+          const progress = h("span", { class: "plan-progress" });
+          const updateProgress = () => {
+            const done = day.tasks.filter((t) => checked.has(t.id)).length;
+            progress.textContent = `${done} of ${day.tasks.length} done`;
+          };
+          progressUpdaters.push(updateProgress);
+
+          const items = day.tasks.map((task) => {
+            const boxId = `task-${task.id}`;
+            const box = h("input", { type: "checkbox", id: boxId });
+            box.checked = checked.has(task.id);
+            box.addEventListener("change", () => {
+              if (box.checked) checked.add(task.id);
+              else checked.delete(task.id);
+              writeChecked(checked);
+              updateProgress();
+            });
+
+            const label = h("label", { for: boxId }, task.text);
+            const body = h("div", { class: "plan-task" }, label,
+              task.oven ? h("span", { class: "plan-oven" }, `Oven ${task.oven}`) : null,
+              task.link ? [" ", h("a", { href: task.link }, "recipe")] : null,
+              task.detail ? h("p", { class: "plan-detail" }, task.detail) : null);
+
+            return day.timed
+              ? h("li", {}, box, h("span", { class: "plan-time" }, task.time), body)
+              : h("li", {}, box, body);
+          });
+
+          const headingId = `day-${day.id}`;
+          container.append(h("section", { class: "plan-day", "aria-labelledby": headingId },
+            h("h2", { id: headingId }, day.title, progress),
+            h("ul", { class: day.timed ? "plan-list" : "plan-list untimed" }, items)));
+          updateProgress();
+        }
+      }
+
+      document.getElementById("reset").addEventListener("click", () => {
+        if (!confirm("Uncheck every task?")) return;
+        checked.clear();
+        writeChecked(checked);
+        render();
+      });
+
+      render();
+    </script>
+  </body>
+</html>
