@@ -55,6 +55,117 @@
       .plan-notes ul { padding-inline-start: 1.25rem; }
       .plan-notes li + li { margin-block-start: 0.5rem; }
       .plan-actions { margin-block-start: 2rem; }
+
+      /* Thursday timeline: a vertical axis at a constant scale, hours in grays, events in color.
+         Each event's dot sits at its exact time; when labels would overlap they are pushed down
+         and a leader line runs back to the dot. */
+      .timeline { margin-block-start: 2rem; }
+      .timeline h2 { padding-block-end: 0.25rem; border-block-end: 1px solid var(--rule); }
+      .timeline-intro { margin-block: 0 0.5rem; color: var(--muted); }
+      .timeline-legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem 1.25rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      .timeline-legend li { display: inline-flex; align-items: center; gap: 0.4rem; }
+      .timeline-swatch { inline-size: 0.8rem; block-size: 0.8rem; border-radius: 50%; background: var(--kind); }
+      .kind-oven { --kind: #daa520; }
+      .kind-cook { --kind: #ff6f61; }
+      .kind-prep { --kind: #7cc4fa; }
+      .kind-away { --kind: #c4a7ff; }
+      .timeline-track {
+        --axis: 4rem;
+        --hour: 8; /* rem per hour: the constant scale */
+        --gray: #6b6b6b;
+        position: relative;
+        margin-block: 1.25rem 0;
+      }
+      .timeline-track::before {
+        content: "";
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: var(--axis);
+        inline-size: 2px;
+        background: var(--gray);
+      }
+      .timeline-hour {
+        position: absolute;
+        inset-inline: var(--axis) 0;
+        border-block-start: 1px dashed var(--rule);
+      }
+      .timeline-hour span {
+        position: absolute;
+        inset-inline-end: calc(100% + 0.6rem);
+        translate: 0 -50%;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+      .timeline-hour::before {
+        content: "";
+        position: absolute;
+        inset-inline-start: -0.4rem;
+        inset-block-start: -1px;
+        inline-size: 0.4rem;
+        border-block-start: 2px solid var(--gray);
+      }
+      .timeline-leaders {
+        position: absolute;
+        inset: 0;
+        inline-size: 100%;
+        block-size: 100%;
+        overflow: visible;
+        pointer-events: none;
+      }
+      .timeline-leaders path { fill: none; stroke: var(--kind); stroke-width: 1.5; }
+      .timeline-dot {
+        position: absolute;
+        inset-inline-start: calc(var(--axis) + 1px);
+        inline-size: 0.85rem;
+        block-size: 0.85rem;
+        translate: -50% -50%;
+        border: 2px solid var(--paper);
+        border-radius: 50%;
+        background: var(--kind);
+      }
+      .timeline-events { margin: 0; padding: 0; list-style: none; }
+      .timeline-group {
+        position: absolute;
+        inset-inline: calc(var(--axis) + 1.75rem) 0;
+        display: grid;
+        grid-template-columns: 3.6rem minmax(0, 1fr);
+        gap: 0 0.5rem;
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+      .timeline-time { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; padding-block: 0.15rem; }
+      .timeline-items { display: flex; flex-wrap: wrap; gap: 0.2rem 0.3rem; margin: 0; padding: 0; list-style: none; }
+      .timeline-item {
+        padding: 0.15rem 0.5rem;
+        border-inline-start: 4px solid var(--kind);
+        border-radius: 0 0.25rem 0.25rem 0;
+        background: color-mix(in srgb, var(--kind) 14%, transparent);
+      }
+      /* Completed events drop to monochrome. */
+      .timeline .done { --kind: var(--gray); }
+      .timeline-item.done { color: var(--muted); text-decoration: line-through; }
+      @media (max-width: 30rem) {
+        .timeline-track { --axis: 3rem; --hour: 12; }
+        .timeline-group {
+          inset-inline-start: calc(var(--axis) + 1rem);
+          grid-template-columns: 2.9rem minmax(0, 1fr);
+          gap: 0 0.3rem;
+          font-size: 0.875rem;
+          line-height: 1.3;
+        }
+        .timeline-item { padding-inline: 0.35rem; }
+      }
     </style>
   </head>
 
@@ -85,6 +196,18 @@
           <li><strong>If you sleep past 6:30:</strong> the cheese bread needs 8–12 hours to thaw, so push its bake later, and every 15 minutes of delay pushes the turkey back about 15 minutes.</li>
           <li><strong>After dinner:</strong> strain the confit fat and save it to reuse.</li>
         </ul>
+      </section>
+
+      <section class="timeline" aria-labelledby="timeline-heading">
+        <h2 id="timeline-heading">Thursday timeline</h2>
+        <p class="timeline-intro">Drawn to scale. Events go gray as you check them off.</p>
+        <ul class="timeline-legend">
+          <li class="kind-oven"><span class="timeline-swatch"></span>Oven setting</li>
+          <li class="kind-cook"><span class="timeline-swatch"></span>Oven in or out</li>
+          <li class="kind-prep"><span class="timeline-swatch"></span>Prep and serving</li>
+          <li class="kind-away"><span class="timeline-swatch"></span>Away</li>
+        </ul>
+        <div class="timeline-track" id="timeline"></div>
       </section>
 
       <p class="plan-actions"><button type="button" class="grocery-button" id="reset">Uncheck everything</button></p>
@@ -123,6 +246,7 @@
             { id: "thu-0630-bread", time: "6:30", text: "Take the cheese bread out of the freezer", detail: "It needs 8–12 hours to thaw before it bakes at 2:45." },
             { id: "thu-0715-oven", time: "7:15", oven: "→ 200°", text: "Preheat the oven to 200°" },
             { id: "thu-0715-thighs", time: "7:15", text: "Rinse and dry the thighs. Heat the duck fat to 165°.", link: CONFIT },
+            { id: "thu-0725-airport", time: "7:25", kind: "away", text: "Leave for the airport" },
             { id: "thu-0745-confit", time: "7:45", oven: "200°", text: "Thighs into the fat, pot into the oven uncovered", link: CONFIT },
             { id: "thu-1145-test", time: "11:45", oven: "200°", text: "First skewer test on the thighs", detail: "If they're not done, wait at least 20 minutes before testing again." },
             { id: "thu-1245-confit-out", time: "~12:45", oven: "off", text: "Confit out of the oven", detail: "Put the lid on and leave the pot on the stovetop." },
@@ -210,6 +334,7 @@
               else checked.delete(task.id);
               writeChecked(checked);
               updateProgress();
+              updateTimeline();
             });
 
             const label = h("label", { for: boxId }, task.text);
@@ -229,7 +354,153 @@
             h("ul", { class: day.timed ? "plan-list" : "plan-list untimed" }, items)));
           updateProgress();
         }
+        renderTimeline();
       }
+
+      // --- Thursday timeline ---------------------------------------------------------------
+
+      // The constant scale, in rem per hour; set by --hour in the CSS (taller on narrow screens).
+      const hourRem = () => Number(getComputedStyle(document.getElementById("timeline")).getPropertyValue("--hour")) || 8;
+      const svgNS = "http://www.w3.org/2000/svg";
+      const timelineDay = DAYS.find((day) => day.id === "thu");
+      let timelineGroups = [];
+
+      const kindOf = (task) => task.kind ?? (task.oven?.includes("→") ? "oven" : task.oven ? "cook" : "prep");
+
+      // Times are written as "7:45" or "~1:00" with no AM/PM. The list is in order, so a time
+      // earlier than the one before it has crossed noon.
+      function taskMinutes(tasks) {
+        let offset = 0;
+        let previous = -1;
+        return tasks.map((task) => {
+          const [hours, minutes] = task.time.replace("~", "").split(":").map(Number);
+          let value = (hours % 12) * 60 + minutes + offset;
+          if (value < previous) {
+            offset += 12 * 60;
+            value += 12 * 60;
+          }
+          previous = value;
+          return value;
+        });
+      }
+
+      const hourLabel = (hour) => `${hour % 12 || 12} ${hour < 12 ? "AM" : "PM"}`;
+
+      function renderTimeline() {
+        const track = document.getElementById("timeline");
+        const minutes = taskMinutes(timelineDay.tasks);
+        const start = Math.floor(minutes[0] / 60) * 60;
+        const end = Math.ceil((minutes.at(-1) + 15) / 60) * 60;
+
+        // Events at the same minute share one label.
+        timelineGroups = [];
+        timelineDay.tasks.forEach((task, i) => {
+          const last = timelineGroups.at(-1);
+          if (last && last.minute === minutes[i]) last.tasks.push(task);
+          else timelineGroups.push({ minute: minutes[i], time: task.time, tasks: [task] });
+        });
+
+        const hours = [];
+        for (let m = start; m <= end; m += 60) {
+          const mark = h("div", { class: "timeline-hour", "aria-hidden": "true" }, h("span", {}, hourLabel(m / 60)));
+          mark.style.insetBlockStart = `calc(${(m - start) / 60} * var(--hour) * 1rem)`;
+          hours.push(mark);
+        }
+
+        const leaders = document.createElementNS(svgNS, "svg");
+        leaders.setAttribute("class", "timeline-leaders");
+        leaders.setAttribute("aria-hidden", "true");
+
+        const list = h("ol", { class: "timeline-events" });
+        for (const group of timelineGroups) {
+          group.dot = h("span", { class: "timeline-dot", "aria-hidden": "true" });
+          group.dot.style.insetBlockStart = `calc(${(group.minute - start) / 60} * var(--hour) * 1rem)`;
+          group.leader = document.createElementNS(svgNS, "path");
+          leaders.append(group.leader);
+          group.items = group.tasks.map((task) => {
+            const done = h("span", { class: "visually-hidden" });
+            const item = h("li", { class: `timeline-item kind-${kindOf(task)}` }, task.text, done);
+            return { task, item, done };
+          });
+          group.el = h("li", { class: "timeline-group" },
+            h("span", { class: "timeline-time" }, group.time),
+            h("ul", { class: "timeline-items" }, group.items.map(({ item }) => item)));
+          list.append(group.el);
+        }
+
+        track.replaceChildren(...hours, leaders, ...timelineGroups.map((g) => g.dot), list);
+        track.dataset.start = start;
+        track.dataset.end = end;
+        updateTimeline();
+        layoutTimeline();
+      }
+
+      // Colors follow the first unfinished event at each time; gray once they're all done.
+      function updateTimeline() {
+        for (const group of timelineGroups) {
+          for (const { task, item, done } of group.items) {
+            const isDone = checked.has(task.id);
+            item.classList.toggle("done", isDone);
+            done.textContent = isDone ? " (done)" : "";
+          }
+          const next = group.items.find(({ task }) => !checked.has(task.id));
+          const kind = `kind-${kindOf((next ?? group.items[0]).task)}`;
+          for (const el of [group.dot, group.leader]) {
+            el.setAttribute("class", `${el === group.dot ? "timeline-dot" : ""} ${kind} ${next ? "" : "done"}`.trim());
+          }
+        }
+      }
+
+      // Put each label as close to its time as it can go without overlapping the others. Labels
+      // that collide form a block, centered on the times it holds (so it spreads up and down).
+      function placeLabels(wanted, heights, gap) {
+        const blocks = [];
+        wanted.forEach((top, i) => {
+          let block = { first: i, offsets: [0], wanted: [top], size: heights[i] };
+          for (;;) {
+            block.top = Math.max(0, block.wanted.reduce((sum, w, k) => sum + w - block.offsets[k], 0) / block.wanted.length);
+            const prev = blocks.at(-1);
+            if (!prev || prev.top + prev.size + gap <= block.top) break;
+            blocks.pop();
+            const shift = prev.size + gap;
+            block = { first: prev.first, offsets: [...prev.offsets, ...block.offsets.map((o) => o + shift)],
+              wanted: [...prev.wanted, ...block.wanted], size: shift + block.size };
+          }
+          blocks.push(block);
+        });
+        return blocks.flatMap((block) => block.offsets.map((offset) => block.top + offset));
+      }
+
+      function layoutTimeline() {
+        const track = document.getElementById("timeline");
+        if (!timelineGroups.length) return;
+        const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        const hourPx = hourRem() * rem;
+        const start = Number(track.dataset.start);
+        const end = Number(track.dataset.end);
+        const axis = timelineGroups[0].dot.offsetLeft;
+        const labelLeft = timelineGroups[0].el.offsetLeft;
+        const gap = 0.3 * rem;
+        const ys = timelineGroups.map((group) => ((group.minute - start) / 60) * hourPx);
+        const halves = timelineGroups.map((group) => group.el.querySelector(".timeline-item").offsetHeight / 2);
+        const tops = placeLabels(ys.map((y, i) => y - halves[i]), timelineGroups.map((g) => g.el.offsetHeight), gap);
+        let bottom = 0;
+
+        timelineGroups.forEach((group, i) => {
+          group.el.style.insetBlockStart = `${tops[i]}px`;
+          bottom = Math.max(bottom, tops[i] + group.el.offsetHeight);
+          const labelY = tops[i] + halves[i];
+          group.leader.setAttribute("d", `M ${axis + 6} ${ys[i]} H ${axis + 10} L ${labelLeft - 6} ${labelY} H ${labelLeft - 2}`);
+        });
+        track.style.blockSize = `${Math.max(((end - start) / 60) * hourPx, bottom + rem)}px`;
+      }
+
+      let timelineWidth = 0;
+      new ResizeObserver(([entry]) => {
+        if (entry.contentRect.width === timelineWidth) return;
+        timelineWidth = entry.contentRect.width;
+        layoutTimeline();
+      }).observe(document.getElementById("timeline"));
 
       document.getElementById("reset").addEventListener("click", () => {
         if (!confirm("Uncheck every task?")) return;
